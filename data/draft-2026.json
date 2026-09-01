@@ -1,0 +1,107 @@
+{
+  "season": 2026,
+  "league": "Rainbow Road Warriors",
+  "type": "snake",
+  "teams_count": 12,
+  "rounds": 16,
+  "my_team": "Blue Shell Bait",
+  "pick_format": ["overall", "player", "nfl_team", "pos"],
+  "teams": {
+    "Beerio Cart fanatics": [
+      [1, "Jahmyr Gibbs", "Det", "RB"], [24, "Malik Nabers", "NYG", "WR"], [25, "Josh Allen", "Buf", "QB"],
+      [48, "Travis Etienne Jr.", "NO", "RB"], [49, "Emeka Egbuka", "TB", "WR"], [72, "Brian Thomas Jr.", "Jax", "WR"],
+      [73, "Luther Burden III", "Chi", "WR"], [96, "Josh Jacobs", "GB", "RB"], [97, "RJ Harvey", "Den", "RB"],
+      [120, "Michael Pittman Jr.", "Pit", "WR"], [121, "Jake Ferguson", "Dal", "TE"], [144, "Malik Willis", "Mia", "QB"],
+      [145, "Tyjae Spears", "Ten", "RB"], [168, "Wil Lutz", "Den", "K"], [169, "Steelers", "Pit", "DEF"],
+      [192, "Isiah Pacheco", "Det", "RB"]
+    ],
+    "Peach's Predators": [
+      [2, "Bijan Robinson", "Atl", "RB"], [23, "Nico Collins", "Hou", "WR"], [26, "George Pickens", "Dal", "WR"],
+      [47, "Garrett Wilson", "NYJ", "WR"], [50, "Bucky Irving", "TB", "RB"], [71, "Justin Herbert", "LAC", "QB"],
+      [74, "Dalton Kincaid", "Buf", "TE"], [95, "Stefon Diggs", "Was", "WR"], [98, "Brock Purdy", "SF", "QB"],
+      [119, "Travis Kelce", "KC", "TE"], [122, "Aaron Jones Sr.", "Min", "RB"], [143, "Tyler Loop", "Bal", "K"],
+      [146, "Patriots", "NE", "DEF"], [167, "Denzel Boston", "Cle", "WR"], [170, "Kaelon Black", "SF", "RB"],
+      [191, "Bills", "Buf", "DEF"]
+    ],
+    "King Boo's Bandits": [
+      [3, "Ja'Marr Chase", "Cin", "WR"], [22, "Brock Bowers", "LV", "TE"], [27, "Jeremiyah Love", "Ari", "RB"],
+      [46, "Ladd McConkey", "LAC", "WR"], [51, "Bhayshul Tuten", "Jax", "RB"], [70, "Parker Washington", "Jax", "WR"],
+      [75, "Tony Pollard", "Ten", "RB"], [94, "Jacory Croskey-Merritt", "Was", "RB"], [99, "DK Metcalf", "Pit", "WR"],
+      [118, "Kenny Gainwell", "TB", "RB"], [123, "Patrick Mahomes", "KC", "QB"], [142, "Tyler Allgeier", "Ari", "RB"],
+      [147, "Jalen Coker", "Car", "WR"], [166, "Chig Okonkwo", "Was", "TE"], [171, "Ravens", "Bal", "DEF"],
+      [190, "Chase McLaughlin", "TB", "K"]
+    ],
+    "Blue Shell Bait": [
+      [4, "Jonathan Taylor", "Ind", "RB"], [21, "A.J. Brown", "NE", "WR"], [28, "Quinshon Judkins", "Cle", "RB"],
+      [45, "Mike Evans", "SF", "WR"], [52, "Tucker Kraft", "GB", "TE"], [69, "Caleb Williams", "Chi", "QB"],
+      [76, "Rico Dowdle", "Pit", "RB"], [93, "Jordan Mason", "Min", "RB"], [100, "Kyle Monangai", "Chi", "RB"],
+      [117, "Rachaad White", "Was", "RB"], [124, "Woody Marks", "Hou", "RB"], [141, "Xavier Worthy", "KC", "WR"],
+      [148, "Khalil Shakir", "Buf", "WR"], [165, "Brenton Strange", "Jax", "TE"], [172, "Jake Bates", "Det", "K"],
+      [189, "Chargers", "LAC", "DEF"]
+    ],
+    "Blue Shell Boyz": [
+      [5, "Amon-Ra St. Brown", "Det", "WR"], [20, "Breece Hall", "NYJ", "RB"], [29, "David Montgomery", "Hou", "RB"],
+      [44, "DJ Moore", "Buf", "WR"], [53, "Tyler Warren", "Ind", "TE"], [68, "Dak Prescott", "Dal", "QB"],
+      [77, "Jayden Reed", "GB", "WR"], [92, "Blake Corum", "LAR", "RB"], [101, "Josh Downs", "Ind", "WR"],
+      [116, "Matthew Stafford", "LAR", "QB"], [125, "Dallas Goedert", "Phi", "TE"], [140, "Matt Gay", "LV", "K"],
+      [149, "Zach Charbonnet", "Sea", "RB"], [164, "Lions", "Det", "DEF"], [173, "Deebo Samuel Sr.", "SF", "WR"],
+      [188, "Eli Heidenreich", "Pit", "WR"]
+    ],
+    "Double Dashers": [
+      [6, "Puka Nacua", "LAR", "WR"], [19, "Omarion Hampton", "LAC", "RB"], [30, "Drake London", "Atl", "WR"],
+      [43, "Cam Skattebo", "NYG", "RB"], [54, "Lamar Jackson", "Bal", "QB"], [67, "Rome Odunze", "Chi", "WR"],
+      [78, "Kyle Pitts Sr.", "Atl", "TE"], [91, "J.K. Dobbins", "Den", "RB"], [102, "Jordan Addison", "Min", "WR"],
+      [115, "Makai Lemon", "Phi", "WR"], [126, "KC Concepcion", "Cle", "WR"], [139, "Mike Washington Jr.", "LV", "RB"],
+      [150, "Texans", "Hou", "DEF"], [163, "Jaguars", "Jax", "DEF"], [174, "Tyrone Tracy Jr.", "NYG", "RB"],
+      [187, "Harrison Mevis", "LAR", "K"]
+    ],
+    "Waluigi's WAAHRIORS": [
+      [7, "James Cook III", "Buf", "RB"], [18, "De'Von Achane", "Mia", "RB"], [31, "Kyren Williams", "LAR", "RB"],
+      [42, "Jaylen Waddle", "Den", "WR"], [55, "Davante Adams", "LAR", "WR"], [66, "Jameson Williams", "Det", "WR"],
+      [79, "George Kittle", "SF", "TE"], [90, "De'Zhaun Stribling", "SF", "WR"], [103, "Rams", "LAR", "DEF"],
+      [114, "Jared Goff", "Det", "QB"], [127, "Jordyn Tyson", "NO", "WR"], [138, "Cam Little", "Jax", "K"],
+      [151, "Tank Bigsby", "Phi", "RB"], [162, "David Njoku", "LAC", "TE"], [175, "James Conner", "Ari", "RB"],
+      [186, "Ricky Pearsall", "SF", "WR"]
+    ],
+    "Shaggy's Snacks & Sacks": [
+      [8, "Christian McCaffrey", "SF", "RB"], [17, "Ashton Jeanty", "LV", "RB"], [32, "Tee Higgins", "Cin", "WR"],
+      [41, "Tetairoa McMillan", "Car", "WR"], [56, "Jayden Daniels", "Was", "QB"], [65, "Sam LaPorta", "Det", "TE"],
+      [80, "Chuba Hubbard", "Car", "RB"], [89, "Marvin Harrison Jr.", "Ari", "WR"], [104, "Chris Godwin Jr.", "TB", "WR"],
+      [113, "Jaxson Dart", "NYG", "QB"], [128, "Mark Andrews", "Bal", "TE"], [137, "Keaton Mitchell", "LAC", "RB"],
+      [152, "Jason Myers", "Sea", "K"], [161, "Rashid Shaheed", "Sea", "WR"], [176, "Baker Mayfield", "TB", "QB"],
+      [185, "Cowboys", "Dal", "DEF"]
+    ],
+    "Koopa Krew": [
+      [9, "Jaxon Smith-Njigba", "Sea", "WR"], [16, "Kenneth Walker III", "KC", "RB"], [33, "Javonte Williams", "Dal", "RB"],
+      [40, "DeVonta Smith", "Phi", "WR"], [57, "Jadarian Price", "Sea", "RB"], [64, "Christian Watson", "GB", "WR"],
+      [81, "Harold Fannin Jr.", "Cle", "TE"], [88, "MarShawn Lloyd", "GB", "RB"], [105, "Bo Nix", "Den", "QB"],
+      [112, "Courtland Sutton", "Den", "WR"], [129, "Jonah Coleman", "Den", "RB"], [136, "Jordan Love", "GB", "QB"],
+      [153, "Eagles", "Phi", "DEF"], [160, "Emmett Johnson", "KC", "RB"], [177, "Brian Robinson", "Atl", "RB"],
+      [184, "Eddy Pineiro", "SF", "K"]
+    ],
+    "Yoshi's Egg-streme Squad": [
+      [10, "Saquon Barkley", "Phi", "RB"], [15, "Chase Brown", "Cin", "RB"], [34, "Zay Flowers", "Bal", "WR"],
+      [39, "Rashee Rice", "KC", "WR"], [58, "Jalen Hurts", "Phi", "QB"], [63, "Terry McLaurin", "Was", "WR"],
+      [82, "Jonathon Brooks", "Car", "RB"], [87, "Trevor Lawrence", "Jax", "QB"], [106, "Isaiah Likely", "NYG", "TE"],
+      [111, "Chris Rodriguez Jr.", "Jax", "RB"], [130, "Matthew Golden", "GB", "WR"], [135, "Ka'imi Fairbairn", "Hou", "K"],
+      [154, "Keenan Allen", "Ind", "WR"], [159, "Vikings", "Min", "DEF"], [178, "Tre Tucker", "LV", "WR"],
+      [183, "Alvin Kamara", "NO", "RB"]
+    ],
+    "Princess Peach's Squad": [
+      [11, "CeeDee Lamb", "Dal", "WR"], [14, "Trey McBride", "Ari", "TE"], [35, "Chris Olave", "NO", "WR"],
+      [38, "D'Andre Swift", "Chi", "RB"], [59, "Joe Burrow", "Cin", "QB"], [62, "Rhamondre Stevenson", "NE", "RB"],
+      [83, "Seahawks", "Sea", "DEF"], [86, "Brandon Aubrey", "Dal", "K"], [107, "Michael Wilson", "Ari", "WR"],
+      [110, "Quentin Johnston", "LAC", "WR"], [131, "Wan'Dale Robinson", "Ten", "WR"], [134, "Kyler Murray", "Min", "QB"],
+      [155, "Juwan Johnson", "NO", "TE"], [158, "Ray Davis", "Buf", "RB"], [179, "Tyler Shough", "NO", "QB"],
+      [182, "Adonai Mitchell", "NYJ", "WR"]
+    ],
+    "Paratroopa's Peeps": [
+      [12, "Justin Jefferson", "Min", "WR"], [13, "Derrick Henry", "Bal", "RB"], [36, "Colston Loveland", "Chi", "TE"],
+      [37, "Drake Maye", "NE", "QB"], [60, "TreVeyon Henderson", "NE", "RB"], [61, "Jaylen Warren", "Pit", "RB"],
+      [84, "Carnell Tate", "Ten", "WR"], [85, "Alec Pierce", "Ind", "WR"], [108, "Broncos", "Den", "DEF"],
+      [109, "Romeo Doubs", "NE", "WR"], [132, "Jakobi Meyers", "Jax", "WR"], [133, "Cameron Dicker", "LAC", "K"],
+      [156, "Hunter Henry", "NE", "TE"], [157, "Andy Borregales", "NE", "K"], [180, "Dylan Sampson", "Cle", "RB"],
+      [181, "Kayshon Boutte", "Hou", "WR"]
+    ]
+  }
+}

@@ -1,0 +1,582 @@
+<title>Blue Shell Bait Season Desk</title>
+<!-- Blue Shell Bait Season Desk.
+     Framework build: all content renders from the LEAGUE object below, which is
+     shaped like normalized Yahoo Fantasy API output. Swapping to live data means
+     replacing LEAGUE with a fetch — no markup changes.
+     Currently seeded with SAMPLE mid-season data (fictional Week 8) so every
+     surface is populated for design review. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#161A2B; --raise:#1E2437; --raise-2:#232B42; --line:#2C3450;
+  --chalk:#EDEFF5; --muted:#8D97B4; --faint:#5A6483;
+  --shell:#4C7DF0; --boost:#3DD9C4; --warn:#F2A03D; --bad:#E4585F;
+  --boost-ink:#0F1622;
+  --disp:'Barlow Condensed',sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--asphalt); color:var(--chalk);
+  font-family:var(--body); font-size:15px; line-height:1.5;
+  padding:0 0 90px; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:920px;margin:0 auto;padding:0 16px}
+a{color:var(--shell)}
+
+/* ---------- header ---------- */
+header{padding:26px 0 0}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.sample{
+  font-size:10px;color:var(--warn);border:1px solid var(--warn);
+  border-radius:4px;padding:1px 6px;letter-spacing:.1em;
+}
+h1{
+  font-family:var(--disp);font-weight:700;text-transform:uppercase;
+  font-size:clamp(36px,8vw,56px);line-height:.95;letter-spacing:.01em;margin:4px 0 0;
+}
+h1 span{color:var(--shell)}
+
+/* ---------- pulse strip ---------- */
+.pulse{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:8px;margin:18px 0 0;
+}
+.chip{
+  background:var(--raise);border:1px solid var(--line);border-radius:12px;
+  padding:12px 14px;min-width:0;
+}
+.chip .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chip .v{
+  font-family:var(--disp);font-weight:700;font-size:30px;line-height:1.1;
+  font-variant-numeric:tabular-nums;
+}
+.chip .s{font-size:12px;color:var(--muted)}
+.chip .v .up{color:var(--boost)} .chip .v .down{color:var(--bad)}
+
+/* ---------- tabs ---------- */
+nav{display:flex;gap:2px;margin:24px 0 22px;border-bottom:1px solid var(--line);overflow-x:auto}
+nav button{
+  background:none;border:none;color:var(--muted);cursor:pointer;white-space:nowrap;
+  font-family:var(--disp);font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;
+  padding:9px 15px;border-bottom:2px solid transparent;margin-bottom:-1px;
+}
+nav button[aria-selected="true"]{color:var(--chalk);border-bottom-color:var(--shell)}
+nav button:focus-visible,button:focus-visible{outline:2px solid var(--boost);outline-offset:2px}
+.hidden{display:none}
+
+h2{font-family:var(--disp);font-size:24px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin:26px 0 4px}
+h2:first-child{margin-top:0}
+.hint{color:var(--muted);font-size:13px;margin:0 0 14px}
+
+/* ---------- matchup hero ---------- */
+.hero{
+  background:var(--raise);border:1px solid var(--line);border-radius:14px;
+  padding:18px;margin-bottom:8px;
+}
+.hero-teams{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.hero-side{flex:1;min-width:180px}
+.hero-side.right{text-align:right}
+.hero-name{font-family:var(--disp);font-size:24px;font-weight:700;text-transform:uppercase;line-height:1}
+.hero-mgr{font-size:12px;color:var(--muted)}
+.hero-proj{
+  font-family:var(--disp);font-size:44px;font-weight:700;line-height:1;
+  font-variant-numeric:tabular-nums;margin-top:6px;
+}
+.hero-proj small{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.12em;display:block;font-weight:400}
+.vs{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.edgebar{display:flex;height:8px;border-radius:4px;overflow:hidden;margin-top:14px;gap:2px;background:var(--asphalt)}
+.edgebar i{display:block;height:100%}
+.edgebar .me{background:var(--boost);border-radius:4px 0 0 4px}
+.edgebar .them{background:var(--faint);border-radius:0 4px 4px 0}
+.edge-note{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* ---------- lineup ---------- */
+.lineup{list-style:none;margin:0;padding:0}
+.lineup li{
+  display:flex;align-items:center;gap:10px;
+  background:var(--raise);border:1px solid var(--line);border-radius:10px;
+  padding:9px 12px;margin-bottom:6px;
+}
+.lineup li.benched{background:transparent;border-style:dashed;opacity:.85}
+.slot{
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;
+  background:var(--line);border-radius:5px;padding:3px 7px;width:46px;text-align:center;flex-shrink:0;
+}
+.pname{flex:1;min-width:0}
+.pname b{font-weight:600}
+.pmeta{font-size:12px;color:var(--muted);display:block}
+.proj{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;flex-shrink:0;width:44px;text-align:right}
+.pill{
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;
+  padding:3px 7px;border-radius:5px;flex-shrink:0;
+}
+.pill.ok{color:var(--boost);border:1px solid var(--boost)}
+.pill.q{color:var(--warn);border:1px solid var(--warn)}
+.pill.out{color:var(--bad);border:1px solid var(--bad)}
+.pill.info{color:var(--muted);border:1px solid var(--line)}
+.callout{
+  border-left:3px solid var(--warn);background:var(--raise);
+  border-radius:0 10px 10px 0;padding:12px 14px;margin:14px 0;font-size:14px;
+}
+.callout.good{border-left-color:var(--boost)}
+.callout b{font-family:var(--disp);text-transform:uppercase;font-size:16px;letter-spacing:.03em;display:block;margin-bottom:2px}
+
+/* ---------- charts ---------- */
+.panel{background:var(--raise);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.panel h3{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.chart{position:relative}
+.chart svg{display:block;width:100%;height:auto}
+.tt{
+  position:absolute;pointer-events:none;background:var(--raise-2);border:1px solid var(--line);
+  border-radius:8px;padding:7px 10px;font-size:12px;line-height:1.45;display:none;z-index:5;
+  min-width:120px;box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+.tt .t{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* ---------- tables ---------- */
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+th{
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);
+  background:var(--raise);font-weight:600;
+}
+td{padding:9px 12px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+tbody tr{background:var(--raise)}
+tr.me td{background:var(--raise-2);border-left:2px solid var(--shell)}
+td.num,th.num{text-align:right}
+.streak-w{color:var(--boost)} .streak-l{color:var(--bad)}
+.mv{font-family:var(--mono);font-size:12px}
+.mv.up{color:var(--boost)} .mv.down{color:var(--bad)} .mv.flat{color:var(--faint)}
+
+/* ---------- scoreboard / cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.mcard{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.mrow{display:flex;justify-content:space-between;gap:8px;font-size:14px;padding:3px 0}
+.mrow .sc{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--muted)}
+.mrow.lead .sc{color:var(--chalk);font-weight:600}
+.mtag{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+
+/* ---------- wire ---------- */
+.tx{list-style:none;margin:0;padding:0}
+.tx li{display:flex;gap:12px;padding:10px 2px;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline}
+.tx li:last-child{border-bottom:none}
+.tx time{font-family:var(--mono);font-size:11px;color:var(--faint);flex-shrink:0;width:52px}
+.tx .who{color:var(--muted);font-size:12px;display:block}
+.faab{font-family:var(--mono);font-size:11px;color:var(--warn);flex-shrink:0}
+.badge{font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:2px 6px;border-radius:4px;flex-shrink:0}
+.badge.add{color:var(--boost);border:1px solid var(--boost)}
+.badge.drop{color:var(--bad);border:1px solid var(--bad)}
+.badge.trade{color:var(--shell);border:1px solid var(--shell)}
+.target{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:8px}
+.target-top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.target-top b{font-size:15px}
+.bid{font-family:var(--mono);font-size:12px;color:var(--warn)}
+.target p{margin:5px 0 0;font-size:13px;color:var(--muted)}
+.target .drops{font-size:12px;color:var(--faint);margin-top:6px}
+
+/* ---------- reports ---------- */
+.report{background:var(--raise);border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin-bottom:10px}
+.report-head{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.report-head b{font-family:var(--disp);font-size:19px;text-transform:uppercase;letter-spacing:.03em;font-weight:600}
+.report-head time{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.report p{margin:6px 0 0;font-size:14px;color:var(--muted)}
+.report ul{margin:8px 0 0;padding-left:18px;font-size:14px}
+.report li{margin-bottom:4px}
+.agent-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--boost);text-transform:uppercase}
+
+footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">
+    <span id="hdrLeague">Rainbow Road Warriors · 12 teams</span>
+    <span id="hdrWeek">Week 8</span>
+    <span class="sample">Sample data</span>
+  </div>
+  <h1>Blue Shell <span>Bait</span></h1>
+  <div class="pulse" id="pulse"></div>
+</header>
+
+<nav role="tablist" id="tabs">
+  <button role="tab" aria-selected="true" data-tab="week">Week</button>
+  <button role="tab" aria-selected="false" data-tab="league">League</button>
+  <button role="tab" aria-selected="false" data-tab="wire">Wire</button>
+  <button role="tab" aria-selected="false" data-tab="reports">Reports</button>
+</nav>
+
+<section id="tab-week">
+  <div class="hero" id="hero"></div>
+  <div id="lineupCallouts"></div>
+  <h2>My lineup</h2>
+  <p class="hint">Projections and status pull nightly. Flags come from the sit/start agent.</p>
+  <ul class="lineup" id="starters"></ul>
+  <h2>Bench</h2>
+  <ul class="lineup" id="bench"></ul>
+  <div class="panel">
+    <h3>Points left on bench, by week</h3>
+    <div class="chart" id="leakChart"></div>
+    <div class="legend">
+      <span><i style="background:var(--boost)"></i>Clean (&lt;6)</span>
+      <span><i style="background:var(--warn)"></i>Leaky (6–14)</span>
+      <span><i style="background:var(--bad)"></i>Costly (14+)</span>
+    </div>
+  </div>
+</section>
+
+<section id="tab-league" class="hidden">
+  <h2>Standings</h2>
+  <div class="tblwrap"><table id="standings"></table></div>
+  <div class="panel" style="margin-top:14px">
+    <h3>My weekly score vs league median</h3>
+    <div class="chart" id="trendChart"></div>
+    <div class="legend">
+      <span><i style="background:var(--boost)"></i>Blue Shell Bait</span>
+      <span><i style="background:transparent;border-top:2px dashed var(--muted);height:0;border-radius:0;vertical-align:3px"></i>League median</span>
+    </div>
+  </div>
+  <h2>This week's board</h2>
+  <div class="cards" id="scoreboard"></div>
+  <h2>Power rankings</h2>
+  <p class="hint">Computed weekly by the league monitor agent: recent form, points for, roster strength.</p>
+  <div class="tblwrap"><table id="power"></table></div>
+</section>
+
+<section id="tab-wire" class="hidden">
+  <h2>Waiver targets</h2>
+  <p class="hint">Filed by the waiver scout every Tuesday night, cross-checked against league free agents.</p>
+  <div id="targets"></div>
+  <h2>League transaction wire</h2>
+  <p class="hint">Every add, drop, and trade in the league. FAAB shown on processed claims.</p>
+  <ul class="tx" id="txfeed"></ul>
+</section>
+
+<section id="tab-reports" class="hidden">
+  <h2>Agent reports</h2>
+  <p class="hint">What the research agents filed this week. Full archive lives in the repo.</p>
+  <div id="reports"></div>
+</section>
+
+<footer>Data refreshed nightly + game days · Fantasy data provided by Yahoo Fantasy (pending API approval — sample data shown)</footer>
+</div>
+
+<script>
+/* =====================================================================
+   DATA LAYER — shaped like normalized Yahoo Fantasy API output.
+   Live version replaces this object with fetch('./data/league.json').
+   ===================================================================== */
+/* Teams + my roster are REAL (from the 2026 draft, data/draft-2026.json).
+   Season numbers (standings, scores, projections, transactions) are SAMPLE
+   until games are played and live data flows. */
+const LEAGUE = {
+  meta:{name:"Rainbow Road Warriors", size:12, week:8, myTeam:"t4"},
+  teams:{
+    t1:{name:"Beerio Cart fanatics"},
+    t2:{name:"Peach's Predators"},
+    t3:{name:"King Boo's Bandits"},
+    t4:{name:"Blue Shell Bait"},
+    t5:{name:"Blue Shell Boyz"},
+    t6:{name:"Double Dashers"},
+    t7:{name:"Waluigi's WAAHRIORS"},
+    t8:{name:"Shaggy's Snacks & Sacks"},
+    t9:{name:"Koopa Krew"},
+    t10:{name:"Yoshi's Egg-streme Squad"},
+    t11:{name:"Princess Peach's Squad"},
+    t12:{name:"Paratroopa's Peeps"}
+  },
+  standings:[ // rank order — SAMPLE season state
+    {t:"t8", w:6, l:1, pf:981.4, pa:842.1, strk:"W2"},
+    {t:"t12",w:5, l:2, pf:954.8, pa:871.9, strk:"W4"},
+    {t:"t4", w:5, l:2, pf:942.6, pa:889.3, strk:"W3"},
+    {t:"t5", w:5, l:2, pf:918.0, pa:860.5, strk:"L1"},
+    {t:"t1", w:4, l:3, pf:901.2, pa:884.7, strk:"W1"},
+    {t:"t10",w:4, l:3, pf:876.5, pa:902.2, strk:"L2"},
+    {t:"t2", w:3, l:4, pf:869.9, pa:875.0, strk:"W1"},
+    {t:"t7", w:3, l:4, pf:848.3, pa:880.6, strk:"L1"},
+    {t:"t3", w:2, l:5, pf:833.7, pa:905.4, strk:"L3"},
+    {t:"t6", w:2, l:5, pf:812.9, pa:890.1, strk:"W1"},
+    {t:"t9", w:2, l:5, pf:794.6, pa:922.8, strk:"L2"},
+    {t:"t11",w:1, l:6, pf:771.0, pa:928.2, strk:"L5"}
+  ],
+  power:[ // rank + movement vs last week — SAMPLE
+    {t:"t12", mv:+2}, {t:"t8", mv:-1}, {t:"t4", mv:+1}, {t:"t5", mv:-2},
+    {t:"t1", mv:0}, {t:"t2", mv:+1}, {t:"t10", mv:-1}, {t:"t7", mv:0},
+    {t:"t6", mv:+2}, {t:"t3", mv:-1}, {t:"t9", mv:-1}, {t:"t11", mv:0}
+  ],
+  myScores:[128.4, 96.2, 141.7, 108.9, 122.3, 117.6, 134.1],       // weeks 1-7 SAMPLE
+  medians: [118.9,112.4, 120.2, 115.7, 119.8, 113.2, 121.5],
+  benchLeak:[3.2, 18.6, 0, 7.4, 2.1, 11.8, 4.4],                    // weeks 1-7 SAMPLE
+  matchup:{
+    opp:"t5", myProj:121.8, oppProj:117.4,
+    note:"The Shell Bowl: Bait vs Boyz, both 5–2. Winner owns the name and the tiebreak."
+  },
+  scoreboard:[
+    {a:"t4", b:"t5", ap:121.8, bp:117.4},
+    {a:"t8", b:"t11", ap:126.2, bp:98.7},
+    {a:"t12", b:"t3", ap:119.5, bp:104.1},
+    {a:"t1", b:"t10", ap:112.8, bp:111.9},
+    {a:"t2", b:"t9", ap:109.4, bp:101.2},
+    {a:"t7", b:"t6", ap:107.7, bp:106.3}
+  ],
+  roster:{ // REAL Blue Shell Bait roster from the 2026 draft
+    starters:[
+      {slot:"QB", name:"Caleb Williams", team:"CHI", opp:"@ MIN", proj:19.6, status:"ok", flag:null},
+      {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"vs TEN", proj:20.3, status:"ok", flag:null},
+      {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"vs CIN", proj:15.8, status:"q", flag:"Limited Wed/Thu (shoulder). If he sits Sunday, Mason is the fill — Dowdle's on bye."},
+      {slot:"WR", name:"A.J. Brown", team:"NE", opp:"@ NYJ", proj:17.4, status:"ok", flag:null},
+      {slot:"WR", name:"Mike Evans", team:"SF", opp:"vs SEA", proj:15.9, status:"ok", flag:null},
+      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"@ DET", proj:11.8, status:"ok", flag:null},
+      {slot:"FLEX", name:"Xavier Worthy", team:"KC", opp:"@ LV", proj:13.7, status:"ok", flag:"Close call over Shakir — KC's pass rate and the dome tip it. Revisit Friday."},
+      {slot:"K", name:"Jake Bates", team:"DET", opp:"vs GB", proj:8.9, status:"ok", flag:null},
+      {slot:"DEF", name:"Chargers D/ST", team:"LAC", opp:"vs NYG", proj:8.2, status:"ok", flag:null}
+    ],
+    bench:[
+      {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"vs MIA", proj:12.9, status:"ok", flag:null},
+      {slot:"BN", name:"Rico Dowdle", team:"PIT", opp:"BYE", proj:0, status:"bye", flag:null},
+      {slot:"BN", name:"Jordan Mason", team:"MIN", opp:"vs CHI", proj:10.4, status:"ok", flag:null},
+      {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"@ MIN", proj:6.2, status:"ok", flag:null},
+      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"vs JAX", proj:7.1, status:"ok", flag:null},
+      {slot:"BN", name:"Rachaad White", team:"WAS", opp:"@ DAL", proj:8.8, status:"ok", flag:null},
+      {slot:"BN", name:"Brenton Strange", team:"JAX", opp:"@ HOU", proj:7.6, status:"ok", flag:null}
+    ]
+  },
+  transactions:[ // SAMPLE wire activity
+    {d:"Wed", type:"add", who:"t9", txt:"Ollie Gordon II", faab:22, drop:"MarShawn Lloyd"},
+    {d:"Wed", type:"add", who:"t2", txt:"Cedric Tillman", faab:8, drop:"Denzel Boston"},
+    {d:"Wed", type:"add", who:"t6", txt:"Pat Freiermuth", faab:6, drop:"Kyle Pitts Sr."},
+    {d:"Tue", type:"trade", who:"t1", txt:"Sent Josh Jacobs to Koopa Krew for DeVonta Smith", faab:null, drop:null},
+    {d:"Mon", type:"drop", who:"t11", txt:"Tyler Shough", faab:null, drop:null},
+    {d:"Sun", type:"add", who:"t7", txt:"Roman Wilson", faab:5, drop:"Ricky Pearsall"}
+  ],
+  targets:[ // SAMPLE — what the waiver scout will file
+    {name:"Braelon Allen", pos:"RB · NYJ", own:"41% rostered", bid:"$18–22 of $73",
+     why:"Breece Hall left Sunday with a high-ankle sprain; Allen took 82% of snaps after. Hall's manager (Blue Shell Boyz) can't stash him without dropping a starter. Next three weeks: NE, @TEN, CAR — soft run defenses all.",
+     drop:"Woody Marks (buried behind Houston's committee)"},
+    {name:"Cedric Tillman", pos:"WR · CLE", own:"37% rostered", bid:"$6–9",
+     why:"Target share up three straight weeks (18% → 24% → 27%) and he's the clear perimeter X with the rookie QB locked in. Bye-week insurance for Brown/Evans at minimum.",
+     drop:"Rachaad White if you need the roster spot"},
+    {name:"Colts D/ST", pos:"DEF · IND", own:"22% rostered", bid:"$2",
+     why:"Streaming play: home vs a rookie QB on a short week. Chargers D draws back-to-back road games at KC and Buffalo after this week — plan the pivot now.",
+     drop:"streamer churn"}
+  ],
+  reports:[ // SAMPLE — the shape of what each agent files
+    {agent:"Waiver Scout", when:"Tue 11:04 PM", lead:"Three claims worth making before Wednesday's run — one of them is urgent.",
+     bullets:["Braelon Allen is the priority claim; recommended bid $18–22 (league FAAB history says RB handcuffs-turned-starters go for $15–24 here).",
+              "Koopa Krew has $4 FAAB left and can't outbid you on anyone.",
+              "Your $73 remaining is 2nd-most in the league — you can afford to win this one."]},
+    {agent:"Sit/Start Analyst", when:"Thu 7:12 AM", lead:"One genuine decision this week: FLEX. Everything else is locked.",
+     bullets:["Worthy over Shakir by a hair — KC's pass rate (61%) and the Vegas dome vs Buffalo's wind. Revisit if Worthy's Friday practice is limited.",
+              "Judkins is the watch: limited Wed/Thu with the shoulder. If he's out, Mason gets the nod (Dowdle's on bye) — a revenge spot against Chicago, his old team's rival.",
+              "Bates and Chargers D are top-5 plays at their positions this week; no action needed."]},
+    {agent:"Week 7 Recap", when:"Tue 8:00 AM", lead:"Won 134.1–110.6 over Waluigi's WAAHRIORS. Third straight, and the first with a clean bench.",
+     bullets:["Only 4.4 points left on the bench — season best. Taylor + Judkins combined for 41 and the Brown/Evans floor held.",
+              "You're 3rd in standings but 2nd in all-play record (57–20) — the schedule has been fair, the roster is legitimately top-3.",
+              "Beerio Cart fanatics flipped Josh Jacobs to Koopa Krew for DeVonta Smith — going WR-heavy for the stretch. Watch week 10: you play them with Caleb Williams on bye."]}
+  ]
+};
+
+/* ============================ RENDER ============================ */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const T=k=>LEAGUE.teams[k];
+const fmt1=n=>n.toFixed(1);
+
+/* tabs */
+document.querySelectorAll('#tabs button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#tabs button').forEach(x=>x.setAttribute('aria-selected','false'));
+    b.setAttribute('aria-selected','true');
+    ['week','league','wire','reports'].forEach(t=>$('tab-'+t).classList.toggle('hidden',t!==b.dataset.tab));
+  };
+});
+
+/* pulse strip */
+(function(){
+  const me=LEAGUE.standings.find(s=>s.t===LEAGUE.meta.myTeam);
+  const rank=LEAGUE.standings.indexOf(me)+1;
+  const leak=LEAGUE.benchLeak.reduce((a,b)=>a+b,0);
+  const pfRank=[...LEAGUE.standings].sort((a,b)=>b.pf-a.pf).findIndex(s=>s.t===LEAGUE.meta.myTeam)+1;
+  const chips=[
+    {k:"Record",v:`${me.w}–${me.l}`,s:`#${rank} in standings`},
+    {k:"Streak",v:`<span class="${me.strk[0]==='W'?'up':'down'}">${me.strk}</span>`,s:me.strk[0]==='W'?'keep it rolling':'stop the bleed'},
+    {k:"Points for",v:fmt1(me.pf),s:`#${pfRank} in league`},
+    {k:"Bench leak",v:fmt1(leak),s:"season total, weeks 1–7"},
+    {k:"FAAB left",v:"$73",s:"2nd most in league"}
+  ];
+  $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
+  $('hdrWeek').textContent='Week '+LEAGUE.meta.week;
+})();
+
+/* matchup hero */
+(function(){
+  const m=LEAGUE.matchup, me=T(LEAGUE.meta.myTeam), opp=T(m.opp);
+  const rec=k=>{const s=LEAGUE.standings.find(x=>x.t===k);return s?`${s.w}–${s.l} · #${LEAGUE.standings.indexOf(s)+1}`:'';};
+  const total=m.myProj+m.oppProj, meW=(m.myProj/total*100);
+  $('hero').innerHTML=`
+    <div class="hero-teams">
+      <div class="hero-side">
+        <div class="hero-name">${esc(me.name)}</div>
+        <div class="hero-mgr">You · ${rec(LEAGUE.meta.myTeam)}</div>
+        <div class="hero-proj">${fmt1(m.myProj)}<small>Projected</small></div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="hero-side right">
+        <div class="hero-name">${esc(opp.name)}</div>
+        <div class="hero-mgr">${rec(m.opp)}</div>
+        <div class="hero-proj">${fmt1(m.oppProj)}<small>Projected</small></div>
+      </div>
+    </div>
+    <div class="edgebar" aria-hidden="true"><i class="me" style="width:${meW}%"></i><i class="them" style="width:${100-meW}%"></i></div>
+    <div class="edge-note">${esc(m.note)}</div>`;
+})();
+
+/* lineup */
+function playerRow(p, benched){
+  const status = p.status==='ok'?'<span class="pill ok">OK</span>'
+    : p.status==='q'?'<span class="pill q">QUES</span>'
+    : p.status==='bye'?'<span class="pill info">BYE</span>'
+    : '<span class="pill out">OUT</span>';
+  return `<li class="${benched?'benched':''}">
+    <span class="slot">${p.slot}</span>
+    <span class="pname"><b>${esc(p.name)}</b><span class="pmeta">${p.team} ${p.opp}</span></span>
+    ${status}
+    <span class="proj">${p.proj?fmt1(p.proj):'—'}</span>
+  </li>`;
+}
+$('starters').innerHTML=LEAGUE.roster.starters.map(p=>playerRow(p,false)).join('');
+$('bench').innerHTML=LEAGUE.roster.bench.map(p=>playerRow(p,true)).join('');
+$('lineupCallouts').innerHTML=LEAGUE.roster.starters.filter(p=>p.flag)
+  .map(p=>`<div class="callout"><b>${esc(p.name)}</b>${esc(p.flag)}</div>`).join('');
+
+/* leak chart — status-colored week bars, direct value labels */
+(function(){
+  const data=LEAGUE.benchLeak, W=860, H=150, pad=6, bw=(W-pad*2)/18;
+  const max=Math.max(20,...data);
+  let bars='';
+  for(let i=0;i<18;i++){
+    const v=data[i], x=pad+i*bw+2, w=bw-4;
+    if(v===undefined){
+      bars+=`<rect x="${x}" y="${H-26}" width="${w}" height="3" rx="1.5" fill="#232B42"/>`;
+    }else{
+      const h=Math.max(4,(v/max)*(H-46));
+      const c=v>=14?'#E4585F':v>=6?'#F2A03D':'#3DD9C4';
+      bars+=`<rect class="lb" data-w="${i+1}" data-v="${v}" x="${x}" y="${H-26-h}" width="${w}" height="${h}" rx="4" fill="${c}"/>`;
+      if(v>0) bars+=`<text x="${x+w/2}" y="${H-32-h}" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#8D97B4">${v.toFixed(1)}</text>`;
+    }
+    bars+=`<text x="${x+w/2}" y="${H-8}" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#5A6483">${i+1}</text>`;
+  }
+  $('leakChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bench points left per week">${bars}</svg><div class="tt" id="leakTT"></div>`;
+  hover('leakChart','leakTT','.lb',el=>`<div class="t">Week ${el.dataset.w}</div>${(+el.dataset.v).toFixed(1)} pts left on bench`);
+})();
+
+/* trend chart — my score (teal area+line) vs league median (dashed neutral) */
+(function(){
+  const mine=LEAGUE.myScores, med=LEAGUE.medians;
+  const W=860,H=210,padL=40,padR=14,padT=16,padB=26;
+  const lo=80, hi=Math.ceil(Math.max(...mine,...med)/10)*10+10;
+  const x=i=>padL+i*((W-padL-padR)/17);
+  const y=v=>padT+(1-(v-lo)/(hi-lo))*(H-padT-padB);
+  const path=a=>a.map((v,i)=>`${i?'L':'M'}${x(i)},${y(v)}`).join('');
+  let grid='';
+  for(let g=lo+20;g<hi;g+=20)
+    grid+=`<line x1="${padL}" x2="${W-padR}" y1="${y(g)}" y2="${y(g)}" stroke="#232B42"/><text x="${padL-7}" y="${y(g)+3}" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#5A6483">${g}</text>`;
+  let ticks='';
+  for(let i=0;i<18;i+=2) ticks+=`<text x="${x(i)}" y="${H-6}" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#5A6483">${i+1}</text>`;
+  const area=`${path(mine)} L${x(mine.length-1)},${y(lo)} L${x(0)},${y(lo)} Z`;
+  const last=mine.length-1;
+  let dots='';
+  mine.forEach((v,i)=>{dots+=`<circle class="tp" data-w="${i+1}" data-m="${v}" data-d="${med[i]}" cx="${x(i)}" cy="${y(v)}" r="${i===last?5:4}" fill="#3DD9C4" stroke="#161A2B" stroke-width="2"/>`;});
+  $('trendChart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="My weekly score versus league median">
+    ${grid}${ticks}
+    <path d="${area}" fill="#3DD9C4" opacity="0.08"/>
+    <path d="${path(med)}" fill="none" stroke="#8D97B4" stroke-width="2" stroke-dasharray="5 5"/>
+    <path d="${path(mine)}" fill="none" stroke="#3DD9C4" stroke-width="2"/>
+    ${dots}
+    <text x="${x(last)+8}" y="${y(mine[last])+4}" font-family="IBM Plex Mono" font-size="11" fill="#EDEFF5">${mine[last].toFixed(1)}</text>
+  </svg><div class="tt" id="trendTT"></div>`;
+  hover('trendChart','trendTT','.tp',el=>`<div class="t">Week ${el.dataset.w}</div>Me: <b>${(+el.dataset.m).toFixed(1)}</b><br>Median: ${(+el.dataset.d).toFixed(1)}`);
+})();
+
+/* shared hover/tooltip */
+function hover(chartId, ttId, sel, html){
+  const c=$(chartId), tt=$(ttId);
+  c.querySelectorAll(sel).forEach(el=>{
+    el.addEventListener('pointerenter',()=>{tt.innerHTML=html(el);tt.style.display='block';});
+    el.addEventListener('pointermove',e=>{
+      const r=c.getBoundingClientRect();
+      let lx=e.clientX-r.left+12, ly=e.clientY-r.top-10;
+      if(lx+tt.offsetWidth>r.width) lx-=tt.offsetWidth+24;
+      tt.style.left=lx+'px'; tt.style.top=ly+'px';
+    });
+    el.addEventListener('pointerleave',()=>{tt.style.display='none';});
+  });
+}
+
+/* standings */
+(function(){
+  const rows=LEAGUE.standings.map((s,i)=>{
+    const t=T(s.t);
+    return `<tr class="${s.t===LEAGUE.meta.myTeam?'me':''}">
+      <td class="num">${i+1}</td>
+      <td><b>${esc(t.name)}</b></td>
+      <td class="num">${s.w}–${s.l}</td>
+      <td class="num">${fmt1(s.pf)}</td>
+      <td class="num">${fmt1(s.pa)}</td>
+      <td class="num ${s.strk[0]==='W'?'streak-w':'streak-l'}">${s.strk}</td>
+    </tr>`;
+  }).join('');
+  $('standings').innerHTML=`<thead><tr><th class="num">#</th><th>Team</th><th class="num">W–L</th><th class="num">PF</th><th class="num">PA</th><th class="num">Strk</th></tr></thead><tbody>${rows}</tbody>`;
+})();
+
+/* scoreboard */
+$('scoreboard').innerHTML=LEAGUE.scoreboard.map(m=>{
+  const aLead=m.ap>=m.bp;
+  const mine=m.a===LEAGUE.meta.myTeam||m.b===LEAGUE.meta.myTeam;
+  return `<div class="mcard"${mine?' style="border-color:var(--shell)"':''}>
+    <div class="mrow ${aLead?'lead':''}"><span>${esc(T(m.a).name)}</span><span class="sc">${fmt1(m.ap)}</span></div>
+    <div class="mrow ${aLead?'':'lead'}"><span>${esc(T(m.b).name)}</span><span class="sc">${fmt1(m.bp)}</span></div>
+    <div class="mtag">${mine?'Your matchup · ':''}Projected</div>
+  </div>`;
+}).join('');
+
+/* power rankings */
+(function(){
+  const rows=LEAGUE.power.map((p,i)=>{
+    const mv=p.mv>0?`<span class="mv up">▲ ${p.mv}</span>`:p.mv<0?`<span class="mv down">▼ ${-p.mv}</span>`:'<span class="mv flat">—</span>';
+    return `<tr class="${p.t===LEAGUE.meta.myTeam?'me':''}"><td class="num">${i+1}</td><td><b>${esc(T(p.t).name)}</b></td><td>${mv}</td></tr>`;
+  }).join('');
+  $('power').innerHTML=`<thead><tr><th class="num">#</th><th>Team</th><th>Move</th></tr></thead><tbody>${rows}</tbody>`;
+})();
+
+/* wire */
+$('targets').innerHTML=LEAGUE.targets.map(t=>`
+  <div class="target">
+    <div class="target-top"><b>${esc(t.name)}</b><span style="color:var(--muted);font-size:13px">${esc(t.pos)} · ${esc(t.own)}</span><span class="bid">Bid ${esc(t.bid)}</span></div>
+    <p>${esc(t.why)}</p>
+    <div class="drops">Drop: ${esc(t.drop)}</div>
+  </div>`).join('');
+
+$('txfeed').innerHTML=LEAGUE.transactions.map(x=>{
+  const badge=`<span class="badge ${x.type}">${x.type.toUpperCase()}</span>`;
+  const faab=x.faab!==null&&x.faab!==undefined?`<span class="faab">$${x.faab}</span>`:'';
+  const drop=x.drop?` <span style="color:var(--faint)">(dropped ${esc(x.drop)})</span>`:'';
+  return `<li><time>${x.d}</time>${badge}<span style="flex:1;min-width:0">${esc(x.txt)}${drop}<span class="who">${esc(T(x.who).name)}</span></span>${faab}</li>`;
+}).join('');
+
+/* reports */
+$('reports').innerHTML=LEAGUE.reports.map(r=>`
+  <div class="report">
+    <div class="report-head"><span><span class="agent-tag">● ${esc(r.agent)}</span><br><b>${esc(r.lead)}</b></span><time>${esc(r.when)}</time></div>
+    <ul>${r.bullets.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>
+  </div>`).join('');
+</script>
