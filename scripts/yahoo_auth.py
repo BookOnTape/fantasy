@@ -2,9 +2,9 @@
 """One-time Yahoo OAuth handshake + token refresh helper.
 
 Prereqs:
-  1. Create a Yahoo developer app at https://developer.yahoo.com/apps/create/
-     - API permission: Fantasy Sports (read)
-     - Redirect URI: see docs/yahoo-api.md for what's currently allowed
+  1. Get an approved Yahoo Fantasy API application (manual review since 2026):
+     https://sports.yahoo.com/developer/access/ — see docs/yahoo-api.md.
+     Read scope (fspt-r); oob redirect is still documented as allowed.
   2. Copy .env.example to .env and fill in YAHOO_CLIENT_ID / YAHOO_CLIENT_SECRET.
   3. Run: python3 scripts/yahoo_auth.py
      Opens the consent URL (you click Agree), then exchanges the code for tokens
