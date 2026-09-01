@@ -1,0 +1,23 @@
+# Secrets — never commit Yahoo API credentials or tokens
+.env
+*.token
+token.json
+oauth2.json
+private.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+.wrangler/
+
+# Local data snapshots can get large; commit curated ones deliberately
+data/raw/
+
+# OS/editor
+.DS_Store
