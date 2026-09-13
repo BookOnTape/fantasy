@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blue Shell Bait Season Desk</title>
 <!-- Blue Shell Bait Season Desk.
      Framework build: all content renders from the LEAGUE object below, which is
@@ -196,7 +201,8 @@ td.num,th.num{text-align:right}
 footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
-
+</head>
+<body>
 <div class="wrap">
 <header>
   <div class="eyebrow">
@@ -580,3 +586,5 @@ $('reports').innerHTML=LEAGUE.reports.map(r=>`
     <ul>${r.bullets.map(b=>`<li>${esc(b)}</li>`).join('')}</ul>
   </div>`).join('');
 </script>
+</body>
+</html>
