@@ -2,6 +2,23 @@
 
 Researched 2026-08-31. Official portal: https://sports.yahoo.com/developer/
 
+## Status log
+
+- 2026-09-xx — Application submitted at sports.yahoo.com/developer/access/
+  (personal/single-league use). No status page exists; approval arrives by
+  email only. Legacy YDN dashboard (developer.yahoo.com/apps/) is a secondary
+  signal: watch for Fantasy Sports appearing in the app's permissions.
+- 2026-09-13 — Created YDN app "Fantasy Season HQ" (Confidential Client,
+  redirect https://localhost:8080, OIDC email only — Fantasy Sports absent
+  from the permissions list, as expected post-July). OAuth handshake works;
+  credentials + refresh token in .env.
+- 2026-09-13 — **Gate empirically confirmed**: fantasy endpoint returns
+  HTTP 401 `additional_authorization_required` with a default-scope token,
+  and requesting `scope=fspt-r` at request_auth returns `invalid_scope`.
+  Unapproved apps cannot request fantasy data at all. Manual uploads
+  (data/inbox/) are the pipeline until approval; rerun
+  `scripts/yahoo_auth.py` + the curl test when the approval email lands.
+
 ## TL;DR
 
 The read API covers everything the dashboard needs — league-wide transactions,
