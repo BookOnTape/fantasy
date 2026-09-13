@@ -1,0 +1,49 @@
+{
+  "league_id": 398667,
+  "name": "Rainbow Road Warriors",
+  "yahoo_url": "https://football.fantasysports.yahoo.com/league/coolfantasyleague1",
+  "season": 2026,
+  "teams": 12,
+  "scoring_type": "head-to-head",
+  "draft": {"type": "Live Standard", "date": "2026-08-31T20:00:00-04:00"},
+  "roster_positions": ["QB", "WR", "WR", "RB", "RB", "TE", "W/R/T", "K", "DEF",
+    "BN", "BN", "BN", "BN", "BN", "BN", "BN", "IR", "IR"],
+  "waivers": {
+    "type": "weekly rolling list based on standings",
+    "process": "Game Time - Tuesday",
+    "waiver_time_days": 1,
+    "faab": false,
+    "my_priority_2026_09_13": 9
+  },
+  "trades": {"end_date": "2026-11-28", "review": "League Votes", "reject_time_days": 1, "draft_pick_trades": false},
+  "playoffs": {"teams": 6, "weeks": [15, 16, 17], "ends": "2027-01-04", "tiebreaker": "Best regular season record vs opponent wins", "reseeding": false},
+  "acquisition_limits": "none",
+  "fractional_points": true,
+  "negative_points": true,
+  "scoring": {
+    "offense": {
+      "passing_yards_per_point": 25,
+      "passing_td": 4,
+      "interception": -1,
+      "rushing_yards_per_point": 10,
+      "rushing_td": 6,
+      "receiving_yards_per_point": 10,
+      "receiving_td": 6,
+      "reception": 0,
+      "return_td": 6,
+      "two_point_conversion": 2,
+      "fumble_lost": -2,
+      "offensive_fumble_return_td": 6
+    },
+    "kicker": {"fg_0_19": 3, "fg_20_29": 3, "fg_30_39": 3, "fg_40_49": 4, "fg_50_plus": 5, "pat": 1},
+    "dst": {
+      "sack": 1, "interception": 2, "fumble_recovery": 2, "td": 6, "safety": 2,
+      "block_kick": 2, "return_td": 6, "extra_point_returned": 2,
+      "points_allowed": {"0": 10, "1-6": 7, "7-13": 4, "14-20": 1, "21-27": 0, "28-34": -1, "35+": -4}
+    }
+  },
+  "notes": [
+    "NO PPR — standard scoring. Volume receivers worth less than in PPR; TDs and yardage rule.",
+    "Team 'Shaggy's Snacks & Sacks' renamed to 'CMC Kart 8' after the draft."
+  ]
+}
