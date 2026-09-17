@@ -209,7 +209,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
   <div class="eyebrow">
     <span id="hdrLeague">Rainbow Road Warriors · 12 teams</span>
     <span id="hdrWeek">Week 8</span>
-    <span class="sample">Synced Sat 9/13 · pre-Sunday slate</span>
+    <span class="sample">Synced Thu 9/17 · pre-TNF</span>
   </div>
   <h1>Blue Shell <span>Bait</span></h1>
   <div class="pulse" id="pulse"></div>
@@ -243,7 +243,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
 
 <section id="tab-league" class="hidden">
   <h2>Standings</h2>
-  <p class="hint">Everyone 0–0, listed in draft order — real ranks appear when Week 1 goes final.</p>
+  <p class="hint">Through Week 1 · updated Thu 2:56am. Waiver priority re-ranks off these standings weekly.</p>
   <div class="tblwrap"><table id="standings"></table></div>
   <div class="panel" style="margin-top:14px">
     <h3>My weekly score vs league median</h3>
@@ -287,7 +287,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
    Season numbers (standings, scores, projections, transactions) are SAMPLE
    until games are played and live data flows. */
 const LEAGUE = {
-  meta:{name:"Rainbow Road Warriors", size:12, week:8, myTeam:"t4"},
+  meta:{name:"Rainbow Road Warriors", size:12, week:2, myTeam:"t4"},
   teams:{
     t1:{name:"Beerio Cart fanatics"},
     t2:{name:"Peach's Predators"},
@@ -302,68 +302,98 @@ const LEAGUE = {
     t11:{name:"Princess Peach's Squad"},
     t12:{name:"Paratroopa's Peeps"}
   },
-  standings:[ // everyone 0–0 until Week 1 goes final; listed in draft order
-    {t:"t1", w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t2", w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t3", w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t4", w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t5", w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t6", w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t7", w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t8", w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t9", w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t10",w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t11",w:0, l:0, pf:0, pa:0, strk:"—"},
-    {t:"t12",w:0, l:0, pf:0, pa:0, strk:"—"}
+  standings:[ // post-Week 1, per Yahoo (updated Thu 9/17 2:56am)
+    {t:"t5", w:1, l:0, pf:126.50, pa:113.62, strk:"W1"},
+    {t:"t11",w:1, l:0, pf:120.76, pa:102.86, strk:"W1"},
+    {t:"t1", w:1, l:0, pf:112.36, pa:77.46, strk:"W1"},
+    {t:"t9", w:1, l:0, pf:102.14, pa:84.42, strk:"W1"},
+    {t:"t4", w:1, l:0, pf:94.46, pa:72.26, strk:"W1"},
+    {t:"t8", w:1, l:0, pf:85.64, pa:60.44, strk:"W1"},
+    {t:"t10",w:0, l:1, pf:113.62, pa:126.50, strk:"L1"},
+    {t:"t2", w:0, l:1, pf:102.86, pa:120.76, strk:"L1"},
+    {t:"t12",w:0, l:1, pf:84.42, pa:102.14, strk:"L1"},
+    {t:"t6", w:0, l:1, pf:77.46, pa:112.36, strk:"L1"},
+    {t:"t3", w:0, l:1, pf:72.26, pa:94.46, strk:"L1"},
+    {t:"t7", w:0, l:1, pf:60.44, pa:85.64, strk:"L1"}
   ],
-  power:[],       // first ranking after Week 1 finals
-  myScores:[],    // weekly finals accumulate here
-  medians: [],
-  benchLeak:[],
-  matchup:{ // Week 1 vs King Boo's Bandits — live through Sat (Thu opener + Australia game played)
-    opp:"t3", myLive:13.50, oppLive:0.00, myProj:89.30, oppProj:82.47,
-    note:"In the books: Brown 2.60 (Wed opener), Evans 10.90 (Thu, Australia). 13.50–0.00 lead with seven starters still to play in Week 1's odd Wed/Thu/Sun/Mon layout."
+  power:[ // first edition — points for + half of margin; movement starts next week
+    {t:"t5", mv:0}, {t:"t1", mv:0}, {t:"t11", mv:0}, {t:"t9", mv:0},
+    {t:"t10", mv:0}, {t:"t4", mv:0}, {t:"t8", mv:0}, {t:"t2", mv:0},
+    {t:"t12", mv:0}, {t:"t3", mv:0}, {t:"t6", mv:0}, {t:"t7", mv:0}
+  ],
+  myScores:[94.46],
+  medians: [98.30],
+  benchLeak:[],   // needs Week 1 bench actuals — box score with "Show Bench Players" expanded
+  matchup:{ // Week 2 vs Paratroopa's Peeps (Zach) — Yahoo has us 45/55 underdogs
+    opp:"t12", myLive:0.00, oppLive:0.00, myProj:88.54, oppProj:92.72,
+    note:"Yahoo calls it 55/45 for Zach's Peeps. Bates kicks tonight in Det@Buf; everyone else goes Sunday, with Taylor and Worthy closing at KC on the late game."
   },
-  scoreboard:[ // live scores + full-week projections, pre-Sunday slate
-    {a:"t4", b:"t3", ap:13.50, bp:0.00, apr:89.30, bpr:82.47},
-    {a:"t10", b:"t5", ap:0.00, bp:5.40, apr:93.41, bpr:90.95},
-    {a:"t11", b:"t2", ap:22.50, bp:0.00, apr:97.01, bpr:97.34},
-    {a:"t8", b:"t7", ap:8.80, bp:18.30, apr:88.52, bpr:80.69},
-    {a:"t12", b:"t9", ap:12.82, bp:35.00, apr:78.00, bpr:101.08},
-    {a:"t1", b:"t6", ap:0.00, bp:8.40, apr:97.09, bpr:83.47}
+  scoreboard:[ // Week 2 — not started, projections only
+    {a:"t4", b:"t12", ap:0.00, bp:0.00, apr:88.54, bpr:92.72},
+    {a:"t10", b:"t11", ap:0.00, bp:0.00, apr:90.11, bpr:91.65},
+    {a:"t3", b:"t8", ap:0.00, bp:0.00, apr:87.11, bpr:99.48},
+    {a:"t2", b:"t7", ap:0.00, bp:0.00, apr:103.60, bpr:95.01},
+    {a:"t1", b:"t5", ap:0.00, bp:0.00, apr:96.72, bpr:95.72},
+    {a:"t9", b:"t6", ap:0.00, bp:0.00, apr:101.68, bpr:91.89}
   ],
-  roster:{ // REAL Week 1 lineup — live through Sat 9/13, pre-Sunday slate
+  roster:{ // Week 2 lineup as set on Yahoo, synced Thu 9/17 pre-TNF
     starters:[
-      {slot:"QB", name:"Caleb Williams", team:"CHI", opp:"Sun 1:00 @ Car", proj:18.41, status:"ok", flag:null},
-      {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 1:00 vs Bal", proj:14.68, status:"ok", flag:null},
-      {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 @ Jax", proj:9.62, status:"ok", flag:null},
-      {slot:"WR", name:"A.J. Brown", team:"NE", opp:"Final L 10–13 @ Sea", proj:0, pts:2.60, status:"ir", flag:"IR tag, 2.60 in Wednesday's opener, and locked until the week rolls. Tuesday to-do: slide him to an IR slot (both are open) — that frees a bench spot for a waiver claim without dropping anyone."},
-      {slot:"WR", name:"Mike Evans", team:"SF", opp:"Final W 27–7 @ LAR", proj:7.96, pts:10.90, status:"played", flag:null},
-      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Sun 4:25 @ Min", proj:7.19, status:"ok", flag:null},
-      {slot:"W/R/T", name:"Rico Dowdle", team:"PIT", opp:"Sun 1:00 @ Atl", proj:10.05, status:"ok", flag:null},
-      {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 1:00 vs NO", proj:8.13, status:"ok", flag:null},
-      {slot:"DEF", name:"Chargers D/ST", team:"LAC", opp:"Sun 4:25 vs Ari", proj:7.72, status:"ok", flag:null}
+      {slot:"QB", name:"Caleb Williams", team:"CHI", opp:"Sun 1:00 vs Min", proj:18.73, status:"ok", flag:null},
+      {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 8:20 @ KC", proj:13.89, status:"ok", flag:null},
+      {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 @ TB", proj:10.31, status:"ok", flag:null},
+      {slot:"WR", name:"Mike Evans", team:"SF", opp:"Sun 4:25 vs Mia", proj:8.93, status:"ok", flag:null},
+      {slot:"WR", name:"Xavier Worthy", team:"KC", opp:"Sun 8:20 vs Ind", proj:6.48, status:"ok", flag:"The one live call before tonight: Worthy (6.48, Sunday night) vs Shakir (6.54, kicks off TONIGHT in Det@Buf). Dead even on projection — staying with Worthy keeps the decision open until Sunday; swap before 8:15 only if you want Shakir's points banked early."},
+      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Sun 1:00 @ NYJ", proj:7.34, status:"ok", flag:null},
+      {slot:"W/R/T", name:"Rico Dowdle", team:"PIT", opp:"Sun 1:00 @ NE", proj:8.14, status:"ok", flag:null},
+      {slot:"K", name:"Jake Bates", team:"DET", opp:"Thu 8:15 @ Buf · TONIGHT", proj:6.98, status:"ok", flag:null},
+      {slot:"DEF", name:"Chargers D/ST", team:"LAC", opp:"Sun 4:05 vs LV", proj:7.74, status:"ok", flag:null}
     ],
     bench:[
-      {slot:"BN", name:"Jordan Mason", team:"MIN", opp:"Sun 4:25 vs GB", proj:7.73, status:"ok", flag:null},
-      {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"Sun 1:00 @ Car", proj:6.96, status:"ok", flag:null},
-      {slot:"BN", name:"Rachaad White", team:"WAS", opp:"Sun 4:25 vs Phi", proj:6.40, status:"ok", flag:null},
-      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 vs Buf", proj:6.82, status:"ok", flag:null},
-      {slot:"BN", name:"Xavier Worthy", team:"KC", opp:"Mon 8:15 vs Den", proj:5.58, status:"ok", flag:null},
-      {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 @ Hou", proj:5.54, status:"ok", flag:null},
-      {slot:"BN", name:"Brenton Strange", team:"JAX", opp:"Sun 1:00 vs Cle", proj:4.99, status:"ok", flag:null}
+      {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"Sun 1:00 vs Min", proj:7.33, status:"q", flag:null},
+      {slot:"BN", name:"Jordan Mason", team:"MIN", opp:"Sun 1:00 @ Chi", proj:0, status:"ir", flag:"Fresh IR tag. The second IR slot is open — slide him over before Sunday and the bench gains another free spot."},
+      {slot:"BN", name:"Rachaad White", team:"WAS", opp:"Sun 4:25 @ Dal", proj:6.06, status:"ok", flag:null},
+      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 vs Cin", proj:6.84, status:"ok", flag:null},
+      {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"Thu 8:15 vs Det · TONIGHT", proj:6.54, status:"ok", flag:null},
+      {slot:"BN", name:"Brenton Strange", team:"JAX", opp:"Sun 4:05 @ Den", proj:4.55, status:"ok", flag:null},
+      {slot:"BN", name:"— open slot —", team:"", opp:"freed by Brown's IR move", proj:0, status:"open", flag:null},
+      {slot:"IR", name:"A.J. Brown", team:"NE", opp:"Sun 1:00 vs Pit", proj:0, status:"ir", flag:null}
     ]
   },
   transactions:[ // REAL league wire (waiver-priority league, no FAAB)
-    {d:"Sep 10", type:"add", who:"t7", txt:"Tua Tagovailoa (Atl · QB, listed O)", faab:null, drop:null},
+    {d:"Sep 16", type:"add", who:"t6", txt:"Tyler Bass (Buf · K)", faab:null, drop:"Harrison Mevis"},
+    {d:"Sep 16", type:"add", who:"t3", txt:"49ers D/ST", faab:null, drop:"Ravens D/ST"},
+    {d:"Sep 16", type:"add", who:"t12", txt:"Caleb Douglas (Mia · WR)", faab:null, drop:"Dylan Sampson (IR)"},
+    {d:"Sep 16", type:"add", who:"t7", txt:"Mike Gesicki (Cin · TE) — waiver claim", faab:null, drop:"Tua Tagovailoa"},
+    {d:"Sep 16", type:"add", who:"t8", txt:"Buccaneers D/ST — waiver claim", faab:null, drop:"Titans D/ST"},
+    {d:"Sep 16", type:"add", who:"t7", txt:"Devaughn Vele (NO · WR) — waiver claim", faab:null, drop:null},
+    {d:"Sep 15", type:"drop", who:"t3", txt:"Michael Mayer (LV · TE)", faab:null, drop:null},
+    {d:"Sep 10", type:"add", who:"t7", txt:"Tua Tagovailoa (Atl · QB)", faab:null, drop:null},
     {d:"Sep 10", type:"add", who:"t3", txt:"Dalton Schultz (Hou · TE)", faab:null, drop:null},
     {d:"Sep 9", type:"add", who:"t3", txt:"Michael Mayer (LV · TE)", faab:null, drop:"Chig Okonkwo"},
     {d:"Sep 8", type:"add", who:"t8", txt:"Titans D/ST", faab:null, drop:"Cowboys D/ST"},
-    {d:"Sep 8", type:"add", who:"t8", txt:"Evan McPherson (Cin · K)", faab:null, drop:"Jason Myers"},
     {d:"Sep 2", type:"add", who:"t1", txt:"Braelon Allen (NYJ · RB)", faab:null, drop:null}
   ],
-  targets:[], // first waiver-scout report files Tuesday night after Week 1
-  reports:[]  // agent filings accumulate here once the week goes final
+  targets:[ // Waiver Scout · Thu 9/17 — waivers cleared Tuesday, so these are instant free-agent adds
+    {name:"Dontayvion Wicks", pos:"WR · PHI", own:"27% rostered", bid:"Add now — no drop needed",
+     why:"Highest-rostered WR sitting on your wire (proj 5.37 this week, home run upside in that offense). Your bench spot is already open from the Brown IR move, and your WR room behind Evans/Worthy is one deep. This is a free lottery ticket.",
+     drop:"none — fills the open slot"},
+    {name:"T.J. Hockenson", pos:"TE · MIN", own:"29% rostered", bid:"Add if you'd rather upgrade TE depth",
+     why:"A former top-5 TE at 29% rostered, projecting even with Brenton Strange (4.57 vs 4.55) with a far higher ceiling. Kraft's backup plan shouldn't be Strange.",
+     drop:"Brenton Strange"},
+    {name:"George Holani", pos:"RB · SEA", own:"7% rostered", bid:"Watch list — claim only if a spot opens",
+     why:"Top projected FA on the board (5.79). You're already RB-deep, but if Mason goes to IR you'd have a second open spot to stash him.",
+     drop:"none — watch list"}
+  ],
+  reports:[
+    {agent:"Week 1 Recap", when:"Wed 9/16", lead:"Won the opener 94.46–72.26 — the projection had it a coin flip; Caleb Williams made it a laugher.",
+     bullets:["Caleb went 37.26 (269 pass yds, 2 pass TD, 2 rush TD in a 59–37 shootout) — QB1 overall numbers from your 6th-round pick. Yahoo's D+ draft grade is already sweating.",
+              "The win came scoring 94.46 — below the league median of 98.30. Taylor (22.10) carried the skill positions; Judkins (5.00), Dowdle (2.10) and Chargers D (1.00) were passengers. Fifth in standings, seventh in points: the record is ahead of the engine so far.",
+              "Adam's Bandits got 1.20 from Ja'Marr Chase and still would have needed 23 more. Sometimes the blue shell just hits."]},
+    {agent:"Waiver Scout", when:"Thu 9/17", lead:"Quiet Tuesday for us by design — the roster moves that mattered were administrative, and the wire has one add worth making today.",
+     bullets:["Waiver priority improved 9th → 6th via the standings re-rank. Don't burn it casually: in a priority league, the slot is most valuable the week a starter-maker hits waivers.",
+              "Brown to IR was executed — bench spot open. Wicks (above) is the free fill. If Mason also goes to IR Sunday-morning, Holani becomes stashable too.",
+              "Around the league: King Boo's has churned 6 moves in 10 days (now streaming 49ers D). Waluigi's lost Tua to injury and is patching with Gesicki/Vele — 0–1 with QB trouble is how fire sales start. Keep an eye on their WR room for a buy-low."]}
+  ]
 };
 
 /* ============================ RENDER ============================ */
@@ -384,11 +414,11 @@ document.querySelectorAll('#tabs button').forEach(b=>{
 /* pulse strip */
 (function(){
   const chips=[
-    {k:"Record",v:"0–0",s:"everyone's undefeated"},
-    {k:"Week 1",v:`<span class="up">13.50</span>–0.00`,s:"vs King Boo's Bandits · live"},
-    {k:"Waiver priority",v:"#9",s:"of 12 · rolling by standings"},
-    {k:"IR slots",v:"0/2",s:"used · Brown carries the tag"},
-    {k:"Draft grade",v:"D+",s:"Yahoo's take. We'll see."}
+    {k:"Record",v:`<span class="up">1–0</span>`,s:"5th · won opener by 22.2"},
+    {k:"Week 2",v:"45%",s:"underdog vs Peeps · proj 88.5–92.7"},
+    {k:"Points for",v:"94.46",s:"#7 · league median 98.3"},
+    {k:"Waiver priority",v:"#6",s:"of 12 · rolling by standings"},
+    {k:"IR slots",v:"1/2",s:"Brown stashed · Mason tagged"}
   ];
   $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
   $('hdrWeek').textContent='Week '+LEAGUE.meta.week;
@@ -424,26 +454,27 @@ function playerRow(p, benched){
     : p.status==='bye'?'<span class="pill info">BYE</span>'
     : p.status==='played'?'<span class="pill info">FINAL</span>'
     : p.status==='ir'?'<span class="pill out">IR</span>'
+    : p.status==='open'?'<span class="pill info">OPEN</span>'
     : '<span class="pill out">OUT</span>';
   const num = p.pts!==undefined
     ? `<span class="proj" style="color:var(--chalk);font-weight:600">${fmt1(p.pts)}</span>`
     : `<span class="proj">${p.proj?fmt1(p.proj):'—'}</span>`;
   return `<li class="${benched?'benched':''}">
     <span class="slot">${p.slot}</span>
-    <span class="pname"><b>${esc(p.name)}</b><span class="pmeta">${p.team} · ${p.opp}</span></span>
+    <span class="pname"><b>${esc(p.name)}</b><span class="pmeta">${[p.team,p.opp].filter(Boolean).join(' · ')}</span></span>
     ${status}
     ${num}
   </li>`;
 }
 $('starters').innerHTML=LEAGUE.roster.starters.map(p=>playerRow(p,false)).join('');
 $('bench').innerHTML=LEAGUE.roster.bench.map(p=>playerRow(p,true)).join('');
-$('lineupCallouts').innerHTML=LEAGUE.roster.starters.filter(p=>p.flag)
+$('lineupCallouts').innerHTML=[...LEAGUE.roster.starters,...LEAGUE.roster.bench].filter(p=>p.flag)
   .map(p=>`<div class="callout"><b>${esc(p.name)}</b>${esc(p.flag)}</div>`).join('');
 
 /* leak chart — status-colored week bars, direct value labels */
 (function(){
   const data=LEAGUE.benchLeak;
-  if(!data.length){$('leakChart').innerHTML='<div class="empty">Bench-leak tracking starts when Week 1 goes final. Every point a benched player outscores a starter of the same position gets counted here.</div>';return;}
+  if(!data.length){$('leakChart').innerHTML='<div class="empty">One screenshot short: the Week 1 box score with "Show Bench Players" expanded. Bench actuals turn this meter on.</div>';return;}
   const W=860, H=150, pad=6, bw=(W-pad*2)/18;
   const max=Math.max(20,...data);
   let bars='';
@@ -549,7 +580,7 @@ $('targets').innerHTML=!LEAGUE.targets.length
   ? '<div class="empty">First scout report lands Tuesday night, after Week 1 finals and before waivers clear. One that already got away: Beerio Cart fanatics scooped Braelon Allen on Sep 2.</div>'
   : LEAGUE.targets.map(t=>`
   <div class="target">
-    <div class="target-top"><b>${esc(t.name)}</b><span style="color:var(--muted);font-size:13px">${esc(t.pos)} · ${esc(t.own)}</span><span class="bid">Bid ${esc(t.bid)}</span></div>
+    <div class="target-top"><b>${esc(t.name)}</b><span style="color:var(--muted);font-size:13px">${esc(t.pos)} · ${esc(t.own)}</span><span class="bid">${esc(t.bid)}</span></div>
     <p>${esc(t.why)}</p>
     <div class="drops">Drop: ${esc(t.drop)}</div>
   </div>`).join('');
