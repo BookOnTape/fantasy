@@ -1,0 +1,29 @@
+{
+  "week": 1,
+  "result": {"me": 94.46, "opp": 72.26, "opp_team": "King Boo's Bandits", "won": true,
+             "proj": {"me": 84.07, "opp": 83.39}},
+  "league_median": 98.30,
+  "bench_leak": {"points": 27.4, "optimal_total": 121.86,
+                 "misses": ["Monangai (18.40) over Dowdle (2.10) in W/R/T", "Mason (11.90) over Judkins (5.00) at RB, Strange (8.30) over Kraft (6.50) at TE in the full-optimal line"]},
+  "starters": [
+    {"slot": "QB", "player": "Caleb Williams", "pts": 37.26, "proj": 18.56, "line": "2 Rush TD, 269 Pass Yds, 2 Pass TD"},
+    {"slot": "RB", "player": "Jonathan Taylor", "pts": 22.10, "proj": 14.85, "line": "2 Rush TD, 98 Rush Yds, 23 Rec Yds"},
+    {"slot": "RB", "player": "Quinshon Judkins", "pts": 5.00, "proj": 9.63, "line": "33 Rush Yds, 17 Rec Yds"},
+    {"slot": "WR", "player": "A.J. Brown", "pts": 2.60, "proj": 0.00, "line": "26 Rec Yds (IR tag)"},
+    {"slot": "WR", "player": "Mike Evans", "pts": 10.90, "proj": 7.94, "line": "1 Rec TD, 49 Rec Yds"},
+    {"slot": "TE", "player": "Tucker Kraft", "pts": 6.50, "proj": 7.22, "line": "65 Rec Yds"},
+    {"slot": "W/R/T", "player": "Rico Dowdle", "pts": 2.10, "proj": 10.02, "line": "15 Rush Yds, 6 Rec Yds"},
+    {"slot": "K", "player": "Jake Bates", "pts": 7.00, "proj": 8.15, "line": "4 PAT, 1 FG 20-29"},
+    {"slot": "DEF", "player": "Chargers", "pts": 1.00, "proj": 7.70, "line": "1 Sack"}
+  ],
+  "bench": [
+    {"player": "Jordan Mason", "pos": "RB", "pts": 11.90, "proj": 7.85, "line": "1 Rush TD, 59 Rush Yds", "note": "IR tag"},
+    {"player": "Kyle Monangai", "pos": "RB", "pts": 18.40, "proj": 6.96, "line": "100 Rush Yds, 1 Rush TD, 24 Rec Yds", "note": "Q"},
+    {"player": "Rachaad White", "pos": "RB", "pts": 2.70, "proj": 6.48, "line": "22 Rush Yds, 5 Rec Yds"},
+    {"player": "Woody Marks", "pos": "RB", "pts": 4.00, "proj": 6.83, "line": "42 Rush Yds, -2 Rec Yds"},
+    {"player": "Xavier Worthy", "pos": "WR", "pts": 1.80, "proj": 5.52, "line": "18 Rec Yds"},
+    {"player": "Khalil Shakir", "pos": "WR", "pts": 5.00, "proj": 5.67, "line": "50 Rec Yds"},
+    {"player": "Brenton Strange", "pos": "TE", "pts": 8.30, "proj": 4.96, "line": "1 Rec TD, 23 Rec Yds"}
+  ],
+  "opp_notes": {"bench_total": 77.20, "highlights": ["Jalen Coker 25.80 benched", "Jeremiyah Love 11.00 benched"]}
+}
