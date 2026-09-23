@@ -338,15 +338,15 @@ const LEAGUE = {
   ],
   roster:{ // Week 3 — slots carried from wk2 (send Sunday-morning roster shot for exact proj/tags)
     starters:[
-      {slot:"QB", name:"Caleb Williams", team:"CHI", opp:"Mon 8:15 vs Phi", proj:0, status:"d", flag:"DOUBTFUL for Monday night — the whole reason the projection shows a 22-point hole. C.J. Stroud (17.96 proj, Sun 1:00 @ Ind, 44% rostered) is a FREE ADD into your open bench spot: grab him, start him Sunday, and Monday-night roulette is cancelled. Decide before Sunday 1:00."},
+      {slot:"QB", name:"Caleb Williams", team:"CHI", opp:"Mon 8:15 vs Phi", proj:0, status:"d", flag:"Right hamstring strain (avoided a tear, but 'week to week' and not expected to practice — call it 10–20% to play). Worse: backup Tyson Bagent entered concussion protocol Tuesday, so Chicago's Monday QB could be 38-year-old Case Keenum. Plan as if Caleb is out for wks 3–4: add Stroud (free, open bench spot) and start him Sunday."},
       {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 1:00 vs Hou", proj:0, status:"ok", flag:null},
-      {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 vs Car", proj:0, status:"ok", flag:"4.80 and 5.00 in two weeks. The leash isn't infinite — White (vs Sea) and Monangai have both out-produced him. One more dud and the sit/start desk moves him to the bench column."},
-      {slot:"WR", name:"Mike Evans", team:"SF", opp:"Sun 4:05 vs Ari", proj:0, status:"q", flag:null},
+      {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 vs Car", proj:0, status:"ok", flag:"Research reversed our lean: START him with confidence. The points (4.80, 5.00) hide a bell-cow role — 39–11 snap edge over Sanders, 5/5 receiving last week, Sampson on IR — and Carolina has allowed the most fantasy points to RBs. Rankers have him ~RB20. This is the week the workload pays."},
+      {slot:"WR", name:"Mike Evans", team:"SF", opp:"Sun 4:05 vs Ari", proj:0, status:"q", flag:"Hip — left the Miami game but Shanahan says it 'didn't appear serious,' just managed practice reps. Expectation is he plays. Start him if he logs Thu/Fri practice; Wicks is the pivot on a surprise Sunday downgrade."},
       {slot:"WR", name:"Xavier Worthy", team:"KC", opp:"Sun 1:00 @ Mia", proj:0, status:"ok", flag:null},
-      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Thu 8:15 vs Atl · TOMORROW", proj:0, status:"ok", flag:null},
-      {slot:"W/R/T", name:"Rico Dowdle", team:"PIT", opp:"Sun 1:00 vs Cin", proj:0, status:"q", flag:"Questionable, and Wicks (Mon @ Chi) or Shakir (vs LAC) are healthy flex pivots. Watch Friday practice."},
+      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Thu 8:15 vs Atl · TOMORROW", proj:0, status:"ok", flag:"Box scores are lying about him: 98% snaps last week, route rate 48%→84%, and Atlanta bleeds ~17.7 pts/game to TEs. Multiple analysts named him THE Week 3 TE breakout. Start Thursday, zero hesitation."},
+      {slot:"W/R/T", name:"Rico Dowdle", team:"PIT", opp:"Sun 1:00 vs Cin", proj:0, status:"q", flag:"Toe, day-to-day, Steelers 'hoping' he goes. Even if active, toe injuries sap RB burst — and Wicks (Mon @ Chi, 6 targets last week) is a healthy pivot who lets you see Sunday's results first. Lean Wicks unless Dowdle practices fully Friday."},
       {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 1:00 vs NYJ", proj:0, status:"ok", flag:null},
-      {slot:"DEF", name:"Chargers D/ST", team:"LAC", opp:"Sun 1:00 @ Buf", proj:0, status:"ok", flag:"Two straight duds (4.00, 1.00) and now a road trip to Buffalo — the worst possible spot. Worth checking the DEF wire for a streamer; send the D/ST free-agent list and I'll rank them."}
+      {slot:"DEF", name:"Chargers D/ST", team:"LAC", opp:"Sun 1:00 @ Buf", proj:0, status:"ok", flag:"Ranked 27th this week — Buffalo leads the league in points and yards per drive. Off the confirmed FA board: GIANTS (6.86, home vs Tennessee — Cam Ward under 20 points both games, consensus streamer pick) or Panthers (7.13, Yahoo's top FA number... at Cleveland, against your own Judkins). Recommendation: drop Chargers, add Giants."}
     ],
     bench:[
       {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"Mon 8:15 vs Phi", proj:0, status:"ok", flag:null},
@@ -386,11 +386,17 @@ const LEAGUE = {
     {name:"Michael Pittman Jr.", pos:"WR · PIT", own:"73% rostered", bid:"Waiver claim, clears Fri 9/25 — a real priority decision",
      why:"Beerio cut him (Q tag) for a lottery RB. A 73%-rostered WR on waivers is exactly what priority #7 is FOR — if his injury news is clean by Friday, claim him. Your WR room after Evans (Q himself) and Worthy is Shakir and Wicks.",
      drop:"Brenton Strange or Woody Marks"},
-    {name:"Streaming DEF vs Chargers @ Buf", pos:"DEF", own:"—", bid:"Send the D/ST wire list",
-     why:"Chargers D has produced 5.00 points in two weeks combined and now visits Buffalo. The FA screenshots didn't include defenses — send that list and the scout will rank the streamers before Sunday.",
-     drop:"Chargers D/ST (streamer churn)"}
+    {name:"Giants D/ST", pos:"DEF · NYG", own:"7% rostered", bid:"Add before Sunday — free agent",
+     why:"The Chargers' trip to Buffalo is the week's worst DEF spot (ranked 27th). The Giants get Cam Ward at home — he's under 20 points and ~1 TD through two games — and they're the consensus streamer that's actually free in this league (Seahawks/Chiefs/Vikings/49ers/Eagles all rostered). Panthers (7.13 @ Cle) are the higher Yahoo number if you prefer, at the cost of rooting against Judkins' offense.",
+     drop:"Chargers D/ST (streamer churn — they get KC and Buffalo-again soon anyway)"}
   ],
   reports:[
+    {agent:"Sit/Start Analyst", when:"Wed 9/23 · researched", lead:"Week 3 orders, built on live news: QB is the crisis, the rest is mostly hold-the-line.",
+     bullets:["QB — Caleb strained his hamstring ('week to week', ~10–20% to play Monday) AND backup Bagent is in concussion protocol; Chicago might start 38-year-old Case Keenum. Add C.J. Stroud (free) and start him Sunday @ Ind. Honest read: his efficiency has been poor (353 scoreless yards last week, no Nico Collins, patchwork O-line) — he's a QB18–24 floor play, not a star, but the volume is real and the alternative is roulette. Aaron Rodgers (vs Cin) is the fallback if Stroud vanishes.",
+              "START with confidence: Kraft Thursday (98% snaps, Atlanta bleeds 17.7/game to TEs — named the consensus TE breakout), Judkins vs Carolina (39–11 snap edge; CAR allows the most RB points — this is the workload-pays-off week), Taylor vs Hou (locked RB1; tough matchup, he owns them historically), Worthy @ Mia (TD equity in a soft spot).",
+              "WATCH Friday practice: Evans (hip, expected to play — start if he practices) and Dowdle (toe, day-to-day — lean Wicks at flex regardless; toes sap RB burst and Wicks runs 90% of snaps Monday night vs a middling Bears pass D).",
+              "DEF — drop Chargers (@ Buf, ranked 27th) for the Giants (vs Cam Ward, confirmed free). Sunday-morning checklist: Evans tag, Dowdle tag, and whether DJ Moore (shoulder) sits for Buffalo — that's the only thing that makes Shakir interesting this week.",
+              "Stash intel: A.J. Brown is a high-ankle sprain, ~6 weeks, earliest return Week 6 (realistically 7–8) — exactly what the IR slot is for, hold. Mason (thumb surgery) eligible back Week 7. Pittman (foot) is 50/50 for this week; his Wednesday practice report decides Friday's waiver claim — stash-priced only."]},
     {agent:"Week 2 Recap", when:"Wed 9/23", lead:"Won ugly, 69.52–56.92. That's 2–0 — and the luckiest 2–0 in the league.",
      bullets:["The honest ledger: 69.52 was the week's third-lowest score. You're 4th in standings with the 10th-most points (163.98) — you've simply drawn the two lowest scorers so far (opponents' 129.18 against is the league's gentlest schedule). The power rankings have you 8th; the record will regress unless the scoring comes up.",
               "Leak improved: 7.1 left on the bench (White over Judkins, Wicks over Evans, Monangai in the flex). Directionally right — but Judkins (4.80) has now been out-produced by your bench two straight weeks.",
