@@ -22,11 +22,10 @@ FA QB/TE, FA skill + waiver columns, DEF streamers + Cleveland offense.
 
 ## New finds
 
-1. **Denzel Boston (WR CLE)** — consensus #1 national WR add (FP #1 WR, Yahoo #2
-   overall): 5/95/1 on team-high 7 targets wk2, 94% routes, 50+ yds + TD in both
-   games, Cleveland's emerging WR1. **Dropped by Peach's Predators Sep 16, never
-   claimed — free in our league.** Add over Strange. Caveat: faces our Panthers
-   DEF this week → stash now, start after.
+1. ~~Denzel Boston~~ **CORRECTION (per Joe, 9/23): Boston is NOT available — he
+   remains on Peach's Predators.** The availability was wrongly derived from the
+   Sep 16 transaction screenshot. Lesson recorded: transaction ledger = history,
+   not current state; verify the live player page before recommending any add.
 2. **T.J. Hockenson (TE MIN)** — only genuine FA TE upgrade (TB allows 4th-most
    TE pts; Kyler Murray expected Vikings debut). Optional move; competes with
    Pittman for the Marks/Strange spots.
