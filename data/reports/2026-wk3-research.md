@@ -46,7 +46,7 @@ actual FA board (from transactions ledger + D/ST screenshot):
 - **FREE: Giants 6.86 vs Ten (consensus pick — Cam Ward <20 pts both games),
   Panthers 7.13 @ Cle (top Yahoo proj, vs our own Judkins), Packers 6.84 Thu,
   Saints 6.78, Bengals 6.20 @ Pit.** Bucs on waivers (Sep 25, 47%).
-Recommendation: Giants.
+Recommendation: PANTHERS (revised after wk2 review: 5 forced TO, pick-six, 34-3 rout — vs a bad Watson-led Cle offense; Judkins pairing is a variance hedge). Giants = floor alternative. Tail risk: 59 allowed to Chi in wk1.
 
 ## 6. Flex/bench + stashes
 - Worthy (@ Mia): boom/bust WR3, TD equity travels in standard — fine start.
