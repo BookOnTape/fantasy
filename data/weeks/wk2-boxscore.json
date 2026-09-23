@@ -1,0 +1,34 @@
+{
+  "week": 2,
+  "result": {"me": 69.52, "opp": 56.92, "opp_team": "Paratroopa's Peeps", "won": true,
+             "proj": {"me": 88.71, "opp": 94.38}},
+  "league_median": 100.66,
+  "week_scores": {"Princess Peach's Squad": 104.48, "Beerio Cart fanatics": 107.12, "Koopa Krew": 111.30,
+                  "Blue Shell Bait": 69.52, "Blue Shell Boyz": 83.06, "Waluigi's WAAHRIORS": 127.38,
+                  "CMC Kart 8": 96.84, "King Boo's Bandits": 109.08, "Peach's Predators": 114.88,
+                  "Yoshi's Egg-streme Squad": 74.76, "Paratroopa's Peeps": 56.92, "Double Dashers": 57.80},
+  "bench_leak": {"points": 7.1, "optimal_total": 76.62,
+                 "misses": ["White (8.30) over Judkins (4.80) at RB", "Wicks (7.40) over Evans (5.40) at WR", "Monangai (5.80) over Dowdle (4.40) in flex", "Strange (1.70) over Kraft (1.50) at TE"]},
+  "starters": [
+    {"slot": "QB", "player": "Caleb Williams", "pts": 8.72, "proj": 18.53, "line": "138 Pass Yds, 42 Rush Yds, 1 Int"},
+    {"slot": "RB", "player": "Jonathan Taylor", "pts": 25.20, "proj": 13.91, "line": "2 Rush TD, 92 Rush Yds, 40 Rec Yds"},
+    {"slot": "RB", "player": "Quinshon Judkins", "pts": 4.80, "proj": 10.35, "line": "27 Rec Yds, 21 Rush Yds"},
+    {"slot": "WR", "player": "Mike Evans", "pts": 5.40, "proj": 8.62, "line": "54 Rec Yds"},
+    {"slot": "WR", "player": "Xavier Worthy", "pts": 8.50, "proj": 6.46, "line": "1 Rec TD, 25 Rec Yds"},
+    {"slot": "TE", "player": "Tucker Kraft", "pts": 1.50, "proj": 7.23, "line": "15 Rec Yds"},
+    {"slot": "W/R/T", "player": "Rico Dowdle", "pts": 4.40, "proj": 8.32, "line": "22 Rush Yds, 22 Rec Yds"},
+    {"slot": "K", "player": "Jake Bates", "pts": 7.00, "proj": 7.67, "line": "4 PAT, 1 FG 30-39"},
+    {"slot": "DEF", "player": "Chargers", "pts": 4.00, "proj": 7.62, "line": "2 Sack, 1 Int"}
+  ],
+  "bench": [
+    {"player": "Kyle Monangai", "pos": "RB", "pts": 5.80, "proj": 7.44, "line": "47 Rush Yds, 11 Rec Yds"},
+    {"player": "Rachaad White", "pos": "RB", "pts": 8.30, "proj": 6.17, "line": "43 Rush Yds, 40 Rec Yds"},
+    {"player": "Woody Marks", "pos": "RB", "pts": 3.50, "proj": 7.25, "line": "27 Rec Yds, 8 Rush Yds"},
+    {"player": "Khalil Shakir", "pos": "WR", "pts": 3.80, "proj": 6.64, "line": "38 Rec Yds"},
+    {"player": "Brenton Strange", "pos": "TE", "pts": 1.70, "proj": 4.54, "line": "17 Rec Yds"},
+    {"player": "Dontayvion Wicks", "pos": "WR", "pts": 7.40, "proj": 5.47, "line": "74 Rec Yds"},
+    {"player": "Jordan Mason", "pos": "RB", "pts": 0.00, "slot": "IR"},
+    {"player": "A.J. Brown", "pos": "WR", "pts": 0.00, "slot": "IR"}
+  ],
+  "current_tags": {"Caleb Williams": "D (Mon vs Phi)", "Mike Evans": "Q", "Rico Dowdle": "Q"}
+}
