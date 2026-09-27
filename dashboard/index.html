@@ -207,7 +207,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
   .eyebrow{font-size:10px;letter-spacing:.12em;gap:6px 10px}
   /* pulse: one swipeable row instead of a 3+2 grid with an orphan */
   .pulse{
-    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;
+    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;gap:8px;
     margin:14px -16px 0;padding:0 16px 4px;scrollbar-width:none;
   }
   .pulse::-webkit-scrollbar{display:none}
@@ -351,7 +351,7 @@ const LEAGUE = {
   benchLeak:[27.4, 7.1],  // wk2 optimal 76.62 vs 69.52 (White>Judkins, Wicks>Evans, Monangai in flex)
   matchup:{ // Week 3 vs Double Dashers (Sarah) — post-moves projections
     opp:"t6", myLive:0.00, oppLive:0.00, myProj:89.72, oppProj:93.55,
-    note:"Wednesday's moves closed the gap from 22 points to 3.8 (46/54). Sarah's build runs through Lamar (22.89) — and she carries two Questionables (Nacua, Dobbins) in the Sunday-night game, so her number is softer than it looks. Kraft locks first, Thursday night."
+    note:"Wednesday's moves closed the gap from 22 points to 3.8 (46/54). Sarah's build runs through Lamar (22.89) — and she carries two Questionables (Nacua, Dobbins) in the Sunday-night game, so her number is softer than it looks. Kraft already played Thursday; everything else kicks off Sunday or Monday."
   },
   scoreboard:[ // Week 3 — not started, projections only
     {a:"t4", b:"t6", ap:0.00, bp:0.00, apr:89.72, bpr:93.55},
@@ -380,7 +380,7 @@ const LEAGUE = {
       {slot:"BN", name:"Rachaad White", team:"WAS", opp:"Sun 1:00 vs Sea", proj:5.07, status:"ok", flag:null},
       {slot:"BN", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 @ Ind", proj:6.34, status:"ok", flag:"KEEP · Rechecked Sun AM: he's ~50% of snaps, out-carried Montgomery in wk2, and is the more efficient back. Montgomery (29) is at 3.0 then 1.7 ypc and has missed games before. If Montgomery goes down, Marks is the one who takes over. Not the drop."},
       {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs LAC", proj:6.40, status:"ok", flag:"KEEP BENCHED · DJ Moore is a 50/50 game-time call; even if he sits, Shakir (WR45 so far) doesn't beat Wicks."},
-      {slot:"BN", name:"Brenton Strange", team:"JAX", opp:"Sun 1:00 vs NE", proj:5.09, status:"ok", flag:"DROP FOR PITTMAN · before 1:00 (he locks at kickoff). Backup TE behind Kraft with 2 targets last week; Parker Washington + BTJ took 20 of 29. The only job he fills is Kraft's Wk11 bye, and a TE can be streamed that week."},
+      {slot:"BN", name:"Michael Pittman Jr.", team:"PIT", opp:"Sun 1:00 vs Cin", proj:0, status:"q", flag:"ADDED Sun AM for Strange. Bench this week: first game back from plantar fasciitis, and his Wk1 target share was 8%. Watch today's snaps and targets before trusting him in a lineup."},
       {slot:"IR", name:"A.J. Brown", team:"NE", opp:"Sun 1:00 @ Jax", proj:0, status:"ir", flag:null},
       {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"Sun 4:05 @ TB", proj:0, status:"ir", flag:null}
     ]
@@ -467,8 +467,8 @@ document.querySelectorAll('#tabs button').forEach(b=>{
   const chips=[
     {k:"Record",v:`<span class="up">2–0</span>`,s:"4th · but 10th in points"},
     {k:"Week 3",v:"89.72",s:"proj vs Dashers' 93.55 — gap was 22, now 3.8"},
-    {k:"Moves made",v:"3",s:"Stroud in · Panthers in · Wicks flexed"},
-    {k:"Waiver priority",v:"#7",s:"Pittman in, Strange out (before 1:00)"},
+    {k:"Moves made",v:"4",s:"Stroud · Panthers · Wicks flexed · Pittman for Strange"},
+    {k:"Waiver priority",v:"#7",s:"unused · Pittman added as FA"},
     {k:"IR slots",v:"2/2",s:"Brown + Mason stashed"}
   ];
   $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
