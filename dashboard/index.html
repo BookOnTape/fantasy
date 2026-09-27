@@ -339,24 +339,24 @@ const LEAGUE = {
   ],
   roster:{ // Week 3 — slots carried from wk2 (send Sunday-morning roster shot for exact proj/tags)
     starters:[
-      {slot:"QB", name:"C.J. Stroud", team:"HOU", opp:"Sun 1:00 @ Ind", proj:17.96, status:"ok", flag:"PENDING · Friday: if Seattle rules Darnold OUT, Drew Lock (@ Was, the league's lowest implied total against him) becomes a higher-ceiling pivot. If Darnold plays, no action — ride Stroud."},
+      {slot:"QB", name:"C.J. Stroud", team:"HOU", opp:"Sun 1:00 @ Ind", proj:17.96, status:"ok", flag:"SUN AM ✓ START · Darnold is off the injury report, so the Lock pivot is dead. Nico Collins is out again, but Stroud threw for 627 yds without him and the Colts matchup is unchanged."},
       {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 1:00 vs Hou", proj:14.94, status:"ok", flag:null},
       {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 vs Car", proj:11.06, status:"ok", flag:null},
-      {slot:"WR", name:"Mike Evans", team:"SF", opp:"Sun 4:05 vs Ari", proj:8.99, status:"q", flag:"PENDING · Sunday morning: confirm his tag. Expected to play (managed hip), but if he's a surprise OUT, the pivot is Shakir (6.40, 1:00 game — decide before the early window) or an emergency Keon Coleman add."},
+      {slot:"WR", name:"Mike Evans", team:"SF", opp:"Sun 4:05 vs Ari", proj:8.99, status:"q", flag:"SUN AM ✓ START · Expected to play (Fowler/ESPN). Limited Friday, only 49ers player listed Q. IF he's a surprise inactive at ~2:35: move Wicks into this WR slot and put Monangai at flex (both play Monday, so the swap works after the 1:00 games lock)."},
       {slot:"WR", name:"Xavier Worthy", team:"KC", opp:"Sun 1:00 @ Mia", proj:7.47, status:"ok", flag:null},
-      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Thu 8:15 vs Atl · TOMORROW", proj:7.55, status:"ok", flag:null},
-      {slot:"W/R/T", name:"Dontayvion Wicks", team:"PHI", opp:"Mon 8:15 @ Chi", proj:5.82, status:"ok", flag:null},
+      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Thu 8:15 vs Atl · played", proj:7.55, status:"played", flag:null},
+      {slot:"W/R/T", name:"Dontayvion Wicks", team:"PHI", opp:"Mon 8:15 @ Chi", proj:5.82, status:"ok", flag:"SUN AM ✓ START · Slight upgrade: Goedert is OUT (MCL), so more targets for the Eagles' #2. NFL.com has him as a Week 3 sleeper; Bears allow the 9th-most pass yds."},
       {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 1:00 vs NYJ", proj:8.80, status:"ok", flag:null},
       {slot:"DEF", name:"Panthers D/ST", team:"CAR", opp:"Sun 1:00 @ Cle", proj:7.13, status:"ok", flag:null}
     ],
     bench:[
-      {slot:"BN", name:"Caleb Williams", team:"CHI", opp:"Mon 8:15 vs Phi", proj:0, status:"d", flag:null},
-      {slot:"BN", name:"Rico Dowdle", team:"PIT", opp:"Sun 1:00 vs Cin", proj:8.45, status:"q", flag:null},
+      {slot:"BN", name:"Caleb Williams", team:"CHI", opp:"Mon 8:15 vs Phi", proj:0, status:"o", flag:null},
+      {slot:"BN", name:"Rico Dowdle", team:"PIT", opp:"Sun 1:00 vs Cin", proj:0, status:"o", flag:"OUT (toe, in a boot all week). Already benched, no action. Don't slide him in."},
       {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"Mon 8:15 vs Phi", proj:7.05, status:"ok", flag:null},
       {slot:"BN", name:"Rachaad White", team:"WAS", opp:"Sun 1:00 vs Sea", proj:5.07, status:"ok", flag:null},
-      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 @ Ind", proj:6.34, status:"ok", flag:"PENDING · Friday: he's the drop if the Pittman waiver claim goes through."},
-      {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs LAC", proj:6.40, status:"ok", flag:null},
-      {slot:"BN", name:"Brenton Strange", team:"JAX", opp:"Sun 1:00 vs NE", proj:5.09, status:"ok", flag:"OPTIONAL · any time before Sunday: swap him for Keon Coleman (WR depth) or Hockenson (TE upside) — both confirmed free."},
+      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 @ Ind", proj:6.34, status:"ok", flag:"OPTIONAL · The Friday claim didn't happen. If Pittman shows as a free agent in Yahoo, add him and drop Marks. Bench Pittman this week (first game back from plantar fasciitis)."},
+      {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs LAC", proj:6.40, status:"ok", flag:"KEEP BENCHED · DJ Moore is a 50/50 game-time call; even if he sits, Shakir (WR45 so far) doesn't beat Wicks."},
+      {slot:"BN", name:"Brenton Strange", team:"JAX", opp:"Sun 1:00 vs NE", proj:5.09, status:"ok", flag:null},
       {slot:"IR", name:"A.J. Brown", team:"NE", opp:"Sun 1:00 @ Jax", proj:0, status:"ir", flag:null},
       {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"Sun 4:05 @ TB", proj:0, status:"ir", flag:null}
     ]
@@ -392,6 +392,13 @@ const LEAGUE = {
      drop:"Brenton Strange"}
   ],
   reports:[
+    {agent:"Sit/Start Analyst", when:"Sun 9/27 · 9:45 AM pre-game check", lead:"No lineup changes. Every midweek call held, and the one open question went our way.",
+     bullets:["START AS SET: Stroud, Taylor, Judkins, Evans, Worthy, Kraft (played Thu), Wicks at flex, Bates, Panthers D.",
+              "Darnold plays: full practices Thu/Fri, off the report. The Lock pivot is dead, so ride Stroud. Collins is out again for Houston, but Stroud had 627 yds without him.",
+              "Evans: expected to play (ESPN/Fowler), limited Friday, the 49ers' only questionable. Late-scratch plan: Wicks to WR, Monangai to flex (both Monday).",
+              "Dowdle is OUT (toe, boot). He's on the bench, so no action. Browns start Watson, so Panthers D holds. Judkins faces the league's worst run D (224 yds/gm), with LB Devin Lloyd out for Carolina.",
+              "Wicks gets a bump: Goedert is OUT. DJ Moore is a game-time 50/50, but Shakir stays benched either way. Caleb is OUT Monday (hamstring) and Keenum is expected to start for Chicago.",
+              "Optional roster move: the Pittman claim never happened. He's expected to play today (Schefter). If he's a free agent, add him and drop Marks, but keep him on the bench this week."]},
     {agent:"Sit/Start Analyst", when:"Wed 9/23 · full wk2-first re-check", lead:"Every call re-run against last week's tape. Three held, two upgraded, one flipped, one big find.",
      bullets:["EXECUTED Wed night ✓ — Stroud added and starting, Panthers D in for Chargers, Wicks flexed over Q-Dowdle. Projection gap vs the Dashers closed from 22 points to 3.8 (89.72–93.55). Remaining actions live in the lineup PENDING flags and the Wire tab.",
               "HELD — Stroud add+start (Colts allow an NFL-worst 514 yds/37 pts a game; every alternative got worse under recency: Rodgers 6.6 pts in a 'broken' offense, Lock only matters if Darnold's ruled out Friday). Panthers DEF held too — NBC DST7, Vegas CAR −2.5/41.5 — while the Giants alternative got DOWNGRADED (28–6 loss, DST18). Bengals @ Pit is the new plan B.",
@@ -437,7 +444,7 @@ document.querySelectorAll('#tabs button').forEach(b=>{
     {k:"Record",v:`<span class="up">2–0</span>`,s:"4th · but 10th in points"},
     {k:"Week 3",v:"89.72",s:"proj vs Dashers' 93.55 — gap was 22, now 3.8"},
     {k:"Moves made",v:"3",s:"Stroud in · Panthers in · Wicks flexed"},
-    {k:"Waiver priority",v:"#7",s:"Pittman claim Friday"},
+    {k:"Waiver priority",v:"#7",s:"Pittman: add if free (drop Marks)"},
     {k:"IR slots",v:"2/2",s:"Brown + Mason stashed"}
   ];
   $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
@@ -475,6 +482,7 @@ function playerRow(p, benched){
     : p.status==='played'?'<span class="pill info">FINAL</span>'
     : p.status==='ir'?'<span class="pill out">IR</span>'
     : p.status==='open'?'<span class="pill info">OPEN</span>'
+    : p.status==='o'?'<span class="pill out">OUT</span>'
     : p.status==='d'?'<span class="pill out">DOUBT</span>'
     : '<span class="pill out">OUT</span>';
   const num = p.pts!==undefined
