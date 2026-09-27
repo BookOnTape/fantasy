@@ -354,9 +354,9 @@ const LEAGUE = {
       {slot:"BN", name:"Rico Dowdle", team:"PIT", opp:"Sun 1:00 vs Cin", proj:0, status:"o", flag:"OUT (toe, in a boot all week). Already benched, no action. Don't slide him in."},
       {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"Mon 8:15 vs Phi", proj:7.05, status:"ok", flag:null},
       {slot:"BN", name:"Rachaad White", team:"WAS", opp:"Sun 1:00 vs Sea", proj:5.07, status:"ok", flag:null},
-      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 @ Ind", proj:6.34, status:"ok", flag:"OPTIONAL · The Friday claim didn't happen. If Pittman shows as a free agent in Yahoo, add him and drop Marks. Bench Pittman this week (first game back from plantar fasciitis)."},
+      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 @ Ind", proj:6.34, status:"ok", flag:"KEEP · Rechecked Sun AM: he's ~50% of snaps, out-carried Montgomery in wk2, and is the more efficient back. Montgomery (29) is at 3.0 then 1.7 ypc and has missed games before. If Montgomery goes down, Marks is the one who takes over. Not the drop."},
       {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs LAC", proj:6.40, status:"ok", flag:"KEEP BENCHED · DJ Moore is a 50/50 game-time call; even if he sits, Shakir (WR45 so far) doesn't beat Wicks."},
-      {slot:"BN", name:"Brenton Strange", team:"JAX", opp:"Sun 1:00 vs NE", proj:5.09, status:"ok", flag:null},
+      {slot:"BN", name:"Brenton Strange", team:"JAX", opp:"Sun 1:00 vs NE", proj:5.09, status:"ok", flag:"DROP FOR PITTMAN · before 1:00 (he locks at kickoff). Backup TE behind Kraft with 2 targets last week; Parker Washington + BTJ took 20 of 29. The only job he fills is Kraft's Wk11 bye, and a TE can be streamed that week."},
       {slot:"IR", name:"A.J. Brown", team:"NE", opp:"Sun 1:00 @ Jax", proj:0, status:"ir", flag:null},
       {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"Sun 4:05 @ TB", proj:0, status:"ir", flag:null}
     ]
@@ -398,7 +398,7 @@ const LEAGUE = {
               "Evans: expected to play (ESPN/Fowler), limited Friday, the 49ers' only questionable. Late-scratch plan: Wicks to WR, Monangai to flex (both Monday).",
               "Dowdle is OUT (toe, boot). He's on the bench, so no action. Browns start Watson, so Panthers D holds. Judkins faces the league's worst run D (224 yds/gm), with LB Devin Lloyd out for Carolina.",
               "Wicks gets a bump: Goedert is OUT. DJ Moore is a game-time 50/50, but Shakir stays benched either way. Caleb is OUT Monday (hamstring) and Keenum is expected to start for Chicago.",
-              "Optional roster move: the Pittman claim never happened. He's expected to play today (Schefter). If he's a free agent, add him and drop Marks, but keep him on the bench this week."]},
+              "Roster move (revised 10 AM): add Pittman, DROP STRANGE, keep Marks. Marks has a real path to a bigger role (half the snaps, more efficient than Montgomery). Strange is a backup TE with 2 targets. Pittman: 88% snaps, 93% routes, 58 yds on 3 targets in Wk1. Correction: his Wk1 target share was 8%, not the ~20% I quoted midweek. Plantar fasciitis can linger. Bench him today."]},
     {agent:"Sit/Start Analyst", when:"Wed 9/23 · full wk2-first re-check", lead:"Every call re-run against last week's tape. Three held, two upgraded, one flipped, one big find.",
      bullets:["EXECUTED Wed night ✓ — Stroud added and starting, Panthers D in for Chargers, Wicks flexed over Q-Dowdle. Projection gap vs the Dashers closed from 22 points to 3.8 (89.72–93.55). Remaining actions live in the lineup PENDING flags and the Wire tab.",
               "HELD — Stroud add+start (Colts allow an NFL-worst 514 yds/37 pts a game; every alternative got worse under recency: Rodgers 6.6 pts in a 'broken' offense, Lock only matters if Darnold's ruled out Friday). Panthers DEF held too — NBC DST7, Vegas CAR −2.5/41.5 — while the Giants alternative got DOWNGRADED (28–6 loss, DST18). Bengals @ Pit is the new plan B.",
@@ -444,7 +444,7 @@ document.querySelectorAll('#tabs button').forEach(b=>{
     {k:"Record",v:`<span class="up">2–0</span>`,s:"4th · but 10th in points"},
     {k:"Week 3",v:"89.72",s:"proj vs Dashers' 93.55 — gap was 22, now 3.8"},
     {k:"Moves made",v:"3",s:"Stroud in · Panthers in · Wicks flexed"},
-    {k:"Waiver priority",v:"#7",s:"Pittman: add if free (drop Marks)"},
+    {k:"Waiver priority",v:"#7",s:"Pittman in, Strange out (before 1:00)"},
     {k:"IR slots",v:"2/2",s:"Brown + Mason stashed"}
   ];
   $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
