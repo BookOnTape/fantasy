@@ -201,6 +201,30 @@ td.num,th.num{text-align:right}
 .agent-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--boost);text-transform:uppercase}
 
 footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)}
+/* ---------- phone ---------- */
+@media (max-width:600px){
+  header{padding-top:14px}
+  .eyebrow{font-size:10px;letter-spacing:.12em;gap:6px 10px}
+  /* pulse: one swipeable row instead of a 3+2 grid with an orphan */
+  .pulse{
+    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;
+    margin:14px -16px 0;padding:0 16px 4px;scrollbar-width:none;
+  }
+  .pulse::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 42%;scroll-snap-align:start;padding:10px 12px}
+  .chip .v{font-size:26px}
+  .chip .s{font-size:11.5px;line-height:1.35}
+  /* tabs fit on one line */
+  nav{margin:18px 0 16px}
+  nav button{font-size:17px;padding:8px 10px;flex:1}
+  /* matchup: sides stay side-by-side */
+  .hero{padding:14px}
+  .hero-teams{flex-wrap:nowrap;gap:8px;align-items:flex-start}
+  .hero-side{min-width:0}
+  .hero-name{font-size:18px}
+  .hero-proj{font-size:34px}
+  .vs{align-self:center}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -210,7 +234,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
   <div class="eyebrow">
     <span id="hdrLeague">Rainbow Road Warriors · 12 teams</span>
     <span id="hdrWeek">Week 8</span>
-    <span class="sample">Synced Wed 9/23 late · moves in</span>
+    <span class="sample">Synced Sun 9/27 AM · pre-game</span>
   </div>
   <h1>Blue Shell <span>Bait</span></h1>
   <div class="pulse" id="pulse"></div>
