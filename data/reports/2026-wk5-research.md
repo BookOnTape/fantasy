@@ -1,8 +1,10 @@
 # Week 5 Desk — Thu 2026-10-08 (before TNF)
 
-Week 4: **W, 129.88** vs Blue Shell Boyz (James). Season high, about 35 over the 95.3 projection.
-Now 3–1, 5th, 7th in PF (348.84). Opponent score, league median and bench leak are pending
-(need the Wk4 box score + standings screenshots).
+Week 4: **W 129.88–57.40** vs Blue Shell Boyz (James). Season high, 2nd-best of the week (CMC 147.56),
+median 96.52. Now 3–1, 5th, 7th in PF (348.84), power 7th (from 10th). Bench leak 7.6
+(Evans 7.60 sat for Wicks 1.80, Kraft 10.50 for Andrews 8.70; optimal 137.48).
+
+**EXECUTED Thu 10/8:** Evans in for Worthy, Kraft over Andrews, Roman Wilson added / Dowdle dropped.
 
 Week 5 vs Princess Peach's Squad (Karen, 4–0, the last unbeaten). Yahoo as set: 77.76 vs 103.31, 24/76,
 because **Worthy (KC bye) is in a starting WR slot at 0.00**. Recommended lineup projects 88.95.
