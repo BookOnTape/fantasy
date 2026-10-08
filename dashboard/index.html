@@ -236,7 +236,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
   <div class="eyebrow">
     <span id="hdrLeague">Rainbow Road Warriors · 12 teams</span>
     <span id="hdrWeek">Week 8</span>
-    <span class="sample">Synced Fri 10/2 2:37 PM · moves done</span>
+    <span class="sample">Synced Thu 10/8 2:44 PM · lineup fix pending</span>
   </div>
   <h1>Blue Shell <span>Bait</span></h1>
   <div class="pulse" id="pulse"></div>
@@ -270,7 +270,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
 
 <section id="tab-league" class="hidden">
   <h2>Standings</h2>
-  <p class="hint">Through Week 2 · updated Wed 3:00am. Four unbeatens left; you're the only one of them outside the top three in points.</p>
+  <p class="hint">Through Week 4 · records from Yahoo Thu 10/8. Princess Peach's Squad is the last unbeaten, and they're this week's opponent. League PF/PA (—) needs a standings screenshot. Your 348.84 is 7th.</p>
   <div class="tblwrap"><table id="standings"></table></div>
   <div class="panel" style="margin-top:14px">
     <h3>My weekly score vs league median</h3>
@@ -283,7 +283,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
   <h2>This week's board</h2>
   <div class="cards" id="scoreboard"></div>
   <h2>Power rankings</h2>
-  <p class="hint">Computed weekly by the league monitor agent: recent form, points for, roster strength.</p>
+  <p class="hint">Through Week 3. The Week 4 refresh needs everyone's points, which come from a standings screenshot.</p>
   <div class="tblwrap"><table id="power"></table></div>
 </section>
 
@@ -293,7 +293,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
   <div id="targets"></div>
   <details class="archive"><summary>Completed moves (<span id="doneN"></span>)</summary><ul class="tx" id="done"></ul></details>
   <h2>League transaction wire</h2>
-  <p class="hint">Every add, drop, and trade. Waivers are priority-based (rolling by standings, clear Tuesday) — you sit 7th.</p>
+  <p class="hint">Every add, drop, and trade. Waivers are priority-based (rolling by standings, clear Tuesday) — you sit 6th.</p>
   <ul class="tx" id="txfeed"></ul>
 </section>
 
@@ -315,7 +315,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
    Season numbers (standings, scores, projections, transactions) are SAMPLE
    until games are played and live data flows. */
 const LEAGUE = {
-  meta:{name:"Rainbow Road Warriors", size:12, week:4, myTeam:"t4"},
+  meta:{name:"Rainbow Road Warriors", size:12, week:5, myTeam:"t4"},
   teams:{
     t1:{name:"Beerio Cart fanatics"},
     t2:{name:"Peach's Predators"},
@@ -330,65 +330,76 @@ const LEAGUE = {
     t11:{name:"Princess Peach's Squad"},
     t12:{name:"Paratroopa's Peeps"}
   },
-  standings:[ // post-Week 3, per Yahoo (updated Fri 10/2 2:11am)
-    {t:"t9", w:3, l:0, pf:324.88, pa:212.26, strk:"W3"},
-    {t:"t11",w:3, l:0, pf:321.94, pa:260.98, strk:"W3"},
-    {t:"t1", w:2, l:1, pf:302.84, pa:257.22, strk:"L1"},
-    {t:"t7", w:2, l:1, pf:285.66, pa:297.36, strk:"W2"},
-    {t:"t8", w:2, l:1, pf:281.52, pa:249.28, strk:"W1"},
-    {t:"t4", w:2, l:1, pf:218.96, pa:210.92, strk:"L1"},
-    {t:"t2", w:1, l:2, pf:337.72, pa:332.86, strk:"W1"},
-    {t:"t5", w:1, l:2, pf:279.60, pa:332.18, strk:"L2"},
-    {t:"t3", w:1, l:2, pf:278.18, pa:289.14, strk:"L1"},
-    {t:"t6", w:1, l:2, pf:217.00, pa:278.64, strk:"W1"},
-    {t:"t10",w:0, l:3, pf:273.10, pa:350.96, strk:"L3"},
-    {t:"t12",w:0, l:3, pf:221.10, pa:270.70, strk:"L3"}
+  standings:[ // post-Week 4, per Yahoo matchup page (Thu 10/8). Only my PF is on the
+              // screenshots; everyone else's PF/PA waits on a standings screenshot (null = unknown)
+    {t:"t11",w:4, l:0, pf:null, pa:null, strk:"W4"},
+    {t:"t9", w:3, l:1, pf:null, pa:null, strk:"L1"},
+    {t:"t8", w:3, l:1, pf:null, pa:null, strk:"W2"},
+    {t:"t7", w:3, l:1, pf:null, pa:null, strk:"W3"},
+    {t:"t4", w:3, l:1, pf:348.84, pa:null, strk:"W1"},
+    {t:"t2", w:2, l:2, pf:null, pa:null, strk:"W2"},
+    {t:"t1", w:2, l:2, pf:null, pa:null, strk:"L2"},
+    {t:"t3", w:1, l:3, pf:null, pa:null, strk:"L2"},
+    {t:"t5", w:1, l:3, pf:null, pa:null, strk:"L3"},
+    {t:"t12",w:1, l:3, pf:null, pa:null, strk:"W1"},
+    {t:"t6", w:1, l:3, pf:null, pa:null, strk:"L1"},
+    {t:"t10",w:0, l:4, pf:null, pa:null, strk:"L4"}
   ],
-  power:[ // v2 — cumulative points for + half of margin; movement vs last week
+  power:[ // v2, THROUGH WEEK 3: cumulative points for + half of margin; movement vs last week.
+          // Wk4 refresh needs league PF (standings screenshot).
     {t:"t9", mv:+1}, {t:"t11", mv:-1}, {t:"t2", mv:+2}, {t:"t1", mv:-1},
     {t:"t8", mv:+1}, {t:"t7", mv:+1}, {t:"t3", mv:+2}, {t:"t5", mv:-4},
     {t:"t10", mv:+1}, {t:"t4", mv:-2}, {t:"t12", mv:0}, {t:"t6", mv:0}
   ],
-  myScores:[94.46, 69.52, 54.98],
-  medians: [98.30, 100.66, 90.71],
+  myScores:[94.46, 69.52, 54.98, 129.88], // wk4 = 348.84 season PF − 218.96 through Wk3
+  medians: [98.30, 100.66, 90.71, null],   // wk4 median needs the Wk4 scoreboard
   benchLeak:[27.4, 7.1, 8.1],  // wk3 optimal 63.08 vs 54.98 (White 10.10 in flex, Evans to WR, Worthy 2.00 out)
-  matchup:{ // Week 4 vs Blue Shell Boyz (James) — Fri 10/2 after TNF
-    opp:"t5", myLive:15.60, oppLive:0.00, myProj:95.33, oppProj:88.96,
-    note:"Both moves are done and the lineup is set (Fri 2:37 PM). Yahoo has us 95.33 vs 88.96, 58/42, and the risk is out of our number now (Evans benched, Panthers gone). Judkins banked 15.60. Two Sunday checks remain: Swift at ~11:30 for Monangai, and Evans if he's somehow cleared. James's DJ Moore is listed Q on Yahoo. His Breece Hall is out and Goedert is doubtful, both on his bench."
+  matchup:{ // Week 5 vs Princess Peach's Squad (Karen, 4–0) — Thu 10/8 before TNF
+    opp:"t11", myLive:0, oppLive:0, myProj:88.95, oppProj:103.31,
+    note:"Yahoo has us 77.76 vs 103.31 (24/76), but that counts Worthy's bye as a zero in a starting WR slot. With Evans in for Worthy and Kraft over Andrews, we project 88.95. Karen is the last unbeaten team. Lamb and Aubrey play for her tonight. Her Swift (hip, knee; DNP Wed) and Stevenson are both Q. If Swift sits, Karen loses about 11 points and Monangai's share grows."
   },
-  scoreboard:[ // Week 4 — live Fri 10/2 after TNF (Cle 27–24 Pit); italic = Yahoo live proj
-    {a:"t4", b:"t5", ap:15.60, bp:0.00, apr:94.43, bpr:89.02},
-    {a:"t10", b:"t7", ap:0.00, bp:0.00, apr:96.37, bpr:93.31},
-    {a:"t3", b:"t12", ap:0.00, bp:12.60, apr:98.47, bpr:91.41},
-    {a:"t11", b:"t9", ap:0.00, bp:17.70, apr:98.69, bpr:99.64},
-    {a:"t8", b:"t6", ap:0.00, bp:7.70, apr:98.40, bpr:97.61},
-    {a:"t2", b:"t1", ap:0.00, bp:6.00, apr:98.92, bpr:96.08}
+  scoreboard:[ // Week 5 — Thu 10/8 before TNF (Dal–TB); all 0.00, Yahoo projections
+    {a:"t4", b:"t11", ap:0, bp:0, apr:77.76, bpr:103.31},
+    {a:"t10", b:"t1", ap:0, bp:0, apr:77.52, bpr:99.58},
+    {a:"t3", b:"t6", ap:0, bp:0, apr:94.69, bpr:82.06},
+    {a:"t8", b:"t5", ap:0, bp:0, apr:94.91, bpr:89.57},
+    {a:"t2", b:"t9", ap:0, bp:0, apr:102.97, bpr:92.74},
+    {a:"t12", b:"t7", ap:0, bp:0, apr:87.41, bpr:100.24}
   ],
-  roster:{ // Week 4 — RECOMMENDED lineup after Fri moves (Yahoo proj in parens where changed)
+  roster:{ // Week 5 — RECOMMENDED lineup (Yahoo proj). As set on Yahoo Thu: Worthy (BYE) at WR, Andrews at TE.
     starters:[
-      {slot:"QB", name:"C.J. Stroud", team:"HOU", opp:"Sun 1:00 vs Dal", proj:19.58, status:"ok", flag:null},
-      {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 9:30 AM @ Was · LONDON", proj:17.09, status:"ok", flag:null},
-      {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"Thu · W 27–24 vs Pit", pts:15.60, status:"played", flag:null},
-      {slot:"WR", name:"Dontayvion Wicks", team:"PHI", opp:"Sun 1:00 vs LAR", proj:7.14, status:"ok", flag:null},
-      {slot:"WR", name:"Xavier Worthy", team:"KC", opp:"Sun 4:25 @ LV", proj:6.37, status:"ok", flag:null},
-      {slot:"TE", name:"Mark Andrews", team:"BAL", opp:"Sun 1:00 vs Ten", proj:6.08, status:"ok", flag:"ADDED ✓ Fri (Pittman dropped). Full practices Wed and Thu, no tag. BAL −11.5, implied for about 27. Yahoo has Kraft 1.1 higher this week, so it's close. Andrews is the better TD bet and the better hold for the rest of the season."},
-      {slot:"W/R/T", name:"Kyle Monangai", team:"CHI", opp:"Sun 1:00 vs NYJ", proj:7.70, status:"ok", flag:"FLEX · If Swift (knee, DNP Thu) sits, he's an RB2 against a Jets team missing four offensive starters. If Swift plays, he's still the top-projected bench option (30% snaps, 10 carries). Check Swift's status around 11:30 Sunday. Kraft is the fallback."},
-      {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 8:20 @ Car", proj:8.32, status:"ok", flag:null},
-      {slot:"DEF", name:"Bears D/ST", team:"CHI", opp:"Sun 1:00 vs NYJ", proj:7.45, status:"ok", flag:null}
+      {slot:"QB", name:"C.J. Stroud", team:"HOU", opp:"Sun 1:00 @ Ten", proj:17.72, status:"ok", flag:null},
+      {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 1:00 @ Pit", proj:14.84, status:"ok", flag:null},
+      {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 @ NYJ", proj:10.57, status:"ok", flag:null},
+      {slot:"WR", name:"Mike Evans", team:"SF", opp:"Sun 4:25 @ Sea", proj:8.54, status:"q", flag:"START IN WORTHY'S SPOT · Worthy is on bye and sitting in a starting WR slot on Yahoo at 0.00. Evans played through the ribs in Wk4: 8 targets, 5–76 on 59% of snaps. Limited Wed. He has 213 yds and 2 TD this year (8.3 pts/g). He kicks off at 4:25, so if he's inactive, swap in Shakir (Mon night)."},
+      {slot:"WR", name:"Dontayvion Wicks", team:"PHI", opp:"Sun 9:30 AM @ Jax · LONDON", proj:5.79, status:"ok", flag:"LOCKS 9:30 AM SUN · Close call with Shakir. Wicks has 197 yds and 1 TD (6.4 pts/g). Shakir has 176 yds and 0 TD (3.9). DeVonta Smith (hamstring) and Hollywood Brown (ankle) both missed practice Wed, so Wicks moves up if they sit. Against that: PHI is implied for only 18, and Wicks had 3–18 in Wk4. Lean Wicks. Decide by Saturday night."},
+      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Sun 1:00 vs Chi", proj:8.02, status:"ok", flag:"START OVER ANDREWS · 92% of snaps, a 23% target share and a TD in Wk4 (6–42–1). His snaps have climbed three straight weeks, and Jayden Reed is out for the season. Yahoo: 8.02 vs 5.37."},
+      {slot:"W/R/T", name:"Kyle Monangai", team:"CHI", opp:"Sun 1:00 @ GB", proj:9.06, status:"q", flag:"FLEX · Q (thumb, toe) after 30–146–2 in Wk4. The Wed DNP was workload management. Ben Johnson: 'The thumb is not an issue.' Swift (hip, knee) also sat, and CHI is implied for 23.5. Check Friday's report. If Monangai's ruled out, Marks is the 1:00 fallback."},
+      {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 4:25 @ Ari", proj:8.76, status:"ok", flag:null},
+      {slot:"DEF", name:"Bears D/ST", team:"CHI", opp:"Sun 1:00 @ GB", proj:5.65, status:"ok", flag:"KEEP · 30 DST points in four games (14 sacks, 7 takeaways), the most of any defense available to us. NBC ranks them 5th, Yahoo 3rd. GB is missing two guards and a tackle. The Cowboys (TNF, 6 DST points all season) aren't worth a chase tonight."}
     ],
     bench:[
-      {slot:"BN", name:"Mike Evans", team:"SF", opp:"Sun 4:25 vs Den", proj:8.72, status:"q", flag:"SIT unless he's cleared · Rib injury from Wk3 (Kittle: 'fractured ribs suck'), no practice Wed or Thu. Start him only if Friday's report drops his tag. Then swap him in for Worthy (both 4:25)."},
-      {slot:"BN", name:"Tucker Kraft", team:"GB", opp:"Sun 1:00 @ TB", proj:7.21, status:"ok", flag:"BENCH TE · Plays 98% of snaps but has 2 drops and is still coming back from the ACL. GB is implied for only about 21.5 in a 39.5-total game. Flex fallback if Swift plays and you want the steadier role."},
-      {slot:"BN", name:"Caleb Williams", team:"CHI", opp:"OUT · hamstring", proj:0, status:"o", flag:null},
-      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 vs Dal", proj:6.98, status:"ok", flag:"WATCH · Snap share fell (20 vs Montgomery's 34 in Wk3). Still the handcuff, but the trend is wrong. Next drop candidate if it keeps sliding."},
-      {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs NE", proj:5.27, status:"ok", flag:null},
-      {slot:"BN", name:"Rachaad White", team:"WAS", opp:"OUT · shoulder", proj:0, status:"o", flag:null},
-      {slot:"BN", name:"Rico Dowdle", team:"PIT", opp:"OUT · toe", proj:0, status:"o", flag:null},
-      {slot:"IR", name:"A.J. Brown", team:"NE", opp:"IR · eligible Wk6", proj:0, status:"ir", flag:null},
-      {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"IR · eligible Wk7", proj:0, status:"ir", flag:null}
+      {slot:"BN", name:"Xavier Worthy", team:"KC", opp:"BYE", proj:0, status:"bye", flag:null},
+      {slot:"BN", name:"Mark Andrews", team:"BAL", opp:"Sun 8:20 @ Atl", proj:5.37, status:"ok", flag:"SIT · Lamar Jackson (ankle) has only an 'outside chance' (Rapoport), so Tyler Huntley likely starts. BAL is implied for about 20. Andrews: 18–149–1 on the year, full practice Wed. Hold him; he's back in when Lamar is."},
+      {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"Mon 8:15 @ LAR", proj:6.42, status:"ok", flag:null},
+      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 @ Ten", proj:6.69, status:"ok", flag:null},
+      {slot:"BN", name:"Rico Dowdle", team:"PIT", opp:"Sun 1:00 vs Ind · toe", proj:7.53, status:"q", flag:"DROP CANDIDATE · Wed was his first practice since Wk2 (limited), and McCarthy is 'not really sure' when he's back. Warren played 90% and 97% of snaps without him. 2.5 yds/carry before the injury. See Wire → Roman Wilson."},
+      {slot:"BN", name:"Rachaad White", team:"WAS", opp:"Sun 1:00 vs NYG · shoulder", proj:5.61, status:"q", flag:null},
+      {slot:"BN", name:"Caleb Williams", team:"CHI", opp:"OUT · Gr 2 hamstring, ~Wk8", proj:0, status:"o", flag:null},
+      {slot:"IR", name:"A.J. Brown", team:"NE", opp:"IR · eligible Wk6, high ankle", proj:0, status:"ir", flag:null},
+      {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"IR · eligible Wk7 (MIN bye Wk6)", proj:0, status:"ir", flag:null}
     ]
   },
   transactions:[ // REAL league wire (waiver-priority league, no FAAB)
+    {d:"Oct 7", type:"add", who:"t9", txt:"Keon Coleman (Buf · WR)", faab:null, drop:"Chris Bell"},
+    {d:"Oct 7", type:"add", who:"t3", txt:"Aaron Rodgers (Pit · QB)", faab:null, drop:"Dalton Schultz"},
+    {d:"Oct 7", type:"add", who:"t8", txt:"Jaguars D/ST", faab:null, drop:"Packers D/ST"},
+    {d:"Oct 7", type:"add", who:"t8", txt:"Evan McPherson (Cin · K) — waiver claim", faab:null, drop:"Will Reichard"},
+    {d:"Oct 7", type:"add", who:"t9", txt:"Will Shipley (Phi · RB) — waiver claim", faab:null, drop:"Bo Nix"},
+    {d:"Oct 7", type:"add", who:"t8", txt:"Malik Washington (Mia · WR) — waiver claim", faab:null, drop:"Rashod Bateman"},
+    {d:"Oct 7", type:"add", who:"t2", txt:"Jacoby Brissett (Ari · QB) — waiver claim", faab:null, drop:"Justin Herbert"},
+    {d:"Oct 7", type:"add", who:"t3", txt:"Bengals D/ST — waiver claim", faab:null, drop:"Cardinals D/ST"},
+    {d:"Oct 2", type:"add", who:"t9", txt:"Chris Bell (Mia · WR)", faab:null, drop:null},
     {d:"Oct 2", type:"add", who:"t4", txt:"Mark Andrews (Bal · TE)", faab:null, drop:"Michael Pittman Jr."},
     {d:"Oct 2", type:"add", who:"t4", txt:"Bears D/ST", faab:null, drop:"Panthers D/ST"},
     {d:"Oct 1", type:"add", who:"t5", txt:"AJ Barner (Sea · TE)", faab:null, drop:"Jayden Reed (IR)"},
@@ -429,7 +440,11 @@ const LEAGUE = {
     {d:"Sep 8", type:"add", who:"t8", txt:"Titans D/ST", faab:null, drop:"Cowboys D/ST"},
     {d:"Sep 2", type:"add", who:"t1", txt:"Braelon Allen (NYJ · RB)", faab:null, drop:null}
   ],
-  targets:[], // nothing open on the wire — next scout run Tue night after MNF
+  targets:[ // Week 5 scout, Thu 10/8 — FA = instant add
+    {name:"Roman Wilson", pos:"PIT · WR · vs Ind Sun 1:00", own:"FA · 14% rostered", bid:"Optional · rest of season",
+     why:"Pittman has a multi-week foot injury and was carted off at Wednesday practice (Audacy, 10/8). In Wk2, the game Pittman missed, Wilson played 79% of snaps. 2026: 188 yds and 2 TD, 7.7 pts/g in 0-PPR, which beats Shakir (3.9) and Wicks (6.4). Not a Wk5 starter (Yahoo 5.05); this is about Weeks 6+, with Worthy's and Brown's timelines uncertain.",
+     drop:"Rico Dowdle. All 8 bench players weighed. Caleb (back around Wk8, which is Stroud's bye), Kraft (starting), Marks (37–51% of snaps, 2 TD), White (split with Croskey-Merritt, on track to play), Andrews, Evans, Shakir and Worthy all have roles. Dowdle has no path while Warren plays 90%+."}
+  ],
   done:[ // completed moves, newest first
     {d:"Oct 2", txt:"Lineup set for Wk4: Worthy to WR, Monangai to flex, Evans and Kraft benched", why:"Evans has a rib injury and missed practice Wed and Thu. Taylor's London 9:30 AM lock is covered."},
     {d:"Oct 2", txt:"Added Bears D/ST, dropped Panthers D/ST", why:"vs NYJ (NBC DST5) instead of vs DET (DST30). Carolina is on bye in Wk5."},
@@ -440,6 +455,19 @@ const LEAGUE = {
     {d:"Sep 17", txt:"Added Dontayvion Wicks · A.J. Brown to IR", why:"Free bench fill once Brown's IR opened a spot."}
   ],
   reports:[
+    {agent:"Sit/Start Analyst", when:"Thu 10/8 · Week 5 desk", lead:"Fix the bye hole, start Kraft over Andrews, keep the Bears. One optional add.",
+     bullets:["URGENT: Worthy (KC bye) is in a starting WR slot on Yahoo at 0.00. Start Evans there. He played through the ribs in Wk4 (8 targets, 5–76, 59% of snaps) and was limited Wed. If he's inactive at 4:25, swap in Shakir (Mon night).",
+              "TE: Kraft over Andrews. Lamar Jackson is unlikely to play (ankle), so BAL is down to about 20 implied with Huntley. Kraft played 92% of snaps with a 23% target share and a TD in Wk4, and Reed is out for the season.",
+              "LINEUP: Stroud · Taylor · Judkins · Evans · Wicks · Kraft · Monangai at flex · Bates · Bears. Yahoo proj 88.95 vs Karen's 103.31. Wicks locks at 9:30 AM Sunday (London).",
+              "CHECKS: Friday's reports for Monangai (thumb, toe; Wed DNP was workload) and Swift; Marks is the 1:00 fallback. DeVonta Smith and Hollywood Brown (both DNP Wed). If they sit, Wicks is the clear WR2. If they play, it's a coin flip with Shakir.",
+              "DEF: Keep the Bears. They have 30 DST points in four games (14 sacks, 7 takeaways), and NBC ranks them 5th, Yahoo 3rd. The Cowboys (FantasyPros #1, but 6 DST points all season) would need adding before 8:15 tonight. Pass.",
+              "OPTIONAL ADD: Roman Wilson (PIT WR, FA) for Dowdle. Pittman has a multi-week foot injury, and Wilson played 79% of snaps the last time Pittman sat. Dowdle has no role while Warren plays 90%+.",
+              "PASSED: TeSlaa (DET implied about 30 but a 3–16% target share), Godwin (rookie Jalon Daniels at QB), Tre' Harris, Hollins, Shaheed, Flournoy, K. Mitchell. QB: Bo Nix (17.68, waivers) and Herbert are no upgrade on Stroud (17.72)."]},
+    {agent:"Week 4 Recap", when:"Thu 10/8", lead:"Beat Blue Shell Boyz with 129.88, our season high. 3–1, 5th.",
+     bullets:["129.88 beat the 95.3 projection by about 35. Season PF is up to 348.84, 7th in the league after being 10th a week ago.",
+              "Monangai was the flex call and went 30–146–2 (about 26.6 from rushing alone) after Swift fumbled and lost his carries. Evans played through the ribs (5–76) while on our bench under the 'only if cleared' plan. Kraft scored from the bench (6–42–1).",
+              "Not in hand yet: James's score, the league median and our bench leak. Those need the Wk4 box score and a standings screenshot.",
+              "Around the league: Princess Peach's Squad beat Koopa Krew and is the last unbeaten (4–0), our Wk5 opponent. Paratroopa's Peeps got their first win (over King Boo's). On Tuesday's waivers, Herbert (Peach's Predators) and Bo Nix (Koopa) were cut, and CMC Kart made three more moves (McPherson, M. Washington, Jaguars D)."]},
     {agent:"Sit/Start Analyst", when:"Fri 10/2 · Week 4 desk", lead:"Two free-agent adds, one sit, and set Taylor by Sunday 9:30 AM (London). EXECUTED ✓ Fri 2:37 PM.",
      bullets:["MOVES (both free agents, instant): drop Panthers D, add Bears D. Drop Pittman, add Mark Andrews. Both have to happen before Sun 1:00.",
               "LINEUP: Stroud · Taylor · Judkins (15.60 banked) · Wicks · Worthy · Andrews · Monangai at flex · Bates · Bears. Bench Evans and Kraft.",
@@ -500,10 +528,10 @@ document.querySelectorAll('#tabs button').forEach(b=>{
 /* pulse strip */
 (function(){
   const chips=[
-    {k:"Record",v:`<span class="up">2–1</span>`,s:"6th · 10th in points"},
-    {k:"Week 4",v:"15.60",s:"Judkins banked · proj 95.3 vs 89.0 (58%)"},
-    {k:"Moves",v:"Done ✓",s:"Bears D · Andrews · lineup set"},
-    {k:"Sun checks",v:"2",s:"Swift ~11:30 (Monangai) · Evans tag"},
+    {k:"Record",v:`<span class="up">3–1</span>`,s:"5th · 7th in points"},
+    {k:"Week 5",v:"89.0",s:"proj after fixes vs 103.3 · Yahoo 24%"},
+    {k:"Fix now",v:"Bye",s:"Evans for Worthy · Kraft over Andrews"},
+    {k:"Optional",v:"+1",s:"R. Wilson for Dowdle (FA)"},
     {k:"IR slots",v:"2/2",s:"Brown Wk6 · Mason Wk7"}
   ];
   $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
@@ -587,10 +615,11 @@ $('lineupCallouts').innerHTML=[...LEAGUE.roster.starters,...LEAGUE.roster.bench]
   const mine=LEAGUE.myScores, med=LEAGUE.medians;
   if(!mine.length){$('trendChart').innerHTML='<div class="empty">Your weekly score vs the league median plots here after Week 1 finals.</div>';return;}
   const W=860,H=210,padL=40,padR=14,padT=16,padB=26;
-  const lo=80, hi=Math.ceil(Math.max(...mine,...med)/10)*10+10;
+  const medK=med.filter(v=>v!=null);
+  const lo=40, hi=Math.ceil(Math.max(...mine,...medK)/10)*10+10;
   const x=i=>padL+i*((W-padL-padR)/17);
   const y=v=>padT+(1-(v-lo)/(hi-lo))*(H-padT-padB);
-  const path=a=>a.map((v,i)=>`${i?'L':'M'}${x(i)},${y(v)}`).join('');
+  const path=a=>a.map((v,i)=>v==null?'':`${i&&a[i-1]!=null?'L':'M'}${x(i)},${y(v)}`).join('');
   let grid='';
   for(let g=lo+20;g<hi;g+=20)
     grid+=`<line x1="${padL}" x2="${W-padR}" y1="${y(g)}" y2="${y(g)}" stroke="#232B42"/><text x="${padL-7}" y="${y(g)+3}" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#5A6483">${g}</text>`;
@@ -608,7 +637,7 @@ $('lineupCallouts').innerHTML=[...LEAGUE.roster.starters,...LEAGUE.roster.bench]
     ${dots}
     <text x="${x(last)+8}" y="${y(mine[last])+4}" font-family="IBM Plex Mono" font-size="11" fill="#EDEFF5">${mine[last].toFixed(1)}</text>
   </svg><div class="tt" id="trendTT"></div>`;
-  hover('trendChart','trendTT','.tp',el=>`<div class="t">Week ${el.dataset.w}</div>Me: <b>${(+el.dataset.m).toFixed(1)}</b><br>Median: ${(+el.dataset.d).toFixed(1)}`);
+  hover('trendChart','trendTT','.tp',el=>`<div class="t">Week ${el.dataset.w}</div>Me: <b>${(+el.dataset.m).toFixed(1)}</b><br>Median: ${el.dataset.d==='null'?'—':(+el.dataset.d).toFixed(1)}`);
 })();
 
 /* shared hover/tooltip */
@@ -634,8 +663,8 @@ function hover(chartId, ttId, sel, html){
       <td class="num">${i+1}</td>
       <td><b>${esc(t.name)}</b></td>
       <td class="num">${s.w}–${s.l}</td>
-      <td class="num">${fmt1(s.pf)}</td>
-      <td class="num">${fmt1(s.pa)}</td>
+      <td class="num">${s.pf==null?'—':fmt1(s.pf)}</td>
+      <td class="num">${s.pa==null?'—':fmt1(s.pa)}</td>
       <td class="num ${s.strk[0]==='W'?'streak-w':'streak-l'}">${s.strk}</td>
     </tr>`;
   }).join('');
@@ -649,7 +678,7 @@ $('scoreboard').innerHTML=LEAGUE.scoreboard.map(m=>{
   return `<div class="mcard"${mine?' style="border-color:var(--shell)"':''}>
     <div class="mrow ${aLead?'lead':''}"><span>${esc(T(m.a).name)}</span><span class="sc">${fmt1(m.ap)}</span></div>
     <div class="mrow ${aLead?'':'lead'}"><span>${esc(T(m.b).name)}</span><span class="sc">${fmt1(m.bp)}</span></div>
-    <div class="mtag">${mine?'Your matchup · ':''}In progress · proj ${fmt1(m.apr)}–${fmt1(m.bpr)}</div>
+    <div class="mtag">${mine?'Your matchup · ':''}${m.ap||m.bp?'In progress':'Not started'} · proj ${fmt1(m.apr)}–${fmt1(m.bpr)}</div>
   </div>`;
 }).join('');
 
@@ -665,7 +694,7 @@ $('scoreboard').innerHTML=LEAGUE.scoreboard.map(m=>{
 
 /* wire */
 $('targets').innerHTML=!LEAGUE.targets.length
-  ? '<div class="empty">Nothing open. Week 4 moves are done. The next scout report lands Tuesday night, after MNF and before waivers clear.</div>'
+  ? '<div class="empty">Nothing open. The next scout report lands Tuesday night, after MNF and before waivers clear.</div>'
   : LEAGUE.targets.map(t=>`
   <div class="target">
     <div class="target-top"><b>${esc(t.name)}</b><span style="color:var(--muted);font-size:13px">${esc(t.pos)} · ${esc(t.own)}</span><span class="bid">${esc(t.bid)}</span></div>
