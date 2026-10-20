@@ -9,13 +9,13 @@ Week 7 vs Yoshi's Egg-streme Squad (Molly, 0–6). Yahoo: 86.45 vs 51.09. Her La
 McLaurin show No Game, and our 86.45 counts Evans, who is expected out.
 
 ## Moves
-1. **NOW: drop Dowdle, move A.J. Brown off IR.** NE activated him for Wk6, so he's not IR-eligible, and Yahoo blocks
+1. **DONE Tue: dropped Dowdle, moved A.J. Brown off IR.** NE activated him for Wk6, so he's not IR-eligible, and Yahoo blocks
    adds and drops until he leaves the slot. Dowdle: 28% of snaps in Wk6, Warren named the featured back. All 8 bench
    players weighed: Shakir, Moore and White on bye (hold), Caleb is QB insurance, Monangai is the next drop when Mason
    needs a spot.
-2. **Claim Jake Bates, drop Shrader.** DET is implied for about 27.75 vs GB (dome). IND is implied for 18 @ MIN.
+2. **(placed Tue) Claim Jake Bates, drop Shrader.** DET is implied for about 27.75 vs GB (dome). IND is implied for 18 @ MIN.
    Backup: Reichard.
-3. **Claim the Jets D/ST, drop the Panthers.** MIA is implied for 17 @ NYJ. TB is implied for 20.5 @ CAR.
+3. **(placed Tue) Claim the Jets D/ST, drop the Panthers.** MIA is implied for 17 @ NYJ. TB is implied for 20.5 @ CAR.
    Backup: Titans (CLE implied 19).
 
 ## Lineup (Brown locks Thu 8:15 PM)

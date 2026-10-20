@@ -236,7 +236,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
   <div class="eyebrow">
     <span id="hdrLeague">Rainbow Road Warriors · 12 teams</span>
     <span id="hdrWeek">Week 8</span>
-    <span class="sample">Synced Tue 10/20 1:00 PM · 3 moves open</span>
+    <span class="sample">Synced Tue 10/20 · claims pending Wed</span>
   </div>
   <h1>Blue Shell <span>Bait</span></h1>
   <div class="pulse" id="pulse"></div>
@@ -371,7 +371,7 @@ const LEAGUE = {
       {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 1:00 @ Min", proj:13.81, status:"ok", flag:null},
       {slot:"RB", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 vs NYG", proj:10.12, status:"ok", flag:"78% of snaps in Wk6 (15–56, 2–25). Montgomery (groin) is aiming to return this week, which would bring back the split. Still the best RB2 we have."},
       {slot:"WR", name:"Xavier Worthy", team:"KC", opp:"Sun 8:20 @ Sea", proj:5.73, status:"ok", flag:"KC's WR1 while Rashee Rice is out: 82% of snaps, 7 targets, 7–73 in Wk6."},
-      {slot:"WR", name:"A.J. Brown", team:"NE", opp:"Thu 8:15 @ Chi", proj:9.71, status:"q", flag:"MOVE OFF IR NOW · The Patriots activated him, so he's no longer IR-eligible, and Yahoo blocks adds and drops until he leaves the IR slot. Wk6: 76% of snaps, a team-high 10 targets and 40% of the air yards, but 3–27 with drops. Limited Mon (ankle). Locks Thu 8:15. If he's ruled out, Wicks starts."},
+      {slot:"WR", name:"A.J. Brown", team:"NE", opp:"Thu 8:15 @ Chi", proj:9.71, status:"q", flag:"OFF IR ✓ · Wk6: 76% of snaps, a team-high 10 targets and 40% of the air yards, but 3–27 with drops. Limited Mon (ankle). Locks Thu 8:15. If he's ruled out, Wicks starts."},
       {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Sun 4:25 @ Det", proj:7.76, status:"ok", flag:"79% of snaps and 8 targets in Wk6. GB is implied for about 24.75."},
       {slot:"W/R/T", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 @ Ten", proj:10.01, status:"q", flag:"FLEX IF ACTIVE · Missed Wk6 (ankle) after a pregame workout. He was limited Fri. If he's inactive at 11:30 AM Sun, put Wicks (Mon night) in the flex."},
       {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 4:25 vs GB", proj:8.69, status:"open", flag:"WAIVER CLAIM for Shrader · DET is implied for about 27.75 at home in a dome. IND is implied for only 18 at MIN, which is Shrader's problem. Reichard (MIN, 23.5) is the backup claim."},
@@ -456,11 +456,11 @@ const LEAGUE = {
     {d:"Sep 2", type:"add", who:"t1", txt:"Braelon Allen (NYJ · RB)", faab:null, drop:null}
   ],
   targets:[ // Week 7 — Tue 10/20. Do #1 first: Brown in the IR slot blocks every other move
-    {name:"1 · Move A.J. Brown off IR", pos:"WR · NE", own:"your IR slot", bid:"NOW", why:"NE activated him for Wk6, so he isn't IR-eligible anymore, and Yahoo won't process adds or drops while he sits there. Drop Dowdle to open the bench spot, then start Brown at WR. Of the 8 bench players, Dowdle has the least path to a role: 28% of snaps in Wk6, and Warren is PIT's named lead back. Monangai is next.", drop:"Rico Dowdle"},
-    {name:"2 · Jake Bates", pos:"K · DET", own:"waivers, clears Wed 10/21", bid:"CLAIM", why:"DET is implied for about 27.75 vs GB, at home in a dome. Shrader's IND is implied for 18. Reichard (MIN, 23.5) is the backup claim.", drop:"Spencer Shrader"},
-    {name:"3 · Jets D/ST", pos:"DEF · NYJ", own:"waivers, clears Wed 10/21", bid:"CLAIM", why:"vs MIA, implied for 17 (38.5 total). The Panthers face TB, implied for 20.5. Titans (vs CLE, implied 19) are the backup.", drop:"Panthers D/ST"}
+    {name:"Jake Bates", pos:"K · DET", own:"waivers, clears Wed 10/21", bid:"CLAIM PLACED ✓", why:"DET is implied for about 27.75 vs GB, at home in a dome. Shrader's IND is implied for 18. Reichard (MIN, 23.5) is the backup claim.", drop:"Spencer Shrader"},
+    {name:"Jets D/ST", pos:"DEF · NYJ", own:"waivers, clears Wed 10/21", bid:"CLAIM PLACED ✓", why:"vs MIA, implied for 17 (38.5 total). The Panthers face TB, implied for 20.5. Titans (vs CLE, implied 19) are the backup.", drop:"Panthers D/ST"}
   ],
   done:[ // completed moves, newest first
+    {d:"Oct 20", txt:"Dropped Rico Dowdle, moved A.J. Brown off IR to WR", why:"Brown was activated by NE, and his IR slot was blocking every add and drop. Dowdle: 28% of snaps behind Warren."},
     {d:"Oct 16", txt:"Added DJ Moore, dropped Mark Andrews", why:"From the league wire. Reasoning not logged (no desk run that week)."},
     {d:"Oct 15", txt:"Added Panthers D/ST, dropped Bears D/ST", why:"From the league wire."},
     {d:"Oct 15", txt:"Added Spencer Shrader, dropped Jake Bates", why:"From the league wire."},
@@ -475,7 +475,7 @@ const LEAGUE = {
     {d:"Sep 17", txt:"Added Dontayvion Wicks · A.J. Brown to IR", why:"Free bench fill once Brown's IR opened a spot."}
   ],
   reports:[
-    {agent:"Sit/Start Analyst", when:"Tue 10/20 · Week 7 desk", lead:"Get Brown out of the IR slot first. Two waiver claims, and a flex that depends on Judkins. Deadline: Thu 8:15 PM.",
+    {agent:"Sit/Start Analyst", when:"Tue 10/20 · Week 7 desk", lead:"Brown off IR, Dowdle dropped, Bates and Jets claims placed Tue ✓. Flex depends on Judkins. Deadline: Thu 8:15 PM.",
      bullets:["MOVE 1 (now): A.J. Brown is stuck in our IR slot after his NFL activation, and that blocks every add and drop. Drop Dowdle (28% of snaps, Warren is the named lead back) and start Brown at WR. All 8 bench players weighed. Hold Shakir, Moore and White through their byes. Caleb is QB insurance. Monangai is next, when Mason needs a spot.",
               "EVANS: expected out. He aggravated his Achilles on MNF and SF is targeting Wk9 (RotoWire 10/19). Yahoo still projects him for 10.66 at flex, so our 86.45 is inflated. Bench him.",
               "LINEUP: Stroud · Taylor · Marks · Worthy · Brown · Kraft · Judkins at flex (if active) · Bates · Jets. Fallback for Brown (Thu) or Judkins (Sun 1:00) is Wicks, who plays Monday night.",
@@ -561,9 +561,9 @@ document.querySelectorAll('#tabs button').forEach(b=>{
   const chips=[
     {k:"Record",v:`<span class="up">4–2</span>`,s:"5th · 10th in points"},
     {k:"Week 7",v:"86.5",s:"Yahoo proj vs 51.1 · Yoshi's (0–6)"},
-    {k:"Moves",v:"3 open",s:"Brown off IR · Bates · Jets"},
+    {k:"Moves",v:"2 pending",s:"Brown ✓ · Bates + Jets claims Wed"},
     {k:"Deadline",v:"Thu 8:15",s:"Brown locks · claims clear Wed"},
-    {k:"IR slots",v:"2/2",s:"Brown must move · Mason IR-R"}
+    {k:"IR slots",v:"1/2",s:"Mason IR-R · Evans if tagged O"}
   ];
   $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
   $('hdrWeek').textContent='Week '+LEAGUE.meta.week;
