@@ -236,7 +236,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
   <div class="eyebrow">
     <span id="hdrLeague">Rainbow Road Warriors · 12 teams</span>
     <span id="hdrWeek">Week 8</span>
-    <span class="sample">Synced Tue 10/20 · claims pending Wed</span>
+    <span class="sample">Synced Wed 10/28 · bye-week crunch</span>
   </div>
   <h1>Blue Shell <span>Bait</span></h1>
   <div class="pulse" id="pulse"></div>
@@ -315,7 +315,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
    Season numbers (standings, scores, projections, transactions) are SAMPLE
    until games are played and live data flows. */
 const LEAGUE = {
-  meta:{name:"Rainbow Road Warriors", size:12, week:7, myTeam:"t4"},
+  meta:{name:"Rainbow Road Warriors", size:12, week:8, myTeam:"t4"},
   teams:{
     t1:{name:"Beerio Cart fanatics"},
     t2:{name:"Peach's Predators"},
@@ -330,66 +330,84 @@ const LEAGUE = {
     t11:{name:"Princess Peach's Squad"},
     t12:{name:"Paratroopa's Peeps"}
   },
-  standings:[ // post-Week 6, Yahoo order (Tue 10/20 screenshot). PA only known for us; other streaks not shown
-    {t:"t8", w:5, l:1, pf:635.64, pa:null, strk:"—"},
-    {t:"t11",w:5, l:1, pf:598.32, pa:null, strk:"L1"},
-    {t:"t9", w:4, l:2, pf:655.48, pa:null, strk:"—"},
-    {t:"t1", w:4, l:2, pf:603.66, pa:null, strk:"—"},
-    {t:"t4", w:4, l:2, pf:528.66, pa:null, strk:"W1"},
-    {t:"t2", w:3, l:3, pf:611.78, pa:null, strk:"L1"},
-    {t:"t7", w:3, l:3, pf:598.62, pa:null, strk:"—"},
-    {t:"t12",w:3, l:3, pf:556.12, pa:null, strk:"—"},
-    {t:"t3", w:3, l:3, pf:538.86, pa:null, strk:"—"},
-    {t:"t5", w:1, l:5, pf:475.72, pa:null, strk:"—"},
-    {t:"t6", w:1, l:5, pf:467.80, pa:null, strk:"—"},
-    {t:"t10",w:0, l:6, pf:558.86, pa:null, strk:"L6"}
+  standings:[ // post-Week 7, per Yahoo (Wed 10/28 2:52am) — full PF/PA/streaks
+    {t:"t8", w:6, l:1, pf:735.72, pa:556.38, strk:"W5"},
+    {t:"t11",w:6, l:1, pf:732.40, pa:644.30, strk:"W1"},
+    {t:"t1", w:5, l:2, pf:716.74, pa:619.78, strk:"W3"},
+    {t:"t4", w:5, l:2, pf:623.38, pa:511.14, strk:"W2"},
+    {t:"t9", w:4, l:3, pf:745.44, pa:673.50, strk:"L1"},
+    {t:"t7", w:4, l:3, pf:700.54, pa:676.60, strk:"W1"},
+    {t:"t12",w:4, l:3, pf:634.26, pa:582.06, strk:"W4"},
+    {t:"t2", w:3, l:4, pf:687.20, pa:720.82, strk:"L2"},
+    {t:"t3", w:3, l:4, pf:624.66, pa:700.96, strk:"L1"},
+    {t:"t6", w:1, l:6, pf:548.50, pa:729.12, strk:"L4"},
+    {t:"t5", w:1, l:6, pf:545.22, pa:728.04, strk:"L6"},
+    {t:"t10",w:0, l:7, pf:652.94, pa:804.30, strk:"L7"}
   ],
 
-  power:[ // post-Wk6: PF-only (PA not captured this week); movement vs post-Wk4 v2 ranks
-    {t:"t9", mv:0}, {t:"t8", mv:0}, {t:"t2", mv:+1}, {t:"t1", mv:+2},
-    {t:"t7", mv:0}, {t:"t11", mv:-3}, {t:"t10", mv:+3}, {t:"t12", mv:+1},
-    {t:"t3", mv:-1}, {t:"t4", mv:-3}, {t:"t5", mv:0}, {t:"t6", mv:0}
+  power:[ // post-Wk7: PF + half margin; movement vs post-Wk6 ranks
+    {t:"t8", mv:+1}, {t:"t9", mv:-1}, {t:"t11", mv:+3}, {t:"t1", mv:0},
+    {t:"t7", mv:0}, {t:"t4", mv:+4}, {t:"t2", mv:-4}, {t:"t12", mv:0},
+    {t:"t3", mv:0}, {t:"t10", mv:-3}, {t:"t6", mv:+1}, {t:"t5", mv:-1}
   ],
-  myScores:[94.46, 69.52, 54.98, 129.88, 85.84, 93.98], // wk5 = 528.66 PF − 348.84 − wk6 93.98
-  medians: [98.30, 100.66, 90.71, 96.52, null, null], // wk5/6 league scores not captured
-  benchLeak:[27.4, 7.1, 8.1, 7.6, null, 3.6],  // wk6: White 11.70 (BN) over Marks 8.10; wk5 box not captured  // wk4 optimal 137.48 vs 129.88 (Evans 7.60 sat for Wicks 1.80, Kraft 10.50 for Andrews 8.70)  // wk3 optimal 63.08 vs 54.98 (White 10.10 in flex, Evans to WR, Worthy 2.00 out)
-  matchup:{ // Week 7 vs Yoshi's Egg-streme Squad (Molly, 0–6) — Tue 10/20 before moves
-    opp:"t10", myLive:0, oppLive:0, myProj:86.45, oppProj:51.09,
-    note:"Molly is 0–6 and Yahoo has her at 51.09, because Lawrence, K. Mitchell and McLaurin all show 'No Game.' She'll likely patch those, so expect 75–85, not 51. Our 86.45 still counts Evans at flex, and he's expected out (Achilles). Starting Brown and Judkins puts us around 85."
+  myScores:[94.46, 69.52, 54.98, 129.88, 85.84, 93.98, 94.72],
+  medians: [98.30, 100.66, 90.71, 96.52, null, null, 92.02],
+  benchLeak:[27.4, 7.1, 8.1, 7.6, null, 3.6, 5.6],  // wk7: Caleb 22.12 (BN) over Stroud 16.52; rest of bench 0/bye  // wk6: White 11.70 (BN) over Marks 8.10; wk5 box not captured  // wk4 optimal 137.48 vs 129.88  // wk3 optimal 63.08 vs 54.98
+  matchup:{ // Week 8 vs Beerio Cart fanatics (3rd, 5–2, W3) — Wed 10/28
+    opp:"t1", myLive:0, oppLive:0, myProj:83.52, oppProj:101.88,
+    note:"The bye week from hell: Stroud, Evans and Marks all sit while Beerio rides a 3-game streak. The 18-point gap shrinks with the fix queue — Mason off IR, Lions D in, Moore-if-healthy — but this one needs a Caleb Monday special."
   },
-  scoreboard:[ // Week 7 — Tue 10/20, Yahoo projections
-    {a:"t4", b:"t10", ap:0, bp:0, apr:86.45, bpr:51.09},
-    {a:"t11", b:"t3", ap:0, bp:0, apr:93.66, bpr:87.20},
-    {a:"t9", b:"t1", ap:0, bp:0, apr:108.27, bpr:57.79},
-    {a:"t12", b:"t5", ap:0, bp:0, apr:67.90, bpr:71.63},
-    {a:"t6", b:"t7", ap:0, bp:0, apr:79.02, bpr:72.73},
-    {a:"t2", b:"t8", ap:0, bp:0, apr:94.17, bpr:68.67}
+  scoreboard:[ // Week 8 — Wed 10/28, Yahoo projections
+    {a:"t4", b:"t1", ap:0, bp:0, apr:83.52, bpr:101.88},
+    {a:"t10", b:"t8", ap:0, bp:0, apr:74.26, bpr:100.17},
+    {a:"t3", b:"t2", ap:0, bp:0, apr:97.36, bpr:70.93},
+    {a:"t11", b:"t12", ap:0, bp:0, apr:99.17, bpr:87.12},
+    {a:"t9", b:"t7", ap:0, bp:0, apr:105.88, bpr:89.91},
+    {a:"t6", b:"t5", ap:0, bp:0, apr:67.12, bpr:64.12}
   ],
-  roster:{ // Week 7 — recommended lineup, Tue 10/20 (Yahoo proj). Not yet set on Yahoo.
+  roster:{ // Week 8 — as set on Yahoo, Wed 10/28 (research pass pending)
     starters:[
-      {slot:"QB", name:"C.J. Stroud", team:"HOU", opp:"Sun 1:00 vs NYG", proj:19.19, status:"ok", flag:"OVER CALEB · Coin flip on paper: HOU is implied for about 26.5 (−9.5) and CHI about 26.25. Stroud is hot (312 yds, 3 TD in Wk6), the Giants are weak, and Caleb's hamstring limits his running."},
-      {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 1:00 @ Min", proj:13.81, status:"ok", flag:null},
-      {slot:"RB", name:"Woody Marks", team:"HOU", opp:"Sun 1:00 vs NYG", proj:10.12, status:"ok", flag:"78% of snaps in Wk6 (15–56, 2–25). Montgomery (groin) is aiming to return this week, which would bring back the split. Still the best RB2 we have."},
-      {slot:"WR", name:"Xavier Worthy", team:"KC", opp:"Sun 8:20 @ Sea", proj:5.73, status:"ok", flag:"KC's WR1 while Rashee Rice is out: 82% of snaps, 7 targets, 7–73 in Wk6."},
-      {slot:"WR", name:"A.J. Brown", team:"NE", opp:"Thu 8:15 @ Chi", proj:9.71, status:"q", flag:"OFF IR ✓ · Wk6: 76% of snaps, a team-high 10 targets and 40% of the air yards, but 3–27 with drops. Limited Mon (ankle). Locks Thu 8:15. If he's ruled out, Wicks starts."},
-      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Sun 4:25 @ Det", proj:7.76, status:"ok", flag:"79% of snaps and 8 targets in Wk6. GB is implied for about 24.75."},
-      {slot:"W/R/T", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 @ Ten", proj:10.01, status:"q", flag:"FLEX IF ACTIVE · Missed Wk6 (ankle) after a pregame workout. He was limited Fri. If he's inactive at 11:30 AM Sun, put Wicks (Mon night) in the flex."},
-      {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 4:25 vs GB", proj:8.69, status:"open", flag:"WAIVER CLAIM for Shrader · DET is implied for about 27.75 at home in a dome. IND is implied for only 18 at MIN, which is Shrader's problem. Reichard (MIN, 23.5) is the backup claim."},
-      {slot:"DEF", name:"Jets D/ST", team:"NYJ", opp:"Sun 1:00 vs Mia", proj:7.50, status:"open", flag:"WAIVER CLAIM for the Panthers · MIA is implied for only 17 (38.5 total). TB is implied for 20.5 against the Panthers, with Godwin healthy. Titans (CLE implied 19) are the backup."}
+      {slot:"QB", name:"Caleb Williams", team:"CHI", opp:"Mon 8:15 @ Sea", proj:16.93, status:"ok", flag:"Back as QB1 with Stroud on bye — and he's earned it: 22.12 off the bench last week (308 yds, 2 TD vs NE) while Stroud managed 16.52. The wk9 QB decision gets interesting; this week there is none."},
+      {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 1:00 @ Jax", proj:13.11, status:"ok", flag:null},
+      {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 @ Pit", proj:8.96, status:"ok", flag:null},
+      {slot:"WR", name:"A.J. Brown", team:"NE", opp:"Sun 4:25 @ Mia", proj:9.56, status:"ok", flag:null},
+      {slot:"WR", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs Bal", proj:5.98, status:"ok", flag:"PENDING · DJ Moore (Q, 9.22) outprojects him by 3.2 in the SAME game. If Moore practices this week, swap him in before Sun 1:00."},
+      {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Thu 8:15 vs Car · TOMORROW", proj:7.16, status:"ok", flag:null},
+      {slot:"W/R/T", name:"Rachaad White", team:"WAS", opp:"Sun 8:20 vs Phi", proj:9.85, status:"ok", flag:"Flex is a three-way call once Mason is activated: White 9.85 (SNF), Mason 9.95 (vs Det 1:00), Worthy 5.57. Research pass will settle it."},
+      {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 1:00 vs Min", proj:8.44, status:"ok", flag:null},
+      {slot:"DEF", name:"Titans D/ST", team:"TEN", opp:"Sun 1:00 vs Cin", proj:3.53, status:"ok", flag:"PENDING · Weakest projected DEF on the board at 3.53. LIONS (6.66, vs Min) are a free agent right now — add/drop is instant, no waiver. Do it before Sunday."}
     ],
     bench:[
-      {slot:"BN", name:"Dontayvion Wicks", team:"PHI", opp:"Mon 8:15 vs Dal", proj:4.68, status:"ok", flag:"FALLBACK for Brown or Judkins. He's fading since DeVonta Smith returned: 61% of snaps, 4 targets, 2–24 in Wk6."},
-      {slot:"BN", name:"Mike Evans", team:"SF", opp:"OUT · Achilles, aggravated MNF 10/19; aiming for Wk9", proj:0, status:"o", flag:"Expected out per RotoWire 10/19. If Yahoo gives him an O tag and our IR slot takes it, move him there instead of dropping anyone later."},
-      {slot:"BN", name:"Caleb Williams", team:"CHI", opp:"Thu 8:15 vs NE", proj:19.26, status:"ok", flag:null},
-      {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"Thu 8:15 vs NE · toe, thumb", proj:7.25, status:"q", flag:"Likely out Thursday: two straight missed games, sat Monday's walkthrough, week-to-week. Swift went 16–44–2 on 59% of snaps. Next drop when Mason comes off IR."},
-      {slot:"BN", name:"Rachaad White", team:"WAS", opp:"BYE", proj:0, status:"bye", flag:null},
-      {slot:"BN", name:"Khalil Shakir", team:"BUF", opp:"BYE", proj:0, status:"bye", flag:null},
-      {slot:"BN", name:"DJ Moore", team:"BUF", opp:"BYE", proj:0, status:"bye", flag:null},
-      {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"IR-R · designated to return 10/19", proj:0, status:"ir", flag:null},
-      {slot:"IR", name:"(open)", team:"", opp:"Evans, if Yahoo tags him O", proj:0, status:"open", flag:null}
+      {slot:"BN", name:"DJ Moore", team:"BUF", opp:"Sun 1:00 vs Bal", proj:9.22, status:"q", flag:null},
+      {slot:"BN", name:"Woody Marks", team:"HOU", opp:"BYE", proj:0, status:"bye", flag:null},
+      {slot:"BN", name:"Xavier Worthy", team:"KC", opp:"Sun 4:25 @ Den", proj:5.57, status:"ok", flag:"1.10 last week (3 targets, 11 yds). The post-Rice-return fade is real — watch the research verdict."},
+      {slot:"BN", name:"C.J. Stroud", team:"HOU", opp:"BYE", proj:0, status:"bye", flag:null},
+      {slot:"BN", name:"Mike Evans", team:"SF", opp:"BYE", proj:0, status:"q", flag:null},
+      {slot:"BN", name:"Dontayvion Wicks", team:"PHI", opp:"Sun 8:20 @ Was", proj:4.15, status:"q", flag:"PENDING · The drop candidate when Mason comes off IR: Q tag, 4.15 proj, 1% start rate, fading role."},
+      {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"Mon 8:15 @ Sea", proj:5.72, status:"q", flag:null},
+      {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"Sun 1:00 vs Det", proj:9.95, status:"ir", flag:"PENDING · Healthy and ACTIVE on IR — 6.80 on 15 carries last week. Yahoo will force this eventually: drop Wicks, move Mason to the bench, and he immediately contends for the flex (9.95 proj)."}
     ]
   },
   transactions:[ // REAL league wire (waiver-priority league, no FAAB)
+    {d:"Oct 28", type:"add", who:"t8", txt:"Commanders D/ST", faab:null, drop:"Panthers D/ST"},
+    {d:"Oct 28", type:"add", who:"t3", txt:"Chris Rodriguez Jr. (Jax · RB)", faab:null, drop:"Kenny Gainwell"},
+    {d:"Oct 28", type:"add", who:"t7", txt:"Travis Hunter (Jax · WR) — waiver claim", faab:null, drop:"Konata Mumpfield"},
+    {d:"Oct 28", type:"add", who:"t8", txt:"Sam Darnold (Sea · QB) — waiver claim", faab:null, drop:"Bo Nix"},
+    {d:"Oct 28", type:"add", who:"t1", txt:"Rico Dowdle (Pit · RB) — waiver claim", faab:null, drop:"Brian Thomas Jr."},
+    {d:"Oct 28", type:"add", who:"t9", txt:"Spencer Shrader (Ind · K) — waiver claim", faab:null, drop:"Eddy Pineiro"},
+    {d:"Oct 28", type:"add", who:"t7", txt:"Kaelon Black (SF · RB) — waiver claim", faab:null, drop:"Jason Myers"},
+    {d:"Oct 28", type:"add", who:"t3", txt:"Bengals D/ST — waiver claim", faab:null, drop:"Jets D/ST"},
+    {d:"Oct 28", type:"add", who:"t5", txt:"Jaguars D/ST — waiver claim", faab:null, drop:"49ers D/ST"},
+    {d:"Oct 23", type:"add", who:"t8", txt:"Panthers D/ST — waiver claim", faab:null, drop:"Jaguars D/ST"},
+    {d:"Oct 23", type:"add", who:"t9", txt:"Brian Robinson Jr. (Atl · RB) — waiver claim", faab:null, drop:"Chiefs D/ST"},
+    {d:"Oct 23", type:"add", who:"t10", txt:"Tyler Allgeier (Ari · RB) — waiver claim", faab:null, drop:null},
+    {d:"Oct 22", type:"add", who:"t7", txt:"Konata Mumpfield (LAR · WR)", faab:null, drop:"Tyreek Hill (NA)"},
+    {d:"Oct 22", type:"add", who:"t12", txt:"Chris Godwin Jr. (TB · WR)", faab:null, drop:"Caleb Douglas"},
+    {d:"Oct 22", type:"add", who:"t12", txt:"Jaylin Noel (Hou · WR)", faab:null, drop:null},
+    {d:"Oct 22", type:"add", who:"t12", txt:"Chris Boswell (Pit · K)", faab:null, drop:null},
+    {d:"Oct 22", type:"add", who:"t10", txt:"Geno Smith (NYJ · QB)", faab:null, drop:"Najee Harris (NA)"},
+    {d:"Oct 21", type:"add", who:"t4", txt:"Jake Bates (Det · K) — waiver claim ✓", faab:null, drop:"Spencer Shrader"},
+    {d:"Oct 21", type:"add", who:"t4", txt:"Titans D/ST — Jets claim lost, fallback", faab:null, drop:"Panthers D/ST"},
     {d:"Oct 17", type:"add", who:"t10", txt:"N. Harris (NYG · RB)", faab:null, drop:"Jalen Hurts"},
     {d:"Oct 17", type:"add", who:"t5", txt:"Darren Waller (Car · TE)", faab:null, drop:"AJ Barner"},
     {d:"Oct 16", type:"add", who:"t10", txt:"Keaton Mitchell (LAC · RB)", faab:null, drop:"C. Rodriguez Jr."},
@@ -455,11 +473,19 @@ const LEAGUE = {
     {d:"Sep 8", type:"add", who:"t8", txt:"Titans D/ST", faab:null, drop:"Cowboys D/ST"},
     {d:"Sep 2", type:"add", who:"t1", txt:"Braelon Allen (NYJ · RB)", faab:null, drop:null}
   ],
-  targets:[ // Week 7 — Tue 10/20. Do #1 first: Brown in the IR slot blocks every other move
-    {name:"Jake Bates", pos:"K · DET", own:"waivers, clears Wed 10/21", bid:"CLAIM PLACED ✓", why:"DET is implied for about 27.75 vs GB, at home in a dome. Shrader's IND is implied for 18. Reichard (MIN, 23.5) is the backup claim.", drop:"Spencer Shrader"},
-    {name:"Jets D/ST", pos:"DEF · NYJ", own:"waivers, clears Wed 10/21", bid:"CLAIM PLACED ✓", why:"vs MIA, implied for 17 (38.5 total). The Panthers face TB, implied for 20.5. Titans (vs CLE, implied 19) are the backup.", drop:"Panthers D/ST"}
+  targets:[ // Week 8 — Wed 10/28. All three are doable today; research pass may refine #3
+    {name:"Lions D/ST", pos:"DEF · DET", own:"free agent — instant add", bid:"ADD NOW — biggest single upgrade on the board",
+     why:"Titans project 3.53 vs Cin — the worst DEF number we've carried all year. Detroit projects 6.66 at home vs Minnesota and is a straight free agent (the Jets, 5.71 vs LV, sit on waivers until Fri 10/30 if you'd rather wait — don't; take the sure thing).",
+     drop:"Titans D/ST"},
+    {name:"Jordan Mason → active roster", pos:"RB · MIN", own:"on YOUR IR, healthy", bid:"REQUIRED before Sunday",
+     why:"He's active (played 15 carries last week, projects 9.95 vs Det) but parked in the IR slot — Yahoo will block lineup changes over it. Drop Wicks (Q, 4.15 proj, 1% start rate, fading since DeVonta Smith returned) to open the bench spot.",
+     drop:"Dontayvion Wicks"},
+    {name:"DJ Moore → WR2", pos:"WR · BUF", own:"on your bench, Q", bid:"LINEUP ONLY — if he practices",
+     why:"Moore (9.22) and Shakir (5.98) are in the same Buf–Bal 1:00 game; Moore outprojects him by 3.2 when healthy. Watch Wed/Thu practice.",
+     drop:"none — swap with Shakir"}
   ],
   done:[ // completed moves, newest first
+    {d:"Oct 21", txt:"Bates claim WON ✓ (dropped Shrader) · Jets claim LOST → Titans fallback (dropped Panthers)", why:"Bates paid immediately: 9.00 in wk7. King Boo's won the Jets race — and has already dropped them again for the Bengals. The streamer carousel spins on."},
     {d:"Oct 20", txt:"Dropped Rico Dowdle, moved A.J. Brown off IR to WR", why:"Brown was activated by NE, and his IR slot was blocking every add and drop. Dowdle: 28% of snaps behind Warren."},
     {d:"Oct 16", txt:"Added DJ Moore, dropped Mark Andrews", why:"From the league wire. Reasoning not logged (no desk run that week)."},
     {d:"Oct 15", txt:"Added Panthers D/ST, dropped Bears D/ST", why:"From the league wire."},
@@ -475,6 +501,12 @@ const LEAGUE = {
     {d:"Sep 17", txt:"Added Dontayvion Wicks · A.J. Brown to IR", why:"Free bench fill once Brown's IR opened a spot."}
   ],
   reports:[
+    {agent:"Week 7 Recap", when:"Wed 10/28", lead:"Survived the trap game: 94.72–94.08 over 0–7 Yoshi's. By 0.64 points. 5–2, still 4th.",
+     bullets:["The margin was one Jake Bates extra point — the claim we won Tuesday scored 9.00 and decided the game. The claim we lost mattered too: King Boo's took the Jets (who we wanted), our Titans fallback managed 5.00, and Molly's 94.08 nearly stole it. A winless team outscoring her 95.64 projection by zero is normal; us needing every decimal against her is the warning.",
+              "Judkins at flex was the week's best call: 22.40 (96 yds, 2 TD) — back-to-back 22+ weeks. Taylor 17.00 quietly steady. The misses: Worthy 1.10 (3 targets, 11 yards — the Rice-return fade is real) and Brown 4.80 in his second game back.",
+              "Leak 5.6, and it was the QB: Caleb 22.12 (308 yds, 2 TD vs NE) on the bench while Stroud scored 16.52. With Stroud on bye there's no decision this week — but wk9 is now a real QB controversy.",
+              "Ledger check at 5–2: PF 623.38 is still 10th of 12; PA 511.14 is the league's lowest. Power rank 6th (+4). Same story since September — the schedule keeps paying, and the playoff math (6 of 12 make it, weeks 15–17) forgives everything if we just keep banking wins.",
+              "Around the league: CMC Kart 8 is 6–1 on a five-game streak with TWENTY-FOUR moves. Paratroopa's quietly rode a W4 to 4–3. Yoshi's 0–7 despite 652.94 PF — more points than three teams above her. The blue shell giveth."]},
     {agent:"Sit/Start Analyst", when:"Tue 10/20 · Week 7 desk", lead:"Brown off IR, Dowdle dropped, Bates and Jets claims placed Tue ✓. Flex depends on Judkins. Deadline: Thu 8:15 PM.",
      bullets:["MOVE 1 (now): A.J. Brown is stuck in our IR slot after his NFL activation, and that blocks every add and drop. Drop Dowdle (28% of snaps, Warren is the named lead back) and start Brown at WR. All 8 bench players weighed. Hold Shakir, Moore and White through their byes. Caleb is QB insurance. Monangai is next, when Mason needs a spot.",
               "EVANS: expected out. He aggravated his Achilles on MNF and SF is targeting Wk9 (RotoWire 10/19). Yahoo still projects him for 10.66 at flex, so our 86.45 is inflated. Bench him.",
@@ -559,11 +591,11 @@ document.querySelectorAll('#tabs button').forEach(b=>{
 /* pulse strip */
 (function(){
   const chips=[
-    {k:"Record",v:`<span class="up">4–2</span>`,s:"5th · 10th in points"},
-    {k:"Week 7",v:"86.5",s:"Yahoo proj vs 51.1 · Yoshi's (0–6)"},
-    {k:"Moves",v:"2 pending",s:"Brown ✓ · Bates + Jets claims Wed"},
-    {k:"Deadline",v:"Thu 8:15",s:"Brown locks · claims clear Wed"},
-    {k:"IR slots",v:"1/2",s:"Mason IR-R · Evans if tagged O"}
+    {k:"Record",v:`<span class="up">5–2</span>`,s:"4th · W2 · won wk7 by 0.64"},
+    {k:"Week 8",v:"83.5",s:"vs Beerio's 101.9 — bye-gutted"},
+    {k:"Byes",v:"3",s:"Stroud · Evans · Marks all out"},
+    {k:"Fix queue",v:"3",s:"Mason off IR · Lions D · Moore?"},
+    {k:"Waiver priority",v:"#5",s:"of 12 · hold it"}
   ];
   $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
   $('hdrWeek').textContent='Week '+LEAGUE.meta.week;
