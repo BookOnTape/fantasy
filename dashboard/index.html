@@ -367,25 +367,25 @@ const LEAGUE = {
   ],
   roster:{ // Week 8 — as set on Yahoo, Wed 10/28 (research pass pending)
     starters:[
-      {slot:"QB", name:"Caleb Williams", team:"CHI", opp:"Mon 8:15 @ Sea", proj:16.93, status:"ok", flag:"Back as QB1 with Stroud on bye — and he's earned it: 22.12 off the bench last week (308 yds, 2 TD vs NE) while Stroud managed 16.52. The wk9 QB decision gets interesting; this week there is none."},
+      {slot:"QB", name:"Caleb Williams", team:"CHI", opp:"Mon 8:15 @ Sea", proj:16.93, status:"ok", flag:"QB1 with Stroud on bye, and hot (back-to-back 300-yd games, 22.12 last week). Expectation check: Seattle just held Mahomes to 165 yards in a 20-3 rout — the hardest QB matchup on the board. Start him (no alternative), shave the ceiling."},
       {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"Sun 1:00 @ Jax", proj:13.11, status:"ok", flag:null},
       {slot:"RB", name:"Quinshon Judkins", team:"CLE", opp:"Sun 1:00 @ Pit", proj:8.96, status:"ok", flag:null},
       {slot:"WR", name:"A.J. Brown", team:"NE", opp:"Sun 4:25 @ Mia", proj:9.56, status:"ok", flag:null},
-      {slot:"WR", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs Bal", proj:5.98, status:"ok", flag:"PENDING · DJ Moore (Q, 9.22) outprojects him by 3.2 in the SAME game. If Moore practices this week, swap him in before Sun 1:00."},
+      {slot:"WR", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs Bal", proj:5.98, status:"ok", flag:"PENDING · FRIDAY: DJ Moore (AC-joint shoulder, three weeks' rest incl. the bye) starts over Shakir IF he logs full/limited-trending-up practices. Limited-all-week or doubtful → Shakir's floor wins. Same 1:00 game, zero timing risk."},
       {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Thu 8:15 vs Car · TOMORROW", proj:7.16, status:"ok", flag:null},
-      {slot:"W/R/T", name:"Rachaad White", team:"WAS", opp:"Sun 8:20 vs Phi", proj:9.85, status:"ok", flag:"Flex is a three-way call once Mason is activated: White 9.85 (SNF), Mason 9.95 (vs Det 1:00), Worthy 5.57. Research pass will settle it."},
+      {slot:"W/R/T", name:"Rachaad White", team:"WAS", opp:"Sun 8:20 vs Phi", proj:9.85, status:"ok", flag:"SWAP · research settled it: MASON over White. Mason led Minnesota in rushing in his return (15-68) and Aaron Jones aggravated his knee in Q4 and didn't come back — if Jones sits, Mason's the outright lead back. White is a 41%-carry committee back whose value leans receiving (muted in standard). Once Mason's activated, flex him."},
       {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 1:00 vs Min", proj:8.44, status:"ok", flag:null},
-      {slot:"DEF", name:"Titans D/ST", team:"TEN", opp:"Sun 1:00 vs Cin", proj:3.53, status:"ok", flag:"PENDING · Weakest projected DEF on the board at 3.53. LIONS (6.66, vs Min) are a free agent right now — add/drop is instant, no waiver. Do it before Sunday."}
+      {slot:"DEF", name:"Titans D/ST", team:"TEN", opp:"Sun 1:00 vs Cin", proj:3.53, status:"ok", flag:"PENDING · Research verdict: drop with confidence — the Bengals just hung 35 on Baltimore and are the consensus DST2. LIONS (6.66, home vs a Vikings offense that managed 16 with Kyler at 150 yds and a banged-up Jones) are a free agent NOW. Packers (Thu vs 43-13-loser Carolina) are the lock-it-early alternative; Lions is the pick."}
     ],
     bench:[
       {slot:"BN", name:"DJ Moore", team:"BUF", opp:"Sun 1:00 vs Bal", proj:9.22, status:"q", flag:null},
       {slot:"BN", name:"Woody Marks", team:"HOU", opp:"BYE", proj:0, status:"bye", flag:null},
-      {slot:"BN", name:"Xavier Worthy", team:"KC", opp:"Sun 4:25 @ Den", proj:5.57, status:"ok", flag:"1.10 last week (3 targets, 11 yds). The post-Rice-return fade is real — watch the research verdict."},
+      {slot:"BN", name:"Xavier Worthy", team:"KC", opp:"Sun 4:25 @ Den", proj:5.57, status:"ok", flag:"Research CORRECTED our read: the role is fine (7/7 for 73 as KC's WR1 two weeks ago; wk7's 1.10 was the whole offense dying in Seattle — he still drew 6 targets). The problem is this week's matchup (@ a Denver D that just won 30-16) plus a possible Rashee Rice return. Right call is bench, but for matchup reasons, not role collapse."},
       {slot:"BN", name:"C.J. Stroud", team:"HOU", opp:"BYE", proj:0, status:"bye", flag:null},
       {slot:"BN", name:"Mike Evans", team:"SF", opp:"BYE", proj:0, status:"q", flag:null},
       {slot:"BN", name:"Dontayvion Wicks", team:"PHI", opp:"Sun 8:20 @ Was", proj:4.15, status:"q", flag:"PENDING · The drop candidate when Mason comes off IR: Q tag, 4.15 proj, 1% start rate, fading role."},
       {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"Mon 8:15 @ Sea", proj:5.72, status:"q", flag:null},
-      {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"Sun 1:00 vs Det", proj:9.95, status:"ir", flag:"PENDING · Healthy and ACTIVE on IR — 6.80 on 15 carries last week. Yahoo will force this eventually: drop Wicks, move Mason to the bench, and he immediately contends for the flex (9.95 proj)."}
+      {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"Sun 1:00 vs Det", proj:9.95, status:"ir", flag:"PENDING · Activate him: drop Wicks (DNP last week with an ankle, Hurts on IR, McKee at QB — a fourth option in a broken offense), move Mason to the bench, then FLEX him over White. Led the Vikings in rushing in his return; Aaron Jones's knee makes him the probable lead back vs Det."}
     ]
   },
   transactions:[ // REAL league wire (waiver-priority league, no FAAB)
@@ -501,6 +501,12 @@ const LEAGUE = {
     {d:"Sep 17", txt:"Added Dontayvion Wicks · A.J. Brown to IR", why:"Free bench fill once Brown's IR opened a spot."}
   ],
   reports:[
+    {agent:"Sit/Start Analyst", when:"Wed 10/28 · Week 8 desk, researched", lead:"Three moves, all confirmed by the wk7-first pass. Kraft locks Thursday 8:15; the rest is Friday-report management.",
+     bullets:["MOVES (today): ① Lions D in, Titans out — free agent, and the Titans' matchup got worse under research (Cincinnati just scored 35 on Baltimore). ② Mason off IR, Wicks dropped — Wicks didn't even play last week (ankle) and his QB is now Tanner McKee. ③ Mason into the FLEX over White: he led Minnesota in rushing in his return and Aaron Jones aggravated his knee and didn't finish the game.",
+              "FRIDAY WATCH (three designations decide everything): DJ Moore (start over Shakir if practicing — three weeks' rest on the AC joint), Aaron Jones (out = Mason is the outright lead back), Rashee Rice (returning would cap Worthy, who stays benched regardless — his wk7 dud was Seattle killing the whole KC offense, not a role loss).",
+              "TEMPER THE CALEB HYPE: back-to-back 300-yd games, but Monday is at a Seattle defense that just held Mahomes to 165 in a 20-3 rout. He starts because Stroud's on bye; expect 12-15, not 22. The wk9 Caleb-vs-Stroud decision is now live — Caleb's outscored him two straight weeks.",
+              "OPPONENT: no discount available. Beerio is at full strength — Nabers just went 7/111, Josh Allen is rested off the bye, and their waiver-add Emanuel Wilson is Seattle's lead back (24-100-1)… who plays AGAINST Caleb on Monday night. Their 101.88 is honest. Our path: Moore healthy + Mason volume + Lions D + a Brown or Judkins spike (Brown gets a soft Miami secondary; Judkins has back-to-back 22+ games).",
+              "HOLDS: Bates over McPherson (~1 point of projection isn't worth losing the NFL's best kicking situation), Brown trending up (targets are there, drops are the holdup), Taylor must-start (he IS the Colts offense — 90+ yds in 5 of 7)."]},
     {agent:"Week 7 Recap", when:"Wed 10/28", lead:"Survived the trap game: 94.72–94.08 over 0–7 Yoshi's. By 0.64 points. 5–2, still 4th.",
      bullets:["The margin was one Jake Bates extra point — the claim we won Tuesday scored 9.00 and decided the game. The claim we lost mattered too: King Boo's took the Jets (who we wanted), our Titans fallback managed 5.00, and Molly's 94.08 nearly stole it. A winless team outscoring her 95.64 projection by zero is normal; us needing every decimal against her is the warning.",
               "Judkins at flex was the week's best call: 22.40 (96 yds, 2 TD) — back-to-back 22+ weeks. Taylor 17.00 quietly steady. The misses: Worthy 1.10 (3 targets, 11 yards — the Rice-return fade is real) and Brown 4.80 in his second game back.",
