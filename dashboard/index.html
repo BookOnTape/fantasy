@@ -353,12 +353,12 @@ const LEAGUE = {
   myScores:[94.46, 69.52, 54.98, 129.88, 85.84, 93.98, 94.72],
   medians: [98.30, 100.66, 90.71, 96.52, null, null, 92.02],
   benchLeak:[27.4, 7.1, 8.1, 7.6, null, 3.6, 5.6],  // wk7: Caleb 22.12 (BN) over Stroud 16.52; rest of bench 0/bye  // wk6: White 11.70 (BN) over Marks 8.10; wk5 box not captured  // wk4 optimal 137.48 vs 129.88  // wk3 optimal 63.08 vs 54.98
-  matchup:{ // Week 8 vs Beerio Cart fanatics (3rd, 5–2, W3) — Wed 10/28
-    opp:"t1", myLive:0, oppLive:0, myProj:83.52, oppProj:101.88,
-    note:"The bye week from hell: Stroud, Evans and Marks all sit while Beerio rides a 3-game streak. The 18-point gap shrinks with the fix queue — Mason off IR, Lions D in, Moore-if-healthy — but this one needs a Caleb Monday special."
+  matchup:{ // Week 8 vs Beerio Cart fanatics (Michael, 3rd, 5–2, W3) — moves in, Wed 10/28
+    opp:"t1", myLive:0, oppLive:0, myProj:86.71, oppProj:101.88,
+    note:"Moves banked 3.2 points (83.5 → 86.7); Moore-over-Shakir on Friday is the last 3.2 available. Michael's intel: Josh Allen (24.50) is the engine, Nabers is stuck on their bench (bye), two starters carry Q tags (Egbuka, Braelon Allen) — and their Steelers D faces Judkins, so his spike week hits them twice. 34/66 but closer than it looks."
   },
   scoreboard:[ // Week 8 — Wed 10/28, Yahoo projections
-    {a:"t4", b:"t1", ap:0, bp:0, apr:83.52, bpr:101.88},
+    {a:"t4", b:"t1", ap:0, bp:0, apr:86.71, bpr:101.88},
     {a:"t10", b:"t8", ap:0, bp:0, apr:74.26, bpr:100.17},
     {a:"t3", b:"t2", ap:0, bp:0, apr:97.36, bpr:70.93},
     {a:"t11", b:"t12", ap:0, bp:0, apr:99.17, bpr:87.12},
@@ -373,19 +373,19 @@ const LEAGUE = {
       {slot:"WR", name:"A.J. Brown", team:"NE", opp:"Sun 4:25 @ Mia", proj:9.56, status:"ok", flag:null},
       {slot:"WR", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs Bal", proj:5.98, status:"ok", flag:"PENDING · FRIDAY: DJ Moore (AC-joint shoulder, three weeks' rest incl. the bye) starts over Shakir IF he logs full/limited-trending-up practices. Limited-all-week or doubtful → Shakir's floor wins. Same 1:00 game, zero timing risk."},
       {slot:"TE", name:"Tucker Kraft", team:"GB", opp:"Thu 8:15 vs Car · TOMORROW", proj:7.16, status:"ok", flag:null},
-      {slot:"W/R/T", name:"Rachaad White", team:"WAS", opp:"Sun 8:20 vs Phi", proj:9.85, status:"ok", flag:"SWAP · research settled it: MASON over White. Mason led Minnesota in rushing in his return (15-68) and Aaron Jones aggravated his knee in Q4 and didn't come back — if Jones sits, Mason's the outright lead back. White is a 41%-carry committee back whose value leans receiving (muted in standard). Once Mason's activated, flex him."},
+      {slot:"W/R/T", name:"Jordan Mason", team:"MIN", opp:"Sun 1:00 @ Det", proj:9.95, status:"ok", flag:"Activated and flexed ✓. Watch Friday: if Aaron Jones (knee) is ruled out, Mason is Minnesota's outright lead back."},
       {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 1:00 vs Min", proj:8.44, status:"ok", flag:null},
-      {slot:"DEF", name:"Titans D/ST", team:"TEN", opp:"Sun 1:00 vs Cin", proj:3.53, status:"ok", flag:"PENDING · Research verdict: drop with confidence — the Bengals just hung 35 on Baltimore and are the consensus DST2. LIONS (6.66, home vs a Vikings offense that managed 16 with Kyler at 150 yds and a banged-up Jones) are a free agent NOW. Packers (Thu vs 43-13-loser Carolina) are the lock-it-early alternative; Lions is the pick."}
+      {slot:"DEF", name:"Lions D/ST", team:"DET", opp:"Sun 1:00 vs Min", proj:6.66, status:"ok", flag:null}
     ],
     bench:[
+      {slot:"BN", name:"Rachaad White", team:"WAS", opp:"Sun 8:20 vs Phi", proj:9.85, status:"ok", flag:"The 8:20 safety valve: if anything goes sideways in the early window, he's the late-game pivot."},
       {slot:"BN", name:"DJ Moore", team:"BUF", opp:"Sun 1:00 vs Bal", proj:9.22, status:"q", flag:null},
       {slot:"BN", name:"Woody Marks", team:"HOU", opp:"BYE", proj:0, status:"bye", flag:null},
-      {slot:"BN", name:"Xavier Worthy", team:"KC", opp:"Sun 4:25 @ Den", proj:5.57, status:"ok", flag:"Research CORRECTED our read: the role is fine (7/7 for 73 as KC's WR1 two weeks ago; wk7's 1.10 was the whole offense dying in Seattle — he still drew 6 targets). The problem is this week's matchup (@ a Denver D that just won 30-16) plus a possible Rashee Rice return. Right call is bench, but for matchup reasons, not role collapse."},
+      {slot:"BN", name:"Xavier Worthy", team:"KC", opp:"Sun 4:25 @ Den", proj:5.57, status:"ok", flag:"Benched for matchup (@ Den) + possible Rice return — the role itself is fine (KC's WR1 with Rice out)."},
       {slot:"BN", name:"C.J. Stroud", team:"HOU", opp:"BYE", proj:0, status:"bye", flag:null},
       {slot:"BN", name:"Mike Evans", team:"SF", opp:"BYE", proj:0, status:"q", flag:null},
-      {slot:"BN", name:"Dontayvion Wicks", team:"PHI", opp:"Sun 8:20 @ Was", proj:4.15, status:"q", flag:"PENDING · The drop candidate when Mason comes off IR: Q tag, 4.15 proj, 1% start rate, fading role."},
       {slot:"BN", name:"Kyle Monangai", team:"CHI", opp:"Mon 8:15 @ Sea", proj:5.72, status:"q", flag:null},
-      {slot:"IR", name:"Jordan Mason", team:"MIN", opp:"Sun 1:00 vs Det", proj:9.95, status:"ir", flag:"PENDING · Activate him: drop Wicks (DNP last week with an ankle, Hurts on IR, McKee at QB — a fourth option in a broken offense), move Mason to the bench, then FLEX him over White. Led the Vikings in rushing in his return; Aaron Jones's knee makes him the probable lead back vs Det."}
+      {slot:"IR", name:"— open —", team:"", opp:"freed by Mason's activation", proj:0, status:"open", flag:null}
     ]
   },
   transactions:[ // REAL league wire (waiver-priority league, no FAAB)
@@ -473,18 +473,13 @@ const LEAGUE = {
     {d:"Sep 8", type:"add", who:"t8", txt:"Titans D/ST", faab:null, drop:"Cowboys D/ST"},
     {d:"Sep 2", type:"add", who:"t1", txt:"Braelon Allen (NYJ · RB)", faab:null, drop:null}
   ],
-  targets:[ // Week 8 — Wed 10/28. All three are doable today; research pass may refine #3
-    {name:"Lions D/ST", pos:"DEF · DET", own:"free agent — instant add", bid:"ADD NOW — biggest single upgrade on the board",
-     why:"Titans project 3.53 vs Cin — the worst DEF number we've carried all year. Detroit projects 6.66 at home vs Minnesota and is a straight free agent (the Jets, 5.71 vs LV, sit on waivers until Fri 10/30 if you'd rather wait — don't; take the sure thing).",
-     drop:"Titans D/ST"},
-    {name:"Jordan Mason → active roster", pos:"RB · MIN", own:"on YOUR IR, healthy", bid:"REQUIRED before Sunday",
-     why:"He's active (played 15 carries last week, projects 9.95 vs Det) but parked in the IR slot — Yahoo will block lineup changes over it. Drop Wicks (Q, 4.15 proj, 1% start rate, fading since DeVonta Smith returned) to open the bench spot.",
-     drop:"Dontayvion Wicks"},
-    {name:"DJ Moore → WR2", pos:"WR · BUF", own:"on your bench, Q", bid:"LINEUP ONLY — if he practices",
-     why:"Moore (9.22) and Shakir (5.98) are in the same Buf–Bal 1:00 game; Moore outprojects him by 3.2 when healthy. Watch Wed/Thu practice.",
+  targets:[ // Week 8 — one decision left
+    {name:"DJ Moore → WR2", pos:"WR · BUF", own:"on your bench, Q", bid:"FRIDAY · lineup only",
+     why:"Moore (9.22, AC-joint shoulder with three weeks' rest) vs Shakir (5.98) — same Buf–Bal 1:00 game, zero timing risk. Full or limited-trending-up practice Thu/Fri → start Moore. Limited all week or doubtful → keep Shakir's floor. This is the last 3.2 projected points on the table.",
      drop:"none — swap with Shakir"}
   ],
   done:[ // completed moves, newest first
+    {d:"Oct 28", txt:"Lions D in (Titans out) · Mason off IR and into the FLEX (Wicks dropped) · White to bench", why:"All three research-confirmed, executed same day. Projection moved 83.52 → 86.71, the IR slot is open again, and Mason starts the week as Minnesota's probable lead back with Aaron Jones hurt."},
     {d:"Oct 21", txt:"Bates claim WON ✓ (dropped Shrader) · Jets claim LOST → Titans fallback (dropped Panthers)", why:"Bates paid immediately: 9.00 in wk7. King Boo's won the Jets race — and has already dropped them again for the Bengals. The streamer carousel spins on."},
     {d:"Oct 20", txt:"Dropped Rico Dowdle, moved A.J. Brown off IR to WR", why:"Brown was activated by NE, and his IR slot was blocking every add and drop. Dowdle: 28% of snaps behind Warren."},
     {d:"Oct 16", txt:"Added DJ Moore, dropped Mark Andrews", why:"From the league wire. Reasoning not logged (no desk run that week)."},
@@ -501,7 +496,7 @@ const LEAGUE = {
     {d:"Sep 17", txt:"Added Dontayvion Wicks · A.J. Brown to IR", why:"Free bench fill once Brown's IR opened a spot."}
   ],
   reports:[
-    {agent:"Sit/Start Analyst", when:"Wed 10/28 · Week 8 desk, researched", lead:"Three moves, all confirmed by the wk7-first pass. Kraft locks Thursday 8:15; the rest is Friday-report management.",
+    {agent:"Sit/Start Analyst", when:"Wed 10/28 · Week 8 desk, researched", lead:"EXECUTED same day ✓ — Lions in, Mason activated and flexed, Wicks out. One decision left: Moore on Friday. Kraft locks Thursday 8:15.",
      bullets:["MOVES (today): ① Lions D in, Titans out — free agent, and the Titans' matchup got worse under research (Cincinnati just scored 35 on Baltimore). ② Mason off IR, Wicks dropped — Wicks didn't even play last week (ankle) and his QB is now Tanner McKee. ③ Mason into the FLEX over White: he led Minnesota in rushing in his return and Aaron Jones aggravated his knee and didn't finish the game.",
               "FRIDAY WATCH (three designations decide everything): DJ Moore (start over Shakir if practicing — three weeks' rest on the AC joint), Aaron Jones (out = Mason is the outright lead back), Rashee Rice (returning would cap Worthy, who stays benched regardless — his wk7 dud was Seattle killing the whole KC offense, not a role loss).",
               "TEMPER THE CALEB HYPE: back-to-back 300-yd games, but Monday is at a Seattle defense that just held Mahomes to 165 in a 20-3 rout. He starts because Stroud's on bye; expect 12-15, not 22. The wk9 Caleb-vs-Stroud decision is now live — Caleb's outscored him two straight weeks.",
@@ -598,9 +593,9 @@ document.querySelectorAll('#tabs button').forEach(b=>{
 (function(){
   const chips=[
     {k:"Record",v:`<span class="up">5–2</span>`,s:"4th · W2 · won wk7 by 0.64"},
-    {k:"Week 8",v:"83.5",s:"vs Beerio's 101.9 — bye-gutted"},
+    {k:"Week 8",v:"86.7",s:"vs Beerio's 101.9 — moves banked +3.2"},
     {k:"Byes",v:"3",s:"Stroud · Evans · Marks all out"},
-    {k:"Fix queue",v:"3",s:"Mason off IR · Lions D · Moore?"},
+    {k:"Fix queue",v:"1",s:"Friday: Moore over Shakir if practicing"},
     {k:"Waiver priority",v:"#5",s:"of 12 · hold it"}
   ];
   $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
