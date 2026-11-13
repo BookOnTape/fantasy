@@ -21,3 +21,8 @@ Waddle (DEN bye) sits at FLEX at 0.00, and O. Cooper Jr. (NYJ) is Q. Goff 20.08,
 - https://www.nbcsports.com/fantasy/football/player-news/2026-11-12/woody-marks-knee-not-practicing-in-media-portion
 - https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/david-montgomery-returns-to-texans-practice-woody-marks-marvin-harrison-jr-dont-practice
 - https://www.draftsharks.com/fantasy-football-news/83915/rachaad-white-turns-season-high-11-carries-into-rb2-finish
+
+## Wk9 box (added 11/12, 8pm)
+Starters: Caleb 16.76 · Taylor 4.40 · Judkins 4.50 · Moore 3.60 · Worthy 4.80 · Kraft 0.90 · Marks 7.40 · Bates 15.00 · Lions 9.00 = 66.36.
+Bench: Stroud 36.36 · Shakir 5.80 · White 4.90 · Mason 4.20 · Brown/Evans/Monangai 0.
+Optimal 88.66 (Stroud, Marks, White, Shakir, Worthy, Judkins flex). Leak 22.3; 19.6 of it was QB.
