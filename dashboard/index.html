@@ -236,7 +236,7 @@ footer{margin-top:34px;font-size:11px;color:var(--faint);font-family:var(--mono)
   <div class="eyebrow">
     <span id="hdrLeague">Rainbow Road Warriors · 12 teams</span>
     <span id="hdrWeek">Week 10</span>
-    <span class="sample">Synced Fri 11/20 · Kraft on BYE · fix by Sun 1:00</span>
+    <span class="sample">Synced Fri 11/20 · Mayer in, lineup set ✓</span>
   </div>
   <h1>Blue Shell <span>Bait</span></h1>
   <div class="pulse" id="pulse"></div>
@@ -364,11 +364,11 @@ const LEAGUE = {
     starters:[
       {slot:"QB", name:"C.J. Stroud", team:"HOU", opp:"FINAL W 26-3 vs Ind", proj:21.46, status:"ok", flag:null},
       {slot:"RB", name:"Jonathan Taylor", team:"IND", opp:"FINAL L 3-26 @ Hou", proj:2.70, status:"ok", flag:null},
-      {slot:"RB", name:"Kyle Monangai", team:"CHI", opp:"Sun 1:00 vs NO", proj:8.12, status:"ok", flag:"MOVE IN (for Mason). Back from thumb/toe after the CHI bye. Saints D is 31st."},
+      {slot:"RB", name:"Kyle Monangai", team:"CHI", opp:"Sun 1:00 vs NO", proj:8.12, status:"ok", flag:"DONE ✓ (for Mason). Back from thumb/toe after the CHI bye. Saints D is 31st."},
       {slot:"WR", name:"DJ Moore", team:"BUF", opp:"Sun 1:00 vs Mia", proj:9.14, status:"ok", flag:null},
-      {slot:"WR", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs Mia", proj:6.78, status:"ok", flag:"MOVE IN (for Evans). Evans: Achilles, missed 3 games, limited Thu, plays SNF in Mexico City — his status lands after Shakir locks at 1:00."},
-      {slot:"TE", name:"Michael Mayer", team:"LV", opp:"Sun 4:25 @ Den", proj:4.67, status:"ok", flag:"ADD (FA, instant) for Worthy. Kraft is on bye and he's our only TE. Bowers (ankle/quad) was limited Thu; if he sits, Mayer is a TE1."},
-      {slot:"W/R/T", name:"Jordan Mason", team:"MIN", opp:"Sun 8:20 @ SF", proj:7.41, status:"ok", flag:"MOVE IN (for White). 16-59 last week. White (5.89) plays Monday."},
+      {slot:"WR", name:"Khalil Shakir", team:"BUF", opp:"Sun 1:00 vs Mia", proj:6.78, status:"ok", flag:"DONE ✓ (for Evans). Evans: Achilles, missed 3 games, limited Thu, plays SNF in Mexico City — his status lands after Shakir locks at 1:00."},
+      {slot:"TE", name:"Michael Mayer", team:"LV", opp:"Sun 4:25 @ Den", proj:4.67, status:"ok", flag:"ADDED ✓ Fri for Worthy. Kraft is on bye and he's our only TE. Bowers (ankle/quad) was limited Thu; if he sits, Mayer is a TE1."},
+      {slot:"W/R/T", name:"Jordan Mason", team:"MIN", opp:"Sun 8:20 @ SF", proj:7.41, status:"ok", flag:"DONE ✓ (for White). 16-59 last week. White (5.89) plays Monday."},
       {slot:"K", name:"Jake Bates", team:"DET", opp:"Sun 1:00 vs TB", proj:8.72, status:"ok", flag:null},
       {slot:"DEF", name:"Lions D/ST", team:"DET", opp:"Sun 1:00 vs TB", proj:7.61, status:"ok", flag:null}
     ],
@@ -517,14 +517,12 @@ const LEAGUE = {
     {d:"Sep 2", type:"add", who:"t1", txt:"Braelon Allen (NYJ · RB)", faab:null, drop:null}
   ],
   targets:[ // Week 11 — Fri 11/20 desk; all moves before Sun 1:00 (Mayer slot until 4:25)
-    {name:"Michael Mayer", pos:"TE · LV", own:"FA (27%) — verified on Yahoo FA list 11/20", bid:"NOW · free agent, instant",
-     why:"Kraft (GB) is on bye and is our only TE, so the slot is a guaranteed 0.00. Mayer has the top TE projection on the wire (4.67) and real upside: Bowers (ankle + quad) was limited Thursday. Andrews (4.28, 1:00 @ CAR) is the fallback.",
-     drop:"Worthy (0.00 on 3 targets wk10, 4.39 proj; WR depth covered by Moore/Shakir/Brown/Evans)"},
     {name:"Woody Marks → drop", pos:"RB · HOU", own:"on your bench, OUT", bid:"Tue 11/24 · after unlock",
      why:"Concussion; HOU's game is final, so he's locked until Yahoo's weekly unlock. Montgomery is back. Six RBs on the roster. First drop next week.",
      drop:"Marks"}
   ],
   done:[ // completed moves, newest first
+    {d:"Nov 20", txt:"Added Michael Mayer (TE), dropped Xavier Worthy · Wk11 lineup: Monangai at RB, Mason to FLEX, Shakir at WR (Kraft, White, Evans benched)", why:"Kraft's GB bye left our only TE slot at 0.00. Monangai is healthy after the CHI bye, and Evans (Achilles) has an SNF status that lands after Shakir locks. Projection 70.62 → ~76.6."},
     {d:"Nov 12", txt:"Wk10 lineup: Rachaad White to FLEX (Marks benched) before Thursday's 8:15 kickoff", why:"Marks's knee: limited Wed, DNP Thu, and Montgomery returned to practice. White is healthy and leads Washington's backfield. Projection 85.22 → 84.11, with the risk taken out."},
     {d:"Nov 5", txt:"Wk9 lineup: Marks to FLEX (Mason benched) · Worthy to WR (Shakir benched)", why:"Montgomery is out, so Marks leads Houston's backfield. Worthy plays Sunday, leaving Shakir as the Monday hedge for Moore's knee. Projection 88.57 → ~94.2."},
     {d:"Nov 1", txt:"Wk8: DJ Moore started in place of A.J. Brown (inactive, ankle + knee)", why:"Moore paid 12.60. Brown's 0.00 would have been a dead slot."},
@@ -545,7 +543,7 @@ const LEAGUE = {
     {d:"Sep 17", txt:"Added Dontayvion Wicks · A.J. Brown to IR", why:"Free bench fill once Brown's IR opened a spot."}
   ],
   reports:[
-    {agent:"Sit/Start Analyst", when:"Fri 11/20 · Week 11 desk, researched", lead:"Kraft is on bye in our TE slot. Add Mayer for Worthy, then make 3 swaps before Sun 1:00. Down 34 to the 1st seed.",
+    {agent:"Sit/Start Analyst", when:"Fri 11/20 · Week 11 desk, researched", lead:"EXECUTED Fri ✓: Mayer added for Worthy, Monangai/Mason/Shakir in. Proj ~76.6 vs 104.75 against the 1st seed.",
      bullets:["ADD (FA, instant): Michael Mayer (LV TE). Drop Worthy. Kraft's bye leaves the TE slot at 0.00. Bowers was limited Thu (ankle + quad). If he sits, Mayer is a TE1; if he plays, 4-ish points still beats zero.",
               "SWAPS: ① Monangai in at RB for Mason (8.12 vs 7.41; healthy again after the CHI bye, vs the 31st-ranked Saints D). ② Mason to FLEX for White (7.41 vs 5.89). ③ Shakir in at WR for Evans.",
               "EVANS: Achilles tendinitis, 3 straight games missed, spectator Wed, limited Thu. SF plays SNF in Mexico City, so his status comes after Shakir locks at 1:00. Shakir's floor wins.",
@@ -682,7 +680,7 @@ document.querySelectorAll('#tabs button').forEach(b=>{
     {k:"Record",v:`<span class="down">5–5</span>`,s:"8th · L3 · lost wk10 86.04–106.72"},
     {k:"Week 11",v:"24.2",s:"live vs CMC Kart 0.0 · proj 70.6–104.8"},
     {k:"Lock",v:"1:00",s:"Sun · Monangai, Shakir, Bates, Lions D"},
-    {k:"Fix queue",v:"4",s:"Add Mayer (drop Worthy) · Monangai, Mason, Shakir in"},
+    {k:"Fix queue",v:"0",s:"Mayer added, 3 swaps done Fri ✓"},
     {k:"Next drop",v:"1",s:"Marks (concussion) once Yahoo unlocks him"}
   ];
   $('pulse').innerHTML=chips.map(c=>`<div class="chip"><div class="k">${c.k}</div><div class="v">${c.v}</div><div class="s">${c.s}</div></div>`).join('');
